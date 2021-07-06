@@ -10,7 +10,7 @@ const routes: Routes = [
     pathMatch:'full'
   },
   {
-    path: '',
+    path: 'menu',
     component: MenuPage,
     children: [
       {
@@ -55,6 +55,26 @@ const routes: Routes = [
         path: 'login',
         loadChildren: () =>
           import('../login/login.module').then((m) => m.LoginPageModule),
+      },
+      {
+        path: 'formations-medecins',
+        loadChildren: () => import('../formations/medecins/medecins.module').then( m => m.MedecinsPageModule)
+      },
+      {
+        path: 'formations-dentistes',
+        loadChildren: () => import('../formations/dentistes/dentistes.module').then( m => m.DentistesPageModule)
+      },
+      {
+        path: 'formations-kine',
+        loadChildren: () => import('../formations/kine/kine.module').then( m => m.KinePageModule)
+      },
+      {
+        path: 'formations-infirmiers',
+        loadChildren: () => import('../formations/infirmiers/infirmiers.module').then( m => m.InfirmiersPageModule)
+      },
+      {
+        path: 'formations-pharmaciens',
+        loadChildren: () => import('../formations/pharmaciens/pharmaciens.module').then( m => m.PharmaciensPageModule)
       },
     ],
   },

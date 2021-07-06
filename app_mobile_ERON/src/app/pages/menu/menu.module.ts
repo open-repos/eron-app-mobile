@@ -1,3 +1,4 @@
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -14,6 +15,7 @@ import { MenuPage } from './menu.page';
     FormsModule,
     IonicModule,
     MenuPageRoutingModule,
+    FontAwesomeModule,
   ],
   declarations: [MenuPage]
 })

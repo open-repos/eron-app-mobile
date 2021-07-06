@@ -16,6 +16,26 @@ const routes: Routes = [
     loadChildren: () => import('./pages/menu/menu.module').then( m => m.MenuPageModule)
   },
   // {
+  //   path: 'medecins',
+  //   loadChildren: () => import('./pages/formations/medecins/medecins.module').then( m => m.MedecinsPageModule)
+  // },
+  // {
+  //   path: 'dentistes',
+  //   loadChildren: () => import('./pages/formations/dentistes/dentistes.module').then( m => m.DentistesPageModule)
+  // },
+  // {
+  //   path: 'kine',
+  //   loadChildren: () => import('./pages/formations/kine/kine.module').then( m => m.KinePageModule)
+  // },
+  // {
+  //   path: 'infirmiers',
+  //   loadChildren: () => import('./pages/formations/infirmiers/infirmiers.module').then( m => m.InfirmiersPageModule)
+  // },
+  // {
+  //   path: 'pharmaciens',
+  //   loadChildren: () => import('./pages/formations/pharmaciens/pharmaciens.module').then( m => m.PharmaciensPageModule)
+  // },
+  // {
   //   path: 'contacts',
   //   loadChildren: () => import('./pages/contacts/contacts.module').then( m => m.ContactsPageModule)
   // },
