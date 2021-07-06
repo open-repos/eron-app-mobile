@@ -1,12 +1,12 @@
-<ion-menu side="start" menuId="menu-visitor" contentId="main">
+<ion-menu side="start" menuId="menu-visitor" contentId="main" type="overlay" scroll>
   <ion-header>
     <ion-toolbar color="primary">
       <ion-title>Menu</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <ion-content>
 
+  <ion-content overflow-scroll="true">
     <div *ngFor="let p of pages">
       <ion-menu-toggle *ngIf="p.url">
         <ion-item button [routerLink]="p.url" [routerDirection]="'root'" routerLinkActive='active'  detail="false"  [routerLinkActiveOptions]="{exact:
@@ -41,9 +41,23 @@
           </ion-item>
         </ion-menu-toggle>
       </ion-list>
-    </div>
 
+      <ion-item-divider *ngIf="p.title==='FAQ'">
+      </ion-item-divider>
+
+
+      <ion-row *ngIf="p.title==='FAQ'" style="height: 5px"></ion-row>
+    </div>
+  
   </ion-content>
+
+<ion-footer>
+  <ion-grid>
+  <ion-row class='rowIconSocialMedia'>
+    <fa-icon *ngFor="let iconSocialMedia of socialMedia" [icon]="iconSocialMedia.icon" class="socialMedia"></fa-icon>
+  </ion-row>
+</ion-grid>
+</ion-footer>
 
 </ion-menu>
 

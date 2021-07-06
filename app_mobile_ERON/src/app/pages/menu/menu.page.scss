@@ -6,8 +6,10 @@ ion-icon{
 }
 
 .active-parent{
-    font-weight: 500;
+    font-weight: bold;
 }
+
+
 .sub-item{
     padding-left:20px;
     font-size: small;
@@ -15,4 +17,15 @@ ion-icon{
 
 ion-item[button] {
     pointer-events: auto !important;
+}
+
+.socialMedia{
+    font-size: 2em;
+    padding: 5px;
+    --ion-text-color: var(--ion-color-primary) !important;
+}
+
+.rowIconSocialMedia{
+    display: flex;
+justify-content: center;
 }

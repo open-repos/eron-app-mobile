@@ -66,7 +66,13 @@ import {
 })
 export class MenuPage implements OnInit {
   
-  emptyIcon:IconProp;
+  socialMedia = [
+    {icon:faFacebookSquare},
+    {icon:faTwitterSquare},
+    {icon:faInstagramSquare},
+    {icon:faLinkedin},
+  ]
+
   pages = [
     {
       title: 'Accueil',
@@ -133,14 +139,14 @@ export class MenuPage implements OnInit {
       icon: faMailBulk,
     },
     {
-      title: 'Connexion',
-      url: '/menu/login',
-      icon: faUser,
-    },
-    {
       title: 'FAQ',
       url: '/menu/faq',
       icon: farQuestionCircle,
+    },
+    {
+      title: 'Connexion',
+      url: '/menu/login',
+      icon: faUser,
     },
   ];
 
