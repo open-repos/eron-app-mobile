@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-menu',
@@ -10,22 +12,22 @@ export class MenuPage implements OnInit {
   pages = [
     {
       title:'Accueil',
-      url:'/menu/home',
+      url:'/home',
       icon:'home',
     },
     {
       title:'FAQ',
-      url:'/menu/faq',
+      url:'/faq',
       icon:'help'
     },
     {
       title:'Contacts',
-      url:'/menu/contacts',
+      url:'/contacts',
       icon:'contacts'
     },
     {
       title:'Connexion',
-      url:'/menu/login',
+      url:'/login',
       icon:'home'
     },
     {
@@ -34,26 +36,32 @@ export class MenuPage implements OnInit {
       children: [
     {
       title:'Presse',
-      url:'/menu/actu-presse',
+      url:'/actu-presse',
       // icon:'home'
     },
     {
       title:'ERON Santé',
-      url:'/menu/actu-eron',
+      url:'/actu-eron',
       // icon:'home'
     },
     {
       title:'Interview',
-      url:'/menu/actu-interview',
+      url:'/actu-interview',
       // icon:'home'
     }
       ]
     }
   ]
 
-  constructor() { }
+  constructor(private menu:MenuController, private router: Router) { }
   
   ngOnInit() {
+    // this.menu.enable(true,'menu-visitor')
   }
 
+  // onMenuClick(id:string){
+  //   // console.log(id + "clicked")
+  //   this.router.navigate([id])
+  //   // this.menu.close()
+  // }
 }
