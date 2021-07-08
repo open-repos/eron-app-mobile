@@ -1,11 +1,46 @@
 <ion-header>
   <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-menu-button ></ion-menu-button>
-      </ion-buttons>
-      <ion-title>Formations</ion-title>
-      <ion-img src="../../../assets/logo/logo-ERON-biggest.png" class="logoEron" slot="end"></ion-img>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Formations</ion-title>
+    <ion-img src="../../../assets/logo/logo-ERON-biggest.png" class="logoEron" slot="end"></ion-img>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding></ion-content>
+<ion-content padding>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+        <ion-segment [(ngModel)]="segment" mode="md" scrollable class="no-scroll"  (ionChange)="segmentChanged($event)">
+
+          <ion-segment-button *ngFor="let category of categories" [id]="category.id" [value]="category.value">
+            <fa-icon  *ngIf="category.icon" [icon]="category.icon"></fa-icon>
+            <ion-label>{{category.title}}</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-content>
+     <ion-slides #slides pager="false"  (ionSlideDidChange)="slideChanged()">
+
+    <ion-slide>
+      1
+    </ion-slide>
+    <ion-slide>
+      2
+    </ion-slide>
+    <ion-slide>
+      3
+    </ion-slide>
+    <ion-slide>
+      4
+    </ion-slide>
+    <ion-slide>
+      5
+    </ion-slide>
+  </ion-slides>
+</ion-content>

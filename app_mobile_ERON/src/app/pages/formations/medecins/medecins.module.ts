@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { MedecinsPageRoutingModule } from './medecins-routing.module';
 
 import { MedecinsPage } from './medecins.page';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    MedecinsPageRoutingModule
+    MedecinsPageRoutingModule,
+    FontAwesomeModule,
   ],
   declarations: [MedecinsPage]
 })

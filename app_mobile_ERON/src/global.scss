@@ -34,3 +34,12 @@
     height:40px!important;
     padding:2px;
   }
+
+  .no-scroll {
+    --offset-bottom: auto!important;
+    --overflow: hidden;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+}
