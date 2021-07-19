@@ -24,7 +24,7 @@ Avant de commencer à coder à l'application il faut vérifier d'avoir l'environ
 Voici l'ensemble des installation et l'environnemnt de travail pour coder l'application :
 
 ```sh
-$ ng -version
+$ ng version
 Angular CLI: 12.1.0
 Node: 14.17.1
 Package Manager: npm 6.14.13
@@ -46,7 +46,7 @@ $ ionic -v
 6.16.3
 ```
 
-Here are code to install angular,nvm, npm, node and ionic avec le terminal de commande :
+Ci dessous se trouve le code pour installer angular,nvm, npm, node et ionic avec le terminal de commande :
 
 ```sh
 #Install nvm on UBUNTU 20.04
@@ -62,7 +62,6 @@ npm install -g @angular/cli
 
 #Install ionic
 npm install -g @ionic/cli
-
 ```
 
 ## Creation du projet
@@ -79,7 +78,7 @@ Capacitor est "API Native container" permettant de réaliser des apps sur iOS, A
 Pour lancer l'application il faut taper la commande suivant dans le terminal:
 
 ```sh
-ionic -serve
+ionic serve
 ```
 
 ## Arborescence du projet

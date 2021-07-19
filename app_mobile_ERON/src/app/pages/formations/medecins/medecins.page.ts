@@ -13,7 +13,7 @@ export class MedecinsPage implements OnInit {
 
 
 @ViewChild(IonSlides) slider: IonSlides;
-segment = 0;
+segment : number;
 categories= [
   {
     id: "seg-0",
