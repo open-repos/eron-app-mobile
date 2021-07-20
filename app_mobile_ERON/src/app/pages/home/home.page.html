@@ -1,11 +1,50 @@
 <ion-header>
   <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-      <ion-title>Accueil</ion-title>
-      <ion-img src="../../../assets/logo/logo-ERON-biggest.png" class="logoEron" slot="end"></ion-img>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Accueil</ion-title>
+    <ion-img src="../../../assets/logo/logo-ERON-biggest.png" class="logoEron" slot="end"></ion-img>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <ion-img src="../../../assets/illustrations/Illustrations-personnels-medical-ssbg.png"></ion-img>
+  <ion-text>Bienvenue sur l'application d'ERON Santé <br>
+    <br>
+    Découvrez dès maintenant nos :
+  </ion-text>
+  <ion-grid class="ion-align-items-center">
+    <ion-row class="ion-align-items-center">
+      <ion-col size="12" class="ion-text-center">
+        <ion-button (click)="onClick()" fill="clear">
+          Formations
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row class="ion-align-items-center">
+      <ion-col size="12" class="ion-text-center">
+        <ion-button (click)="onClick()" fill="clear">
+          Actualités
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" class="ion-text-center">
+          Déja apprenant chez nous ?
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12" class="ion-text-center" id="connexion">
+        Connectez vous ici
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+</ion-content>
