@@ -26,53 +26,64 @@
   text-decoration: none;
 }
 
-ion-content{
-  ion-img{
-    padding-top: 60px;
+ion-content {
+  .cover {
+    background-image: url(../../../assets/illustrations/Illustrations-personnels-medical-ssbg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
+    // padding-top: 60px;
     filter: drop-shadow(0px 8px 4px rgba(0, 0, 0, 0.25));
     border-radius: 8px;
+    height: calc(40vh - 56px) !important;
+    // display: block;
+    width: auto !important;
+    margin: 10 auto;
   }
-ion-text{
-  /* button-text */
 
-padding-top:30px;
-font-style: normal;
-font-weight: normal;
-font-size: 18px;
-line-height: 15px;
-/* or 83% */
+  ion-text {
+    /* button-text */
 
-display: flex;
-align-items: center;
-text-align: center;
-letter-spacing: 2.7px;
+    padding-top: 30px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 15px;
+    /* or 83% */
 
-color: #000000;
-}
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 2.7px;
 
-#connexion{
-  font-family: SF Pro Display;
-  font-style: italic;
-  font-weight: normal;
-  font-size: 20px;
-  line-height: 24px;
-  /* or 122% */
-  align-items: center;
-  text-align: center;
-  letter-spacing: 0.7px;
-  text-decoration-line: underline;
-  
-  /* Orange */
-  
-  color: #F2994A;
-}
+    color: #000000;
+  }
 
-ion-button{
-background: #F5F5F5 !important;
-border: 1.21212px solid #174B97 !important;
-box-sizing: border-box !important;
-box-shadow: 2.42424px 2.42424px 2.42424px rgba(0, 0, 0, 0.25) !important;
-border-radius: 4.84848px !important;
-}
+  #connexion {
+    font-family: SF Pro Display;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 24px;
+    /* or 122% */
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.7px;
+    text-decoration-line: underline;
 
+    /* Orange */
+
+    color: #f2994a;
+
+    background: none;
+    border: none;
+  }
+
+  ion-button {
+    background: #f5f5f5 !important;
+    border: 1.21212px solid #174b97 !important;
+    box-sizing: border-box !important;
+    box-shadow: 2.42424px 2.42424px 2.42424px rgba(0, 0, 0, 0.25) !important;
+    border-radius: 4.84848px !important;
+  }
 }
