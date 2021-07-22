@@ -22,7 +22,9 @@ ion-item[button] {
 .socialMedia{
     font-size: 2em;
     padding: 5px;
-    --ion-text-color: var(--ion-color-primary) !important;
+    // --ion-text-color: var(--ion-color-primary) !important;
+    color:#003478;
+    // TODO: Changer la couleur en couleur primaire (automatique)
 }
 
 .rowIconSocialMedia{
