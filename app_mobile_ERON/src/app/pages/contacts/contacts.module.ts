@@ -1,3 +1,4 @@
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -13,7 +14,8 @@ import { ContactsPage } from './contacts.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    ContactsPageRoutingModule
+    ContactsPageRoutingModule,
+    FontAwesomeModule,
   ],
   declarations: [ContactsPage]
 })

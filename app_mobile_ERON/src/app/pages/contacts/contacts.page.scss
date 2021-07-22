@@ -1,0 +1,23 @@
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 500px;
+  }
+
+  .sub-item-contacts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding:20px;
+  }
+
+
+  .socialMedia{
+    font-size: 2em;
+    color:#003478;
+    // TODO: Changer la couleur en couleur primaire (automatique)
+}
+  

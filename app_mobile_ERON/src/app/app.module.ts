@@ -59,6 +59,9 @@ import {
   faAngleRight,
   faAngleLeft,
   faAt,
+  //icon Contacts
+  faPhoneSquareAlt,
+  faMapMarkerAlt,
 } from '@fortawesome/free-solid-svg-icons';
 
 import {
@@ -149,6 +152,9 @@ export class AppModule {
       faTwitterSquare,
       faLinkedin,
       faInstagramSquare,
+      //icon Contacts
+      faPhoneSquareAlt,
+      faMapMarkerAlt
     );
   }
 }
