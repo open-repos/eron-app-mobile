@@ -9,47 +9,58 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <form [formGroup]="userForm" (ngSubmit)="onSubmitForm()">
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmitForm()">
 
 
-      <!-- <ion-label>Service à contacter</ion-label> -->
-    <ion-item lines="none">
-      <ion-label class="items-service-client" position="floating">Service à contacter</ion-label>
-      <ion-select id="serviceToContact"  formControlName="serviceToContact" interface="popover">
-        <ion-select-option value="service-clients">Service Clients</ion-select-option>
-        <ion-select-option  value="partenariats">Partenariats</ion-select-option >
-          <ion-select-option value="devenir-formateur">Devenir Formateur</ion-select-option>
-          <ion-select-option  value="ressources-humaines">Ressources Humaines</ion-select-option >
-      </ion-select>
-    </ion-item>
-  <div class="items-form">
-  <ion-label for="firstName">Prénom</ion-label>
-    <ion-item lines="none">
-      <ion-input type="text" id="firstName" class="form-control" formControlName="firstName"></ion-input>
-    </ion-item>
+    <!-- <ion-label>Service à contacter</ion-label> -->
+    <div *ngFor="let field of fieldId; let i = index">
+      <div *ngIf="field.id === 'serviceToContact'">
+        <ion-item lines="none">
+          <ion-label class="items-service-client" position="floating">{{field.title}}</ion-label>
+          <ion-select [id]="field.id" formControlName="serviceToContact" interface="popover">
+            <ion-select-option value="service-clients">Service Clients</ion-select-option>
+            <ion-select-option value="partenariats">Partenariats</ion-select-option>
+            <ion-select-option value="devenir-formateur">Devenir Formateur</ion-select-option>
+            <ion-select-option value="ressources-humaines">Ressources Humaines</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <div class="error-message"
+          *ngIf="contactForm.get(field.id).hasError(field.validation_messages[0].type) && (contactForm.get(field.id).dirty || contactForm.get(field.id).touched)">
+          <ion-text color="danger">{{ field.validation_messages[0].message }}</ion-text>
+        </div>
+      </div>
+    </div>
 
-    <ion-label for="lastName">Nom</ion-label>
-    <ion-item lines="none">
-      <ion-input type="text" id="lastName" class="form-control" formControlName="lastName"></ion-input>
-    </ion-item>
+    <div class="items-form">
+      <div *ngFor="let field of fieldId; let i = index">
+        <div *ngIf="field.id !== 'serviceToContact'">
+          <ion-label>{{field.title}}</ion-label>
+          <ion-item lines="none" [ngStyle]="getColor(field.id,i)">
+            <ion-input *ngIf="field.id !== 'objet'" type="text" [id]="field.id" class="form-control"
+              [formControlName]="field.id"></ion-input>
+            <ion-textarea *ngIf="field.id === 'objet'" class="objet" autoGrow="true"
+              placeholder="Ecrivez ici l'objet de votre message..." [id]="field.id" class="form-control"
+              [formControlName]="field.id"></ion-textarea>
+          </ion-item>
+          <ng-container *ngFor="let validation of field.validation_messages">
+            <script type="text/javascript">console.log(validation)</script>
+            <div class="error-message" *ngIf="contactForm.get(field.id).hasError(validation.type) && (contactForm.get(field.id).dirty || contactForm.get(field.id).touched)">
+              <ion-text color="danger">{{ validation.message }}</ion-text>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
 
-    <ion-label for="email">Adresse e-mail</ion-label>
-    <ion-item lines="none">
-      <ion-input type="text" id="email" class="form-control" formControlName="email"></ion-input>
-    </ion-item>
 
 
-    <ion-label>Objet du message</ion-label>
-    <ion-item >
-      <ion-textarea class="objet"  autoGrow="true"  placeholder="Ecrivez ici l'objet de votre message..."></ion-textarea>
-    </ion-item>
-    
-  </div>
     <ion-row>
       <ion-col>
-        <ion-button type="submit" expand="block" [disabled]="userForm.invalid">Soumettre</ion-button>
+        <ion-button type="submit" expand="block" [disabled]="contactForm.invalid">Soumettre</ion-button>
       </ion-col>
     </ion-row>
 
   </form>
 </ion-content>
+
+<!-- NOTES: https://ionicthemes.com/tutorials/about/forms-and-validation-in-ionic -->
