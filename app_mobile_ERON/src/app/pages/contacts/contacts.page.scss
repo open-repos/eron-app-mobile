@@ -4,6 +4,8 @@
     justify-content: space-between;
     align-items: center;
     height: 500px;
+    padding-top:5vh;
+    padding-bottom:40vh;
   }
 
   .sub-item-contacts {
@@ -20,4 +22,8 @@
     color:#003478;
     // TODO: Changer la couleur en couleur primaire (automatique)
 }
-  
+
+.btn {
+  background: none;
+  border: none; /* Remove borders */
+}

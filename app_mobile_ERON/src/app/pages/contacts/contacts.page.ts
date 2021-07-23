@@ -1,6 +1,7 @@
+import { fab } from '@fortawesome/free-brands-svg-icons';
 // import { google } from 'google-maps';
 import { Component, OnInit } from '@angular/core';
-import { faEnvelopeOpenText, faMapMarkerAlt, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelopeOpenText, faMapMarkerAlt, faPhone, faChevronCircleDown} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-contacts',
@@ -11,6 +12,7 @@ export class ContactsPage implements OnInit {
   faPhone = faPhone;
   faEnvelope = faEnvelopeOpenText;
   faMap = faMapMarkerAlt;
+  faChevronDown = faChevronCircleDown;
 //   map: any;
 // @ViewChild('map', {static:true}) mapRef: ElementRef;
   constructor() {}
