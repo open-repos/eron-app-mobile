@@ -16,6 +16,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/menu/menu.module').then( m => m.MenuPageModule)
   },
   // {
+  //   path: 'contacts-forms',
+  //   loadChildren: () => import('./pages/contacts-forms/contacts-forms.module').then( m => m.ContactsFormsPageModule)
+  // },
+  // {
   //   path: 'medecins',
   //   loadChildren: () => import('./pages/formations/medecins/medecins.module').then( m => m.MedecinsPageModule)
   // },

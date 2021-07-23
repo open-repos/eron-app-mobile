@@ -2,7 +2,7 @@ import { MenuPageModule } from './pages/menu/menu.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy, RouterModule } from '@angular/router';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   FontAwesomeModule,
   FaIconLibrary,
@@ -91,6 +91,8 @@ import { AppRoutingModule } from './app-routing.module';
     AppRoutingModule,
     FontAwesomeModule,
     MenuPageModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

@@ -1,8 +1,5 @@
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import {
-  faTwitter,
   faFacebookSquare,
   faTwitterSquare,
   faLinkedin,
@@ -14,50 +11,18 @@ import {
   // menuIcon
   faHome,
   faNewspaper,
-  faBookOpen,
-  faQuestionCircle,
-  faEnvelopeOpenText,
   faUser,
-  //menuIcon +
-  faAddressBook,
-  faEnvelopeOpen,
-  faEnvelope,
   faMailBulk,
-  faUserCircle,
-  //formationsIcon  et Medical
-  faStethoscope,
   faUserMd,
-  faBriefcaseMedical,
   faTeethOpen,
   faPills,
   faUserNurse,
   faHands,
-  faSyringe,
-  faClinicMedical,
-  faTabletAlt,
-  //tabBarIcon
-  faBook,
   faBookMedical,
-  faShoppingCart,
-  //iconUX
-  faArrowRight,
-  faBell,
-  faBellSlash,
-  faCalendarAlt,
-  faAngleDown,
-  faAngleUp,
-  faAngleRight,
-  faAngleLeft,
-  faAt,
 } from '@fortawesome/free-solid-svg-icons';
 
 import {
-  faBellSlash as farBellSlash,
-  faCalendarAlt as farCalendarAlt,
-  faNewspaper as farNewspaper,
   faQuestionCircle as farQuestionCircle,
-  faAddressBook as farAddressBook,
-  faEnvelope as farEnvelope,
 } from '@fortawesome/free-regular-svg-icons';
 @Component({
   selector: 'app-menu',

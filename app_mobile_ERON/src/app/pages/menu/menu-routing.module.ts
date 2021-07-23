@@ -26,6 +26,13 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'contacts-forms',
+        loadChildren: () =>
+          import('../contacts-forms/contacts-forms.module').then(
+            (m) => m.ContactsFormsPageModule
+          ),
+      },
+      {
         path: 'faq',
         loadChildren: () =>
           import('../faq/faq.module').then((m) => m.FaqPageModule),
