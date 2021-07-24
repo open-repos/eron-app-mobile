@@ -16,6 +16,9 @@ Ce fichier va décrire l'ensemble des étapes nécessaires pour reproduire l'app
   - [Contacts](#contacts)
   - [FAQ](#faq)
   - [Connexion](#connexion)
+- [Capacitor](#capacitor)
+  - [Android](#android)
+  - [iOS](#ios)
 
 ## Setup
 
@@ -25,22 +28,24 @@ Voici l'ensemble des installation et l'environnemnt de travail pour coder l'appl
 
 ```sh
 $ ng version
-Angular CLI: 12.1.0
-Node: 14.17.1
-Package Manager: npm 6.14.13
-OS: linux x64
+Angular CLI: 11.2.14
+Node: 14.17.3
+OS: darwin x64
+
 Angular: 
 ... 
+Ivy Workspace: 
 
 Package                      Version
 ------------------------------------------------------
-@angular-devkit/architect    0.1201.0 (cli-only)
-@angular-devkit/core         12.1.0 (cli-only)
-@angular-devkit/schematics   12.1.0 (cli-only)
-@schematics/angular          12.1.0 (cli-only)
+@angular-devkit/architect    0.1102.14 (cli-only)
+@angular-devkit/core         11.2.14 (cli-only)
+@angular-devkit/schematics   11.2.14 (cli-only)
+@schematics/angular          11.2.14 (cli-only)
+@schematics/update           0.1102.14 (cli-only)
 
-$ nvm -v
-0.38.0
+# $ nvm -v (seulement sur Linux avant passage sur MacOS)
+# 0.38.0
 
 $ ionic -v 
 6.16.3
@@ -54,8 +59,11 @@ sudo apt install curl
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38/install.sh | bash
 source ~/.profile
 
-#Install latest LTS version of node:
+#Install latest LTS version of node: (Seulement sur Linux)
 nvm install --lts
+
+#Install latest LTS version of node (MacOS ave homebrew)
+brew install node
 
 #Install angular
 npm install -g @angular/cli
@@ -86,7 +94,6 @@ ionic serve
 Ici est présenté l'arborescence du projet `app_mobile_Eron` qui évoluera au fil des modifications.
 
 <details><summary> ouvrir le tree directory </summary>
-
 
 ```sh
 #Pour voir l'ensemble des dossiers execepté les dossiers contenant plus de 12 fichiers (pour ne pas afficher tout le node_modules et les images/logos/icones)
@@ -180,6 +187,7 @@ tree -L 5 --filelimit=12
 ├── tsconfig.json
 └── tsconfig.spec.json
 ```
+
 </details>
 
 ## Images - Icons - Illustrations
@@ -287,9 +295,10 @@ import {
   faEnvelope as farEnvelope,
 } from '@fortawesome/free-regular-svg-icons';
 ```
+
 </details>
 
-Ses icones sont ensuites implémenté dans le constructeur 
+Ses icones sont ensuites implémenté dans le constructeur
 
 ```ts
 export class AppModule {
@@ -308,9 +317,24 @@ Création de page via la commande de type :
 ionic g pages pages/<nom de la page à créer>
 ```
 
+Cette commande a été utilisée pour toutes les pages crées présentées ci dessous.
+
 ### SideMenu
 
+La page *SideMenu* constitue la page où est intégré le `router-outlet`
+
+```ts
+<ion-router-outlet id="menu-visitor"></ion-router-outlet>
+```
+
+Ainsi les `routes` créées sont réalisé sur la base du `lazy loading`proposé par Angular.
+
+La liste des items créés dans le *SideMenu* s'appuie sur un array crée dans le fichier typescript.
+Les directives `*ngIf`et `ngFor`sont utilisé dans le template `html`pour créer le *SideMenu*.
+
 ### Home
+
+Pour construire le template `html`de la page *Home* les composants `ionic` : `ion-grid ion-col ion-row` ont été utilisé pour organiser le layout de la page.
 
 ### Actualités
 
@@ -318,6 +342,89 @@ ionic g pages pages/<nom de la page à créer>
 
 ### Contacts
 
+Concernant la page contact et notamment la page formulaire de contact, le formulaire a été créée sur la base d'un `ReactiveForm`proposé par Angular.
+
+Ainsi le module `ReactiveFormsModule`a été importé et utilisé dans le fichier `typescript` avec utilisation de `FormGroup ,FormBuilder, Validators`pour customiser les champs du formulaire de la page `contacts-Forms`.
+
+Encore une fois les directives `ngFor`, `ngIf` ont été utilisés dans le template `html`pour l'apparition des champs du formulaire et les conditions de message d'erreurs selon les champs renseignés par l'utilisateur.
+De plus la directive `ngStyle`a été utilisé pour changer le style CSS des champs selon l'état `valid`, `erreurs`, `requis`des champs.
+
 ### FAQ
 
 ### Connexion
+
+## Capacitor
+
+Grâce à l'initialisation du projet avec Capacitor nous avons la possibilité de tester l'application directement sur un émulateur iOS ou Android. La description pour réalisée les différentes étapes à la fois sur iOS et sur Android nécessite d'être sur l'OS Apple.
+
+Il faut donc avoir installé **Xcode** et **Android Studio**
+
+Si le projet n'a pas été initialiser avec Capacitor, il est possible d'effectuer les commandes ci dessous pour intégrer Capacitor au projet :
+
+```sh
+npm install --save @capacitor/core @capacitor/cli
+
+# Effectué cette commande pour initialiser un projet avec Capacitor . Il vous sera demandé un nom pour l'application et un 'PackageID'
+npx cap init
+
+```
+
+### Android
+
+Pour lancer et tester son application sur Android il faut taper les commandes suivantes :
+
+```sh
+# Penser tout d'abord a effectuer la commande suivante pour ne pas avoir d'erreur:
+ionic build
+```
+
+```sh
+# Ajouter la plateforme Android
+npx cap add android
+
+# A chaque changement dans notre code de l'application il faut lancer la commande suivant pour mettre a jour sur Android
+npx cap copy
+
+# A chque changement / import de plugin il faut taper la commande suivant : 
+npx cap update
+
+
+# Ou taper la commande suivante ( qui effectue les deux dernière commande décrites ci dessus):
+npx cap sync
+
+#Enfin il faut lancer Android Studio depuis notre projet via : 
+npx cap open android
+
+```
+
+Une fois Android Studio ouvert, il  va y avoir une synchronisation *gradle* et Android Studio va installer les dépendances et va compiler pour pouvoir lancer l'application via soit un appareil virtuel (crée via AVD Manager) soit via un appareil réel en connectant son téléphone via USB (et en ayant activé le mode Développeur via ses paramètres de téléphone).
+
+### iOS
+
+Pour lancer et tester son application sur iOS il faut taper les commandes suivantes :
+
+```sh
+# Penser tout d'abord a effectuer la commande suivante pour ne pas avoir d'erreur notamment l'absence de dossier 'www':
+ionic build
+```
+
+```sh
+# Ajouter la plateforme Android
+npx cap add iOS
+
+# A chaque changement dans notre code de l'application il faut lancer la commande suivant pour mettre a jour sur iOS
+npx cap copy
+
+# A chque changement / import de plugin il faut taper la commande suivant : 
+npx cap update
+
+
+# Ou taper la commande suivante ( qui effectue les deux dernière commande décrites ci dessus):
+npx cap sync
+
+#Enfin il faut lancer Android Studio depuis notre projet via : 
+npx cap open ios
+
+```
+
+Comme pour Android Studio, Xcode s'ouvre et offre la possibilité d'utiliser une *Simulator* (virtual Device) pour tester l'application. Il est également possible de tester sur un iPad ou iPhone réel en le connectant à son ordinateur via USB.
