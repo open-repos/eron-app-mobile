@@ -8,7 +8,7 @@ import { IonicModule } from '@ionic/angular';
 import { ContactsPageRoutingModule } from './contacts-routing.module';
 
 import { ContactsPage } from './contacts.page';
-
+import { SahredComponentsModule } from 'src/app/components/shared/shared-components.module';
 @NgModule({
   imports: [
     CommonModule,
@@ -16,6 +16,7 @@ import { ContactsPage } from './contacts.page';
     IonicModule,
     ContactsPageRoutingModule,
     FontAwesomeModule,
+    SahredComponentsModule
   ],
   declarations: [ContactsPage]
 })

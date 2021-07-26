@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {SahredComponentsModule} from './components/shared/shared-components.module'
 import {
   FontAwesomeModule,
   FaIconLibrary,
@@ -93,6 +94,7 @@ import { AppRoutingModule } from './app-routing.module';
     MenuPageModule,
     FormsModule,
     ReactiveFormsModule,
+    SahredComponentsModule,
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

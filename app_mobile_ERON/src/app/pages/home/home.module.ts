@@ -7,6 +7,7 @@ import { HomePage } from './home.page';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HomePageRoutingModule } from './home-routing.module';
 
+import { SahredComponentsModule } from 'src/app/components/shared/shared-components.module';
 
 @NgModule({
   imports: [
@@ -14,7 +15,10 @@ import { HomePageRoutingModule } from './home-routing.module';
     FormsModule,
     IonicModule,
     FontAwesomeModule,
-    HomePageRoutingModule
+    HomePageRoutingModule,
+    SahredComponentsModule
+    
+    
   ],
   declarations: [HomePage]
 })

@@ -4,17 +4,17 @@ import { Routes, RouterModule } from '@angular/router';
 import { MenuPage } from './menu.page';
 
 const routes: Routes = [
+  // {
+  //   path:'',
+  //   redirectTo:'/home',
+  //   pathMatch:'full'
+  // },
   {
-    path:'',
-    redirectTo:'/menu/home',
-    pathMatch:'full'
-  },
-  {
-    path: 'menu',
+    path: '',
     component: MenuPage,
     children: [
       {
-        path: 'home',
+        path: '',
         loadChildren: () =>
           import('../home/home.module').then((m) => m.HomePageModule),
       },

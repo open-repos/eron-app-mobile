@@ -41,7 +41,8 @@ export class MenuPage implements OnInit {
   pages = [
     {
       title: 'Accueil',
-      url: '/menu/home',
+      // url: '/menu/home',
+       url: '/',
       icon: faHome,
     },
     {
@@ -51,17 +52,17 @@ export class MenuPage implements OnInit {
       children: [
         {
           title: 'Presse',
-          url: '/menu/actu-presse',
+          url: '/actu-presse',
           icon:false
         },
         {
           title: 'ERON Santé',
-          url: '/menu/actu-eron',
+          url: '/actu-eron',
           icon:false
         },
         {
           title: 'Interview',
-          url: '/menu/actu-interview',
+          url: '/actu-interview',
           icon:false
         },
       ],
@@ -73,44 +74,44 @@ export class MenuPage implements OnInit {
       children: [
         {
           title: 'Médecins',
-          url: '/menu/formations-medecins',
+          url: '/formations-medecins',
           icon:faUserMd
         },
         {
           title: 'Dentistes',
-          url: '/menu/formations-dentistes',
+          url: '/formations-dentistes',
           icon:faTeethOpen
         },        
         {
           title: 'Infirmiers',
-          url: '/menu/formations-infirmiers',
+          url: '/formations-infirmiers',
           icon:faUserNurse
         },
         {
           title: 'Pharmaciens',
-          url: '/menu/formations-pharmaciens',
+          url: '/formations-pharmaciens',
           icon:faPills
         },
         {
           title: 'Kinésitérapeuthes',
-          url: '/menu/formations-kine',
+          url: '/formations-kine',
           icon:faHands
         },
       ],
     },
     {
       title: 'Contacts',
-      url: '/menu/contacts',
+      url: '/contacts',
       icon: faMailBulk,
     },
     {
       title: 'FAQ',
-      url: '/menu/faq',
+      url: '/faq',
       icon: farQuestionCircle,
     },
     {
       title: 'Connexion',
-      url: '/menu/login',
+      url: '/login',
       icon: faUser,
     },
   ];
