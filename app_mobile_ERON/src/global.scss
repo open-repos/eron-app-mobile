@@ -48,3 +48,31 @@
   width: 100% !important;
   max-width: 100% !important;
   }
+
+.menu-content-open{
+  pointer-events: all !important;
+}
+
+/* Declare text styles */
+h1 {
+  font-size: 2em;
+}
+h2 {
+  font-size: 1.5em;
+}
+p {
+  font-size: 1em;
+}
+
+/* Increase font sizes by 1.5x on bigger screens */
+@media (min-width: 48rem) {
+  h1 {
+    font-size: 3em;
+  }
+  h2 {
+    font-size: 2.25em;
+  }
+  p {
+    font-size: 1.5em;
+  }
+}
