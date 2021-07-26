@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-back-button style='color: white'></ion-back-button>
     </ion-buttons>
     <ion-title>Formulaire de Contacts</ion-title>
     <ion-img src="../../../assets/logo/logo-ERON-biggest.png" class="logoEron" slot="end"></ion-img>
@@ -11,7 +11,7 @@
 <ion-content class="ion-padding">
   <form [formGroup]="contactForm" (ngSubmit)="onSubmitForm()">
 
-
+    <div class="all-items">
     <!-- <ion-label>Service à contacter</ion-label> -->
     <div *ngFor="let field of fieldId; let i = index">
       <div *ngIf="field.id === 'serviceToContact'">
@@ -54,12 +54,17 @@
 
 
 
-    <ion-row>
+    <!-- <ion-row>
       <ion-col>
         <ion-button type="submit" expand="block" [disabled]="contactForm.invalid">Soumettre</ion-button>
       </ion-col>
-    </ion-row>
+    </ion-row> -->
+  <div class="fixed-content">
+      <ion-button type="submit" [disabled]="contactForm.invalid">Soumettre</ion-button>
+  </div>
 
+
+    </div>
   </form>
 </ion-content>
 
