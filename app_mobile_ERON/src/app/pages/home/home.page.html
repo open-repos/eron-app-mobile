@@ -10,46 +10,55 @@
 
 <ion-content>
   
-  <div class="cover"></div>
-  <ion-grid class="ion-align-items-center">
+  <div class="img-wrapper"></div>
+
+  <!-- <div class="all-items"> -->
+  <ion-grid>
+
   <ion-row>
-    <ion-col size="12" class="ion-text-center">
+    <ion-col size="12">
         <h4>Bienvenue sur l'application d'ERON Santé</h4>
         <h4>Découvrez dès maintenant nos :</h4>
     </ion-col>
   </ion-row>
 
 
-    <ion-row class="ion-align-items-center">
-      <ion-col size="12" class="ion-text-center">
-        <ion-button routerLink='/menu/formations-medecins' fill="clear">
+  <!-- <div class='btn'> -->
+    <ion-row>
+      <ion-col size="12">
+        <ion-button routerLink='/menu/formations-medecins' fill="clear" display='block'>
           Formations
         </ion-button>
       </ion-col>
     </ion-row>
 
 
-    <ion-row class="ion-align-items-center">
-      <ion-col size="12" class="ion-text-center">
-        <ion-button routerLink='/menu/actu-eron' fill="clear">
+    <ion-row>
+      <ion-col size="12">
+        <ion-button routerLink='/menu/actu-eron' fill="clear" display='block'>
           Actualités
         </ion-button>
       </ion-col>
     </ion-row>
 
+  <!-- </div> -->
 
 
+  <!-- <div class="footer"> -->
     <ion-row>
-      <ion-col size="12" class="ion-text-center">
+      <ion-col size="12">
           <p>Déja apprenant chez nous ?</p>
       </ion-col>
     </ion-row>
 
     <ion-row>
-      <ion-col size="12" class="ion-text-center">
+      <ion-col size="12">
         <button id="connexion" routerLink='/menu/login'>Connectez vous ici</button>
       </ion-col>
     </ion-row>
+  <!-- </div> -->
 
+  <!-- </div> -->
   </ion-grid>
+
 </ion-content>
