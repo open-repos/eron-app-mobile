@@ -1,3 +1,4 @@
+import { MenuItem } from './menu.model';
 import { Component, OnInit } from '@angular/core';
 import {
   faFacebookSquare,
@@ -38,38 +39,42 @@ export class MenuPage implements OnInit {
     {icon:faLinkedin},
   ]
 
-  pages = [
-    {
+  pages: MenuItem[] = [
+      {
       title: 'Accueil',
+      isOpen: undefined,
       // url: '/menu/home',
        url: '/',
       icon: faHome,
+      children: undefined,
     },
     {
       title: 'Actualités',
       isOpen: false,
+      url: undefined,
       icon:faNewspaper,
       children: [
         {
           title: 'Presse',
           url: '/actu-presse',
-          icon:false
+          icon:undefined,
         },
         {
           title: 'ERON Santé',
           url: '/actu-eron',
-          icon:false
+          icon:undefined
         },
         {
           title: 'Interview',
           url: '/actu-interview',
-          icon:false
+          icon:undefined
         },
       ],
     },
     {
       title: 'Formations',
       isOpen: false,
+      url: undefined,
       icon:faBookMedical,
       children: [
         {
@@ -101,20 +106,27 @@ export class MenuPage implements OnInit {
     },
     {
       title: 'Contacts',
+      isOpen: undefined,
       url: '/contacts',
       icon: faMailBulk,
+      children: undefined,
     },
     {
       title: 'FAQ',
+      isOpen: undefined,
       url: '/faq',
       icon: farQuestionCircle,
+      children: undefined,
     },
     {
       title: 'Connexion',
+      isOpen: undefined,
       url: '/login',
       icon: faUser,
+      children: undefined,
     },
   ];
+
 
   constructor() {}
 
