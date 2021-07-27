@@ -8,6 +8,7 @@ import { MedecinsPageRoutingModule } from './medecins-routing.module';
 
 import { MedecinsPage } from './medecins.page';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SahredComponentsModule } from 'src/app/components/shared/shared-components.module';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     IonicModule,
     MedecinsPageRoutingModule,
     FontAwesomeModule,
+    SahredComponentsModule
   ],
   declarations: [MedecinsPage]
 })

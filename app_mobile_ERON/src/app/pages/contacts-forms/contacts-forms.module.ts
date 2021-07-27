@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ContactsFormsPageRoutingModule } from './contacts-forms-routing.module';
 
 import { ContactsFormsPage } from './contacts-forms.page';
+import { SahredComponentsModule } from 'src/app/components/shared/shared-components.module';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { ContactsFormsPage } from './contacts-forms.page';
     FormsModule,
     IonicModule,
     ContactsFormsPageRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SahredComponentsModule
   ],
   declarations: [ContactsFormsPage]
 })

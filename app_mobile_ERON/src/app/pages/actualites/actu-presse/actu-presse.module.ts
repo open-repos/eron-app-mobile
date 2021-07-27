@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { ActuPressePageRoutingModule } from './actu-presse-routing.module';
 
 import { ActuPressePage } from './actu-presse.page';
+import { SahredComponentsModule } from 'src/app/components/shared/shared-components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ActuPressePageRoutingModule
+    ActuPressePageRoutingModule,
+    SahredComponentsModule
   ],
   declarations: [ActuPressePage]
 })
