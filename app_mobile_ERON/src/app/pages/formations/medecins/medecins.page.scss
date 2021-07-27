@@ -7,3 +7,33 @@ ion-segment-button {
     min-height: 60px;
   }
   
+.card-header {
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    width: 100%;   
+}
+
+.logos-organisme-layout {
+display:flex; 
+align-items: center;    
+}
+
+.logo-organisme {
+    height: 35px;
+    width: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #003478;
+    box-shadow: 2px 2px 6px #0000007a;
+    padding: 0.5rem; 
+    margin-left: 0.5em;
+}
+
+.logo-text {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 11px;   
+}

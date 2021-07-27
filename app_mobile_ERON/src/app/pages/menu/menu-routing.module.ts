@@ -64,13 +64,17 @@ const routes: Routes = [
           import('../login/login.module').then((m) => m.LoginPageModule),
       },
       {
-        path: 'formations-medecins',
+        path: 'formations',
+       children: [
+      {
+        path: '',
         loadChildren: () => import('../formations/medecins/medecins.module').then( m => m.MedecinsPageModule)
       },
       {
-        path: 'formations-dentistes',
-        loadChildren: () => import('../formations/dentistes/dentistes.module').then( m => m.DentistesPageModule)
-      },
+        path: ':formationId',
+        loadChildren: () => import('../formations/formation-detail/formation-detail.module').then( m => m.FormationDetailPageModule)
+      }]
+    },
       {
         path: 'formations-kine',
         loadChildren: () => import('../formations/kine/kine.module').then( m => m.KinePageModule)

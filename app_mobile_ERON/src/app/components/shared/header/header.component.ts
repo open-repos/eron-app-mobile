@@ -8,6 +8,8 @@ import { Component, Input, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   @Input() titleHeader: string;
+  @Input() detailPage: boolean = false;
+  @Input() pageBack: string;
   constructor() { }
 
   ngOnInit() {}

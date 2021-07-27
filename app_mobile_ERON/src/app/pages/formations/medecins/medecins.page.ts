@@ -1,3 +1,5 @@
+import { FormationsService } from './../../../services/formations.service';
+import { Formation } from './../formation.model';
 // import { ViewportScroller } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
@@ -11,7 +13,8 @@ import { IonSlides } from '@ionic/angular';
 })
 export class MedecinsPage implements OnInit {
 
-
+public idFormation: number;
+formations: Formation[];
 @ViewChild(IonSlides) slider: IonSlides;
 segment : number;
 categories= [
@@ -19,7 +22,7 @@ categories= [
     id: "seg-0",
     value: 0,
     title: 'Médecins',
-    url: '/menu/formations-medecins',
+    url: '/menu/formations',
     icon: faUserMd
   },
   {
@@ -51,12 +54,15 @@ categories= [
     icon:faHands
   }
 ]
-constructor(private router: Router) {
-  
-  this.segment = 0
+constructor(private router: Router, private formationsService: FormationsService) {
+  // this.segment = 0
 }
 
 ngOnInit() {
+  this.formations = this.formationsService.getAllFormations();
+  // this.idFormation = this.router.getCurrentNavigation().extras.state.example;
+  // console.log(this.idFormation)
+  this.segment = 0
 }
 
 

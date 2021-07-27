@@ -31,9 +31,11 @@
 <!-- Possibilité d'utiliser la propriété (click) et la lié à une fonction 'onClick()' dans le typescript où l'on execute le router.navigate pour indiquer l'url -->
       <ion-list *ngIf="p.isOpen">
         <ion-menu-toggle>
-          <ion-item button class="sub-item" *ngFor="let subItem of p.children" [routerLink]="subItem.url"
+          <!-- <ion-item button class="sub-item" *ngFor="let subItem of p.children" [routerLink]="subItem.url"
           [routerDirection]="'root'" routerLinkActive='active'  detail="false"    [routerLinkActiveOptions]="{exact:
-            true}">
+            true}" [state]=subItem (click)="onMenuClick(subItem.url,subItem.id)">  -->
+            <ion-item button class="sub-item" *ngFor="let subItem of p.children"
+            [routerDirection]="'root'"  detail="false"  (click)="onMenuClick(subItem.url,subItem.id)"> 
             <fa-icon  *ngIf="subItem.icon && !isBoolean(subItem.icon)" [icon]="subItem.icon" slot="start" detail="false"></fa-icon>
             <ion-label>
               {{subItem.title}}

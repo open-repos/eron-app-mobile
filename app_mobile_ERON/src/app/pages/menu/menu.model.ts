@@ -3,7 +3,8 @@ import { IconProp } from "@fortawesome/fontawesome-svg-core";
 export interface MenuSubItem {
     title: string;
     url: string;
-    icon: IconProp | boolean;
+    id:number;
+    icon: IconProp | undefined;
     }
 
 export interface MenuItem {

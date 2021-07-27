@@ -1,5 +1,5 @@
 import { MenuItem } from './menu.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {
   faFacebookSquare,
   faTwitterSquare,
@@ -25,6 +25,7 @@ import {
 import {
   faQuestionCircle as farQuestionCircle,
 } from '@fortawesome/free-regular-svg-icons';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.page.html',
@@ -38,6 +39,8 @@ export class MenuPage implements OnInit {
     {icon:faInstagramSquare},
     {icon:faLinkedin},
   ]
+
+  // @Input() formationItem: string;
 
   pages: MenuItem[] = [
       {
@@ -57,16 +60,19 @@ export class MenuPage implements OnInit {
         {
           title: 'Presse',
           url: '/actu-presse',
+          id:0,
           icon:undefined,
         },
         {
           title: 'ERON Santé',
           url: '/actu-eron',
+          id:1,
           icon:undefined
         },
         {
           title: 'Interview',
           url: '/actu-interview',
+          id:2,
           icon:undefined
         },
       ],
@@ -79,27 +85,32 @@ export class MenuPage implements OnInit {
       children: [
         {
           title: 'Médecins',
-          url: '/formations-medecins',
+          url: '/formations',
+          id: 0,
           icon:faUserMd
         },
         {
           title: 'Dentistes',
-          url: '/formations-dentistes',
+          url: '/formations',
+          id: 1,
           icon:faTeethOpen
         },        
         {
           title: 'Infirmiers',
-          url: '/formations-infirmiers',
+          url: '/formations',
+          id: 2,
           icon:faUserNurse
         },
         {
           title: 'Pharmaciens',
-          url: '/formations-pharmaciens',
+          url: '/formations',
+          id: 3,
           icon:faPills
         },
         {
           title: 'Kinésitérapeuthes',
-          url: '/formations-kine',
+          url: '/formations',
+          id: 4,
           icon:faHands
         },
       ],
@@ -128,16 +139,16 @@ export class MenuPage implements OnInit {
   ];
 
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {
     // this.menu.enable(true,'menu-visitor')
   }
 
   isBoolean(val): boolean { return typeof val === 'boolean'; }
-  // onMenuClick(id:string){
-  //   // console.log(id + "clicked")
-  //   this.router.navigate([id])
-  //   // this.menu.close()
-  // }
+  onMenuClick(url:string, value:number){
+    // console.log(id + "clicked")
+    this.router.navigateByUrl(url, {state:{example:value}})
+    // this.menu.close()
+  }
 }

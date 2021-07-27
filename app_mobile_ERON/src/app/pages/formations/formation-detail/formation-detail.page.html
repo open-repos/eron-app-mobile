@@ -1,0 +1,31 @@
+<app-header titleHeader="Détails formations" pageBack="formations" [detailPage] = 'true' ></app-header>
+
+<ion-content>
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col class="ion-no-padding">
+        <ion-img [src]="loadFormation.imageUrl"></ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h1 class="ion-text-center">{{ loadFormation.title }}</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-list>
+          <!-- <ion-item *ngFor="let ig of loadFormation.ingredients">
+            {{ ig }}
+          </ion-item> -->
+          <ion-item>
+            Objectifs
+          </ion-item>
+          <ion-item>
+            Contenu
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

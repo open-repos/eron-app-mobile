@@ -10,14 +10,15 @@
 
 <app-header titleHeader="Formations"></app-header>
 
-<ion-content padding>
+<!-- <ion-content class="ion-no-padding"> -->
+<div style='background-color: white;'>
   <ion-grid fixed>
     <ion-row>
       <ion-col size="12">
-        <ion-segment [(ngModel)]="segment" mode="md" scrollable class="no-scroll"  (ionChange)="segmentChanged($event)">
+        <ion-segment [(ngModel)]="segment" mode="md" scrollable class="no-scroll" (ionChange)="segmentChanged($event)">
 
           <ion-segment-button *ngFor="let category of categories" [id]="category.id" [value]="category.value">
-            <fa-icon  *ngIf="category.icon" [icon]="category.icon"></fa-icon>
+            <fa-icon *ngIf="category.icon" [icon]="category.icon"></fa-icon>
             <ion-label>{{category.title}}</ion-label>
           </ion-segment-button>
         </ion-segment>
@@ -25,19 +26,52 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-</ion-content>
+</div>
+<!-- </ion-content>  -->
 <ion-content>
-     <ion-slides #slides pager="false"  (ionSlideDidChange)="slideChanged()">
+  <ion-slides #slides pager="false" (ionSlideDidChange)="slideChanged()">
 
     <ion-slide>
-      1
+      <ion-list>
+        <ion-card *ngFor="let formation of formations"
+        [routerLink]="['/formations', formation.id]">
+          <img [src]="formation.imageUrl" />
+          <ion-card-header>
+            <div class="card-header">
+              <ion-card-subtitle>Durée: {{formation.duree}}</ion-card-subtitle>
+              <div class="logos-organisme-layout">
+                <div class="logo-organisme"><span class="logo-text">FIFPL</span></div>
+                <div class="logo-organisme"><span class="logo-text">DPC</span></div>
+              </div>
+            </div>
+            <ion-card-title>{{formation.title}}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            {{formation.description}}
+          </ion-card-content>
+        </ion-card>
+      </ion-list>
     </ion-slide>
+
     <ion-slide>
-      2
+      <ion-list>
+        <ion-card *ngFor="let formation of formations">
+          <img [src]="formation.imageUrl" />
+          <ion-card-header>
+            <ion-card-subtitle>{{formation.duree}}</ion-card-subtitle>
+            <ion-card-title>{{formation.title}}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            {{formation.description}}
+          </ion-card-content>
+        </ion-card>
+      </ion-list>
     </ion-slide>
+
     <ion-slide>
       3
     </ion-slide>
+
     <ion-slide>
       4
     </ion-slide>
