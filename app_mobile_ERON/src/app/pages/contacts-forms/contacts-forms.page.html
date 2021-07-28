@@ -44,7 +44,7 @@
               [formControlName]="field.id"></ion-textarea>
           </ion-item>
           <ng-container *ngFor="let validation of field.validation_messages">
-            <script type="text/javascript">console.log(validation)</script>
+            <!-- <script type="text/javascript">console.log(validation)</script> -->
             <div class="error-message" *ngIf="contactForm.get(field.id).hasError(validation.type) && (contactForm.get(field.id).dirty || contactForm.get(field.id).touched)">
               <ion-text color="danger">{{ validation.message }}</ion-text>
             </div>

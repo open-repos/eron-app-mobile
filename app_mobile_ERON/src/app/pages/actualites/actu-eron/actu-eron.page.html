@@ -9,4 +9,43 @@
 </ion-header> -->
 
 <app-header titleHeader="Actualités Eron"></app-header>
-<ion-content padding></ion-content>
+
+<!-- </ion-content>  -->
+<ion-content>
+  <ion-slides #slides pager="false">
+    <ion-slide  *ngFor="let actualite of actualitesEron"
+    [routerLink]="['/actualites', actualite.id]">
+        <ion-card class="ion-text-left">
+          <img [src]="actualite.imageUrl" />
+          <ion-card-header>
+            <div class="card-header">
+              <ion-card-subtitle>Date: {{actualite.date}}</ion-card-subtitle>
+              <div class="logos-organisme-layout">
+                <div class="logo-organisme"><span class="logo-text">FIFPL</span></div>
+                <div class="logo-organisme"><span class="logo-text">DPC</span></div>
+              </div>
+            </div>
+            <ion-card-title>{{actualite.title}}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            {{actualite.description}}
+          </ion-card-content>
+        </ion-card>
+    </ion-slide>
+
+  </ion-slides>
+
+  <div class="ion-text-center">
+    <div class="footer">
+    <h1>Newsletter Eron Santé</h1>
+    <h3>Abonnez vous et restez informés</h3>
+  <form (ngSubmit)="onSubmit(email)" #email="ngForm">
+  <ion-input  type="email" placeholder="Entrez votre email" id="email" class="form-control" name="email" ngModel required></ion-input>
+  <ion-button type="submit" size="small" class="round"  fill="clear" display='block'>
+    Abonnez-vous
+  </ion-button>
+  </form>
+  </div>
+</div>
+
+</ion-content>
