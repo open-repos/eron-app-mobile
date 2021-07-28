@@ -8,3 +8,41 @@ padding:2px;
     box-shadow: 2.42424px 2.42424px 2.42424px rgba(0, 0, 0, 0.25) !important;
     border-radius: 4.84848px !important;
   }
+
+//   .slides {
+//       height: 70vh;
+//   }
+
+ion-slides{
+    ion-slide {
+      height: 70vh;
+      width: 100% !important;
+      margin: top 1px;
+      padding-bottom: 2px;
+
+      ion-card{
+        position:relative;
+        top:0px;
+        height: 90%;
+        width: 100%;
+
+        img {
+            height:40%;
+            width:100%;
+        }
+
+        ion-card-title{
+        font-size: 14px;
+        // text-align: justify;
+        text-justify: inter-word;
+        text-align: center;
+        }
+        ion-card-content{
+            font-size: 10px;
+        }
+    }
+  }
+}
+.swiper-slide, .swiper-pagination {
+    bottom: 10px! important;
+}

@@ -46,18 +46,26 @@ const routes: Routes = [
       },
       {
         path: 'actu-eron',
-        loadChildren: () =>
-          import('../actualites/actu-eron/actu-eron.module').then(
-            (m) => m.ActuEronPageModule
-          ),
+          children: [
+            {
+              path:'',
+              loadChildren: () =>
+              import('../actualites/actu-eron/actu-eron.module').then(
+                (m) => m.ActuEronPageModule
+              ),
+            },
+            {
+            path:':actualiteId',
+              loadChildren: () => import('../actualites/actualite-detail/actualite-detail.module').then( m => m.ActualiteDetailPageModule),
+            }]
       },
       {
         path: 'actu-interview',
         loadChildren: () =>
-          import('../actualites/actu-interview/actu-interview.module').then(
-            (m) => m.ActuInterviewPageModule
-          ),
-      },
+            import('../actualites/actu-interview/actu-interview.module').then(
+              (m) => m.ActuInterviewPageModule
+            ),
+        },
       {
         path: 'login',
         loadChildren: () =>

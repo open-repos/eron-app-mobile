@@ -56,7 +56,7 @@ export class ActualitesEronService {
       return[...this.actualiteEron]
     }
   
-    getFormation(actualiteEronId:string){
+    getActualite(actualiteEronId:string){
       return{
         ...this.actualiteEron.find(actualiteEron => {
           return actualiteEron.id === actualiteEronId;

@@ -12,18 +12,14 @@
 
 <!-- </ion-content>  -->
 <ion-content>
-  <ion-slides #slides pager="false">
+  <ion-slides class="slides" #slides pager="true">
     <ion-slide  *ngFor="let actualite of actualitesEron"
-    [routerLink]="['/actualites', actualite.id]">
+    [routerLink]="['/actu-eron', actualite.id]">
         <ion-card class="ion-text-left">
           <img [src]="actualite.imageUrl" />
           <ion-card-header>
             <div class="card-header">
-              <ion-card-subtitle>Date: {{actualite.date}}</ion-card-subtitle>
-              <div class="logos-organisme-layout">
-                <div class="logo-organisme"><span class="logo-text">FIFPL</span></div>
-                <div class="logo-organisme"><span class="logo-text">DPC</span></div>
-              </div>
+              <ion-card-subtitle>{{actualite.date}}</ion-card-subtitle>
             </div>
             <ion-card-title>{{actualite.title}}</ion-card-title>
           </ion-card-header>

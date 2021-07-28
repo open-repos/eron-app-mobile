@@ -1,7 +1,7 @@
 import { FormationsService } from './../../../services/formations.service';
 import { Formation } from './../formation.model';
 // import { ViewportScroller } from '@angular/common';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { faHands, faPills, faTeethOpen, faUserMd, faUserNurse } from '@fortawesome/free-solid-svg-icons';
 import { IonSlides } from '@ionic/angular';
@@ -15,6 +15,7 @@ export class MedecinsPage implements OnInit {
 
 public idFormation: number;
 formations: Formation[];
+
 @ViewChild(IonSlides) slider: IonSlides;
 segment : number;
 categories= [
@@ -66,6 +67,7 @@ constructor(private router: Router, private formationsService: FormationsService
 
 ngOnInit() {
   this.formations = this.formationsService.getAllFormations();
+  
 }
 
 // ngOnDestroy(){
@@ -92,10 +94,6 @@ document.getElementById('seg-'+segmentId).scrollIntoView({
 });
 }
 
-//NE FONCTIONNE PAS (mais a réfléchir en cas de bug en deploiement)
-// focusSegment(segmentID){
-//   this.router.navigate([],{fragment: ('seg-'+segmentID)});
-// }
 
 }
 

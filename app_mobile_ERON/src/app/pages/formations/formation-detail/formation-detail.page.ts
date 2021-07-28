@@ -15,9 +15,7 @@ export class FormationDetailPage implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private formationsService: FormationsService,
-    private router: Router,
-    private alertCtrl: AlertController
-  ) {}
+    private router: Router  ) {}
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe(paramMap => {
