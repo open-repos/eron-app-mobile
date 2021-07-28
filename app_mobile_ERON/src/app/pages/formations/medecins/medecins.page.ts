@@ -55,15 +55,24 @@ categories= [
   }
 ]
 constructor(private router: Router, private formationsService: FormationsService) {
-  // this.segment = 0
+  this.segment = 0
+  // this.idFormation = this.router.getCurrentNavigation().extras.state.example;
+    // console.log(this.idFormation)
+    // console.log(history.state) 
+    // this.segment = this.idFormation
+    // console.log('seg-'+this.segment)
+    // this.focusSegment(this.segment);
 }
 
 ngOnInit() {
   this.formations = this.formationsService.getAllFormations();
-  // this.idFormation = this.router.getCurrentNavigation().extras.state.example;
-  // console.log(this.idFormation)
-  this.segment = 0
 }
+
+// ngOnDestroy(){
+//   this.slider.slideTo(this.segment);
+//   this.slider.update();
+//   this.focusSegment(this.segment);
+// }
 
 
 async segmentChanged(event) {
