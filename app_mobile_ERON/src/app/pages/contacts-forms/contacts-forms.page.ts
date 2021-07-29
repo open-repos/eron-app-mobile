@@ -117,7 +117,7 @@ export class ContactsFormsPage implements OnInit {
     ];
     console.log(this.message);
     // this.sendEmail();
-    this.router.navigate(['/menu/home']);
+    this.router.navigate(['/']);
   }
 
   getColor(id: string,i: number) {

@@ -63,6 +63,9 @@ import {
   //icon Contacts
   faPhoneSquareAlt,
   faMapMarkerAlt,
+  //icon formulaire,
+  faEye,
+  faLock,
 } from '@fortawesome/free-solid-svg-icons';
 
 import {
@@ -158,7 +161,10 @@ export class AppModule {
       faInstagramSquare,
       //icon Contacts
       faPhoneSquareAlt,
-      faMapMarkerAlt
+      faMapMarkerAlt,
+        //icon formulaire,
+      faEye,
+      faLock,
     );
   }
 }

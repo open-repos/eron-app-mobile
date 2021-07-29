@@ -10,4 +10,48 @@
 
 <app-header titleHeader="Connexion"></app-header>
 
-<ion-content padding></ion-content>
+<ion-content>
+
+<img class="illustration" src="../../../assets/illustrations/Illustration-login-orange.svg">
+<div class="ion-text-center">
+  <h1 style="color :#174B97; margin-top:5px;">Bienvenue</h1>
+  <h3 style="color :#174B97; font-weight: 300; margin-top:10px;margin-bottom:20px;">Connectez vous à votre compte pour poursuivre vos formations !</h3>
+</div>
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmitForm()">
+ 
+    <div class="form-all-item ion-text-center"> 
+
+    <div class="textinput-label-icon">
+    <input type="email"  [ngClass]=" (loginForm.controls.email.value === '' && focused) ? '' : loginForm.controls.email.value !== '' ? ((!loginForm.controls.email?.valid && loginForm.controls.email?.dirty ) ? 'border-invalid-error': '' ) : focused ? ((!loginForm.controls.email?.valid && loginForm.controls.email?.dirty ) ? 'border-invalid-error': '' ): '' " id="email" (focus)="focused = true" (blur)="onBlur($event)" class="form-control"
+    formControlName="email"/>
+
+    <div class="label-icon">
+    <label [ngClass]="(loginForm.controls.email.value === '' && focused) ? 'label-focused' : loginForm.controls.email.value === '' ? '' : focused ? ((!loginForm.controls.email?.valid && loginForm.controls.email?.dirty ) ? 'invalid-error': 'label-focused' ): ((!loginForm.controls.email?.valid && loginForm.controls.email?.dirty ) ? 'invalid-error': '' )">Email</label>
+    <fa-icon [icon]="iconEmail"></fa-icon>
+    </div>
+
+    <div *ngIf="loginForm.controls.email.value !== ''">
+    <div *ngIf="!loginForm.controls.email?.valid && loginForm.controls.email?.dirty">
+      <ion-text color="danger">L'Email n'est pas valide </ion-text>
+   </div>
+  </div>
+
+  </div>
+ 
+    <div class="textinput-label-icon mdp-input">
+    <input  [type]="passwordType" id="password"  (focus)="focusedPassword = true" (blur)="onBlur($event)"  class="form-control"
+    formControlName="password"/>
+      <label [ngClass]="focusedPassword ? 'label-focused' : ''">Mot de passe</label>
+      <fa-icon button [icon]="passwordIcon"  (click)="tooglePassword()"></fa-icon>
+  </div>
+ 
+  <ion-button type="submit" >
+    Connexion
+  </ion-button>
+  <a routerLink="#" >Mot de passe oublié?</a>
+
+</div>
+  </form>
+
+</ion-content>
