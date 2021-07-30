@@ -1,0 +1,20 @@
+<ion-card (click)="expandItem(item)" *ngFor="let item of expandedArray, let index = index;">
+  <ion-card-header>
+    <!-- <ion-item> -->
+    <div class="subtitle-icon">
+    <ion-card-subtitle>
+      {{itemFaq[index].titre}}
+    </ion-card-subtitle>
+  </div>
+    <!-- <ion-card-title>Card Title</ion-card-title> -->
+  <!-- </ion-item> -->
+  </ion-card-header>  
+  <div>
+  <!-- <ion-icon name="add-circle" slot="end" size="large"></ion-icon> -->
+  <fa-icon *ngIf="expandedArray[index].isExpanded" [icon]="iconClose"></fa-icon>
+  <fa-icon *ngIf="!expandedArray[index].isExpanded" [icon]="iconOpen"></fa-icon>
+</div>
+  <ion-card-content *ngIf="expandedArray[index].isExpanded">
+    {{itemFaq[index].reponse}}
+  </ion-card-content>
+</ion-card>

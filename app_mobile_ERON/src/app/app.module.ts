@@ -66,6 +66,8 @@ import {
   //icon formulaire,
   faEye,
   faLock,
+  faChevronRight,
+  faChevronUp,
 } from '@fortawesome/free-solid-svg-icons';
 
 import {
@@ -146,6 +148,8 @@ export class AppModule {
       faAngleRight,
       faAngleLeft,
       faAt,
+      faChevronRight,
+      faChevronUp,
       //iconRegular
       //
       farBellSlash,
