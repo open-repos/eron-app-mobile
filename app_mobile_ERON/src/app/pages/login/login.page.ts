@@ -57,7 +57,7 @@ passwordType: string = 'password';
     this.userInfo = formValue['email'];
     console.log(this.userInfo);
     // this.sendEmail();
-    this.router.navigate(['/']);
+    this.router.navigate(['/tabs/tab-suivi']);
   }
 
 
@@ -76,5 +76,4 @@ passwordType: string = 'password';
     this.passwordType = this.passwordType === 'text' ? 'password' : 'text';
     this.passwordIcon = this.passwordIcon === faEye ? faEyeSlash : faEye;
 }
-
 }

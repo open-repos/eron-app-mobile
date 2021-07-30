@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>tabs</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-tabs #tabs (ionTabsDidChange)="setCurrentTab()">
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="tab-suivi">
+        <!-- <ion-icon  [src]="iconTabSuivi"></ion-icon> -->
+        <ion-icon  src="../../assets/icon/icon-tab-suivi-noSelected.svg"></ion-icon>
+        <ion-label>Suivi</ion-label>
+        <!-- <ion-badge>6</ion-badge> -->
+      </ion-tab-button>
+  
+      <ion-tab-button tab="tab-formation" class="icon-perso">
+        <!-- <ion-icon [src]="iconTabFormation"></ion-icon> -->
+        <ion-icon  src="../../assets/icon/icon-tab-formations-book.circle.fill-noSelected.svg"></ion-icon>
+        <ion-label>Formation</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="tab-boutique">
+        <!-- <ion-icon name="cart"></ion-icon> -->
+        <ion-icon  src="../../assets/icon/icon-cart.circle.fill-noSelected.svg"></ion-icon>
+        <ion-label>Boutique</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="tab-profil">
+        <!-- <ion-icon name="person-circle"></ion-icon> -->
+        <ion-icon  src="../../assets/icon/icon-tab-profil-person.circle.fill-noSelected.svg"></ion-icon>
+        <ion-label>Profil</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+
+
+</ion-content>

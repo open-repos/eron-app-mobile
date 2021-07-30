@@ -15,6 +15,10 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('./pages/menu/menu.module').then( m => m.MenuPageModule)
   },
+  // {
+  //   path: 'tabs',
+  //   loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule)
+  // },
 
   // {
   //   path: 'contacts-forms',

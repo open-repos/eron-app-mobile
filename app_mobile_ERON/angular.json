@@ -31,9 +31,9 @@
                 "output": "./svg"
               },
               {
-                "glob": "**/*",
+                "glob": "**/*.svg",
                 "input": "src/assets/icon",
-                "output": "assets"
+                "output": "./svg"
               },
               {
                 "glob": "**/*.svg",
@@ -126,9 +126,9 @@
                 "output": "/assets"
               },
               {
-                "glob": "**/*",
+                "glob": "**/*.svg",
                 "input": "src/assets/icon",
-                "output": "assets"
+                "output": "./svg"
               },
               {
                 "glob": "**/*.svg",
