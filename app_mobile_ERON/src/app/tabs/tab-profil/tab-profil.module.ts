@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { TabProfilPageRoutingModule } from './tab-profil-routing.module';
 
 import { TabProfilPage } from './tab-profil.page';
+import { SahredComponentsApprenantModule } from 'src/app/components/shared/shared-components-apprenant.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TabProfilPageRoutingModule
+    TabProfilPageRoutingModule,
+    SahredComponentsApprenantModule
   ],
   declarations: [TabProfilPage]
 })

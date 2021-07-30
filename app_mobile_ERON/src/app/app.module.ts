@@ -85,9 +85,10 @@ import {
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AllowOverflowDirective } from './allow-overflow.directive';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, AllowOverflowDirective],
   entryComponents: [],
   imports: [
     BrowserModule,

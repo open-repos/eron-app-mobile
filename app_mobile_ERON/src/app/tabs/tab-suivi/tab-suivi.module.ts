@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { TabSuiviPageRoutingModule } from './tab-suivi-routing.module';
 
 import { TabSuiviPage } from './tab-suivi.page';
+import { SahredComponentsApprenantModule } from 'src/app/components/shared/shared-components-apprenant.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TabSuiviPageRoutingModule
+    TabSuiviPageRoutingModule,
+    SahredComponentsApprenantModule
   ],
   declarations: [TabSuiviPage]
 })

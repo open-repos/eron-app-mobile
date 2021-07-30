@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { TabBoutiquePageRoutingModule } from './tab-boutique-routing.module';
 
 import { TabBoutiquePage } from './tab-boutique.page';
+import { SahredComponentsApprenantModule } from 'src/app/components/shared/shared-components-apprenant.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TabBoutiquePageRoutingModule
+    TabBoutiquePageRoutingModule,
+    SahredComponentsApprenantModule
   ],
   declarations: [TabBoutiquePage]
 })
