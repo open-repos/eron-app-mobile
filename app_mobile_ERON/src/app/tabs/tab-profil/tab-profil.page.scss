@@ -1,0 +1,27 @@
+h1{
+    text-align: center;
+}
+
+.container{
+    margin:40px auto;
+  }
+
+
+  .text-items{
+    display: flex !important;
+    flex-direction: row !important;
+    // align-content: space-between !important;
+    justify-content: space-between;
+  }
+  .clickable{
+      display: flex !important;
+      flex-direction: row !important;
+    //   align-content: space-between !important;
+      justify-content: space-between;
+      margin: 4px;
+  }
+
+  .titre-items{
+      font-size: 1.3rem;
+      font-weight: 600;
+  }

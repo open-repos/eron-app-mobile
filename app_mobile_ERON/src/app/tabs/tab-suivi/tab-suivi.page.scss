@@ -1,0 +1,78 @@
+
+.infos-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between !important;
+  //   position: relative;
+}
+
+
+.titre-chiffre {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding:0;
+  margin:0;
+  h3 {
+    font-size: 1rem;
+    text-justify: center;
+    padding:0;
+    margin:15 les lpx 0 2px 0;
+  }
+  p{
+    font-style: italic;
+    font-weight: 900;
+    font-size: 49.3333px;
+    padding:0;
+    margin:0;
+    // line-height: 70px;
+    /* identical to box height, or 142% */
+    
+    letter-spacing: -1.02778px;
+    
+    color: #FD9E28;
+  }
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+} 
+
+.flex-container-card {
+  display: flex;
+  flex-direction: row;
+  height:25vh;
+  width: 90vw;
+  img{
+      width:35%;
+  }
+//   flex-direction: row;
+//   align-items: center;
+//   justify-content: space-evenly;
+}
+
+.list-items{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    ion-item{
+        // margin-top: 4px;
+        font-size: 12px;
+        ion-icon{
+        margin-right:10px;
+        }
+    }
+   
+}
+
+ion-icon{
+    size:4px;
+}
+
+ion-card-header{
+margin:4px;
+padding:4px;
+}
+
