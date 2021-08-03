@@ -13,16 +13,59 @@ const routes: Routes = [
           loadChildren: () => import('./tab-suivi/tab-suivi.module').then( m => m.TabSuiviPageModule)
         },
         {
-          path: 'tab-formation',
-          loadChildren: () => import('./tab-formation/tab-formation.module').then( m => m.TabFormationPageModule)
+          path: 'tab-formation', 
+          children: [       
+          {
+            path:'',
+            loadChildren: () => import('./tab-formation/tab-formation.module').then( m => m.TabFormationPageModule),
+          },
+            {
+              path: ':formationApprenantId',
+              loadChildren: () => import('./tab-formation/formation-apprenant-detail/formation-apprenant-detail.module').then( m => m.FormationApprenantDetailPageModule)
+          
+            }
+          ]
         },
         {
           path: 'tab-boutique',
-          loadChildren: () => import('./tab-boutique/tab-boutique.module').then( m => m.TabBoutiquePageModule)
+          children: [       
+            {
+              path:'',
+              loadChildren: () => import('./tab-boutique/tab-boutique.module').then( m => m.TabBoutiquePageModule),
+            },
+              {
+                path: ':boutiqueApprenantId',
+                loadChildren: () => import('./tab-boutique/boutique-formations-detail/boutique-formations-detail.module').then( m => m.BoutiqueFormationsDetailPageModule)
+            
+              }
+            ]
         },
         {
-          path: 'tab-profil',
-          loadChildren: () => import('./tab-profil/tab-profil.module').then( m => m.TabProfilPageModule)
+          path: 'tab-profil',        
+          children: [       
+            {
+              path:'',
+              loadChildren: () => import('./tab-profil/tab-profil.module').then( m => m.TabProfilPageModule),
+            },
+            {
+              path: 'attestation-apprenant',
+              loadChildren: () => import('./tab-profil/attestation-apprenant/attestation-apprenant.module').then( m => m.AttestationApprenantPageModule)
+            },
+            {
+              path: 'notifications-apprenant',
+              loadChildren: () => import('./tab-profil/notifications-apprenant/notifications-apprenant.module').then( m => m.NotificationsApprenantPageModule)
+            },
+            {
+              path: 'contacts',
+              loadChildren: () => import('./tab-profil/contacts/contacts.module').then( m => m.ContactsPageModule)
+            },
+            {
+              path: 'faq',
+              loadChildren: () => import('./tab-profil/faq/faq.module').then( m => m.FaqPageModule)
+            }
+          
+            ]
+
         },
       {
         path: '',

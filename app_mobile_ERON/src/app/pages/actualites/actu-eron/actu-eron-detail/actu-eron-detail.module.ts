@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ActualiteDetailPageRoutingModule } from './actualite-detail-routing.module';
+import { ActuEronDetailPageRoutingModule } from './actu-eron-detail-routing.module';
 
-import { ActualiteDetailPage } from './actualite-detail.page';
+import { ActuEronDetailPage } from './actu-eron-detail.page';
 import { SahredComponentsModule } from 'src/app/components/shared/shared-components.module';
 
 @NgModule({
@@ -14,9 +14,9 @@ import { SahredComponentsModule } from 'src/app/components/shared/shared-compone
     CommonModule,
     FormsModule,
     IonicModule,
-    ActualiteDetailPageRoutingModule,
+    ActuEronDetailPageRoutingModule,
     SahredComponentsModule
   ],
-  declarations: [ActualiteDetailPage]
+  declarations: [ActuEronDetailPage]
 })
-export class ActualiteDetailPageModule {}
+export class ActuEronDetailPageModule {}

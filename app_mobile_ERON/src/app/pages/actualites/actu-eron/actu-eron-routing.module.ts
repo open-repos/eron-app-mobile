@@ -6,9 +6,9 @@ import { ActuEronPage } from './actu-eron.page';
 const routes: Routes = [
   {
     path: '',
-    component: ActuEronPage
+    component: ActuEronPage,
   }
-];
+  ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

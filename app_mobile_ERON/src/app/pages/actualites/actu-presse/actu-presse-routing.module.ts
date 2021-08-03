@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: ActuPressePage
+  },
+  {
+    path: 'actu-presse-detail',
+    loadChildren: () => import('./actu-presse-detail/actu-presse-detail.module').then( m => m.ActuPresseDetailPageModule)
   }
 ];
 

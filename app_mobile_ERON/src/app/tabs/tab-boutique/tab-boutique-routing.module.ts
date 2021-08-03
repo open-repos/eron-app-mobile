@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: TabBoutiquePage
-  }
+  },
+  // {
+  //   path: 'boutique-formations-detail',
+  //   loadChildren: () => import('./boutique-formations-detail/boutique-formations-detail.module').then( m => m.BoutiqueFormationsDetailPageModule)
+  // }
 ];
 
 @NgModule({

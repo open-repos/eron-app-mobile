@@ -60,4 +60,9 @@ validateEmail(email: string) {
 
  }
 
+
+// ionViewDidLeave(){
+//   console.log(this.actualitesEron)
+// }
+
 }

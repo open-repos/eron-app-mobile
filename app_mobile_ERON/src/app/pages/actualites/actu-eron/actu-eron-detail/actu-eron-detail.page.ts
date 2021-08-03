@@ -1,14 +1,14 @@
-import { ActualitesEronService } from './../../../services/actualites-eron.service';
-import { ActutalitesEron } from './../actu-eron/actu-eron.model';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ActualitesEronService } from 'src/app/services/actualites-eron.service';
+import { ActutalitesEron } from '../actu-eron.model';
 
 @Component({
-  selector: 'app-actualite-detail',
-  templateUrl: './actualite-detail.page.html',
-  styleUrls: ['./actualite-detail.page.scss'],
+  selector: 'app-actu-eron-detail',
+  templateUrl: './actu-eron-detail.page.html',
+  styleUrls: ['./actu-eron-detail.page.scss'],
 })
-export class ActualiteDetailPage implements OnInit {
+export class ActuEronDetailPage implements OnInit {
 
   loadActualiteEron: ActutalitesEron;
 
@@ -17,6 +17,7 @@ export class ActualiteDetailPage implements OnInit {
     private actualitesService: ActualitesEronService ) {}
 
   ngOnInit() {
+    console.log(this.activatedRoute)
     this.activatedRoute.paramMap.subscribe(paramMap => {
       if (!paramMap.has('actualiteId')) {
         // redirect

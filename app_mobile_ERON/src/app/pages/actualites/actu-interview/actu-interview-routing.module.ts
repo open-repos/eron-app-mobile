@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: ActuInterviewPage
+  },
+  {
+    path: 'actu-interview-detail',
+    loadChildren: () => import('./actu-interview-detail/actu-interview-detail.module').then( m => m.ActuInterviewDetailPageModule)
   }
 ];
 

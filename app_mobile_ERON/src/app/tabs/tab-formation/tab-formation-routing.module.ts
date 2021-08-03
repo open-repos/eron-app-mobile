@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: TabFormationPage
-  }
+  },
+  // {
+  //   path: 'formation-apprenant-detail',
+  //   loadChildren: () => import('./formation-apprenant-detail/formation-apprenant-detail.module').then( m => m.FormationApprenantDetailPageModule)
+  // }
 ];
 
 @NgModule({

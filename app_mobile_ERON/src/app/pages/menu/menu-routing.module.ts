@@ -39,10 +39,19 @@ const routes: Routes = [
       },
       {
         path: 'actu-presse',
-        loadChildren: () =>
-          import('../actualites/actu-presse/actu-presse.module').then(
-            (m) => m.ActuPressePageModule
-          ),
+        children: [
+          {
+            path:'',
+            loadChildren: () =>
+            import('../actualites/actu-presse/actu-presse.module').then(
+              (m) => m.ActuPressePageModule
+            ),
+          },
+            {
+              path: ':actualiteId',
+              loadChildren: () => import('../actualites/actu-presse/actu-presse-detail/actu-presse-detail.module').then( m => m.ActuPresseDetailPageModule)
+            }
+        ]
       },
       {
         path: 'actu-eron',
@@ -54,17 +63,28 @@ const routes: Routes = [
                 (m) => m.ActuEronPageModule
               ),
             },
-            {
-            path:':actualiteId',
-              loadChildren: () => import('../actualites/actualite-detail/actualite-detail.module').then( m => m.ActualiteDetailPageModule),
-            }]
+              {
+                path: ':actualiteId',
+                loadChildren: () => import('../actualites/actu-eron/actu-eron-detail/actu-eron-detail.module').then( m => m.ActuEronDetailPageModule)
+              }
+          ]
       },
       {
         path: 'actu-interview',
-        loadChildren: () =>
+        children: [
+          {
+            path:'',
+            loadChildren: () =>
             import('../actualites/actu-interview/actu-interview.module').then(
               (m) => m.ActuInterviewPageModule
             ),
+          },
+            {
+              path: ':actualiteId',
+              loadChildren: () => import('../actualites/actu-interview/actu-interview-detail/actu-interview-detail.module').then( m => m.ActuInterviewDetailPageModule)
+            }
+        ]
+
         },
       {
         path: 'login',
