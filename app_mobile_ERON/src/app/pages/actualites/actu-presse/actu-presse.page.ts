@@ -1,10 +1,9 @@
+import { ActuPresse } from './../../../models/actu-presse.model';
+import { ActualitesPresseService } from './../../../services/actualites-presse.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-import { ActualitesEronService } from 'src/app/services/actualites-eron.service';
-import { ActutalitesEron } from '../actu-eron/actu-eron.model';
-
 @Component({
   selector: 'app-actu-presse',
   templateUrl: './actu-presse.page.html',
@@ -12,16 +11,16 @@ import { ActutalitesEron } from '../actu-eron/actu-eron.model';
 })
 export class ActuPressePage implements OnInit {
 
-  actualitesEron: ActutalitesEron[];
+  loadedActualitesPresse: ActuPresse[];
   
-  constructor(private router: Router, private actualitesService: ActualitesEronService,
+  constructor(private router: Router, private actualitesService: ActualitesPresseService,
     private alertCtrl: AlertController
     ) {
 
   }
   
   ngOnInit() {
-    this.actualitesEron = this.actualitesService.getAllactualiteEron();
+    this.loadedActualitesPresse = this.actualitesService.actualitesPresse;
   }
 
   onSubmit(form: NgForm) {

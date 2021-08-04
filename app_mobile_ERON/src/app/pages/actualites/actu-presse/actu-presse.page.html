@@ -23,8 +23,8 @@
 </ion-grid> -->
 
 <div class="grid">
-  <ng-container *ngFor="let actualite of actualitesEron">
-    <app-card-item [item] = "actualite" cssCardType="col-2" ></app-card-item>
+  <ng-container *ngFor="let actualite of loadedActualitesPresse">
+    <app-card-item [item] = "actualite" cssCardType="col-2" [routerLink]="['/actu-presse', actualite.id]"></app-card-item>
   </ng-container>
 </div>
 
