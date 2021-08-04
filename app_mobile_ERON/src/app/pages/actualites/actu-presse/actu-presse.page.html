@@ -9,4 +9,27 @@
 </ion-header> -->
 <app-header titleHeader="Actualités Presse"></app-header>
 
-<ion-content padding></ion-content>
+<ion-content>
+<!-- <ion-grid>
+    <ion-row *ngFor="let actualite of actualitesEron"
+    [routerLink]="['/actu-eron', actualite.id]">
+      <ion-col>
+        <div>1 of 2</div>
+      </ion-col>
+      <ion-col>
+        <div>2 of 2</div>
+      </ion-col>
+    </ion-row>
+</ion-grid> -->
+
+<div class="grid">
+  <ng-container *ngFor="let actualite of actualitesEron">
+    <app-card-item [item] = "actualite" cssCardType="col-2" ></app-card-item>
+  </ng-container>
+</div>
+
+
+
+
+
+</ion-content>

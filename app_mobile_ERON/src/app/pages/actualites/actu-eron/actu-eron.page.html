@@ -15,7 +15,7 @@
   <ion-slides class="slides" #slides pager="true">
     <ion-slide  *ngFor="let actualite of actualitesEron"
     [routerLink]="['/actu-eron', actualite.id]">
-        <ion-card class="ion-text-left">
+        <!-- <ion-card class="ion-text-left">
           <img [src]="actualite.imageUrl" />
           <ion-card-header>
             <div class="card-header">
@@ -26,7 +26,9 @@
           <ion-card-content>
             {{actualite.description}}
           </ion-card-content>
-        </ion-card>
+        </ion-card> -->
+        <app-card-item [item] = "actualite" cssCardType="col-1" ></app-card-item>
+
     </ion-slide>
 
   </ion-slides>

@@ -1,0 +1,16 @@
+<!-- <ion-card class="ion-text-left css-card-item"> -->
+  <ion-card [ngClass]="['ion-text-left', cssCardType]">
+  <img [src]="item.imageUrl" />
+  <ion-card-header>
+    <div class="card-header">
+      <ion-card-subtitle>{{item.date}}</ion-card-subtitle>
+      <!-- <ion-card-subtitle>{{item.date | date}}</ion-card-subtitle> -->
+    </div>
+    <ion-card-title>{{item.title}} ...</ion-card-title>
+    <!-- <ion-card-title>{{item.title.substring(0, 50)}} ...</ion-card-title> -->
+  </ion-card-header>
+  <ion-card-content>
+    <!-- <span class="element">{{item.description}}</span> -->
+    {{item.description}}
+  </ion-card-content>
+</ion-card>
