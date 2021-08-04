@@ -9,4 +9,4 @@ import { HeaderApprenantComponent } from './header-apprenant/header-apprenant.co
     exports:[HeaderApprenantComponent]
 })
 
-export class SahredComponentsApprenantModule{}
+export class SharedComponentsApprenantModule{}

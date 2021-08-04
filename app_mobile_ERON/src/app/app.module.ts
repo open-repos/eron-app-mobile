@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {SahredComponentsModule} from './components/shared/shared-components.module'
+import {SharedComponentsModule} from './components/shared/shared-components.module'
 import {
   FontAwesomeModule,
   FaIconLibrary,
@@ -88,6 +88,7 @@ import {
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AllowOverflowDirective } from './allow-overflow.directive';
+import { TypeofPipe } from './pipes/typeof.pipe';
 
 @NgModule({
   declarations: [AppComponent, AllowOverflowDirective],
@@ -100,7 +101,7 @@ import { AllowOverflowDirective } from './allow-overflow.directive';
     MenuPageModule,
     FormsModule,
     ReactiveFormsModule,
-    SahredComponentsModule,
+    SharedComponentsModule,
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

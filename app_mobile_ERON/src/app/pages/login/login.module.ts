@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { LoginPageRoutingModule } from './login-routing.module';
 
 import { LoginPage } from './login.page';
-import { SahredComponentsModule } from 'src/app/components/shared/shared-components.module';
+import { SharedComponentsModule } from 'src/app/components/shared/shared-components.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
@@ -16,7 +16,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FormsModule,
     IonicModule,
     LoginPageRoutingModule,
-    SahredComponentsModule,
+    SharedComponentsModule,
     ReactiveFormsModule,
     FontAwesomeModule,
   ],

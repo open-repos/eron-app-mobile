@@ -1,9 +1,8 @@
-import { ActutalitesEron } from './actu-eron.model';
+import { ActutalitesEron } from '../../../models/actu-eron.model';
 import { ActualitesEronService } from './../../../services/actualites-eron.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, IonSlides } from '@ionic/angular';
-import { Formation } from '../../formations/formation.model';
 import { NgForm } from '@angular/forms';
 
 @Component({

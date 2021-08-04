@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActutalitesEron } from '../pages/actualites/actu-eron/actu-eron.model';
+import { ActutalitesEron } from '../models/actu-eron.model';
 
 @Injectable({
   providedIn: 'root'

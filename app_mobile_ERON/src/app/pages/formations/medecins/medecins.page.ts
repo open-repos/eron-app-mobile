@@ -1,5 +1,5 @@
 import { FormationsService } from './../../../services/formations.service';
-import { Formation } from './../formation.model';
+import { Formation } from '../../../models/formation.model';
 // import { ViewportScroller } from '@angular/common';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';

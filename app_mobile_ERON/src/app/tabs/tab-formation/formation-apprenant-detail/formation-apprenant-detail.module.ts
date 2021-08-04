@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { FormationApprenantDetailPageRoutingModule } from './formation-apprenant-detail-routing.module';
 
 import { FormationApprenantDetailPage } from './formation-apprenant-detail.page';
-import { SahredComponentsApprenantModule } from 'src/app/components/shared/shared-components-apprenant.module';
+import { SharedComponentsApprenantModule } from 'src/app/components/shared/shared-components-apprenant.module';
 
 @NgModule({
   imports: [
@@ -15,7 +15,7 @@ import { SahredComponentsApprenantModule } from 'src/app/components/shared/share
     FormsModule,
     IonicModule,
     FormationApprenantDetailPageRoutingModule,
-    SahredComponentsApprenantModule
+    SharedComponentsApprenantModule
   ],
   declarations: [FormationApprenantDetailPage]
 })

@@ -1,4 +1,4 @@
-import { SahredComponentsApprenantModule } from './../components/shared/shared-components-apprenant.module';
+import { SharedComponentsApprenantModule } from './../components/shared/shared-components-apprenant.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -17,7 +17,7 @@ import { TabsPage } from './tabs.page';
     IonicModule,
     TabsPageRoutingModule,
     FontAwesomeModule,
-    SahredComponentsApprenantModule
+    SharedComponentsApprenantModule
   ],
   declarations: [TabsPage]
 })

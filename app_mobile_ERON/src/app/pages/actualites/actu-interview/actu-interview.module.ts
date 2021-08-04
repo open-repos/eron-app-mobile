@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ActuInterviewPageRoutingModule } from './actu-interview-routing.module';
 
 import { ActuInterviewPage } from './actu-interview.page';
-import { SahredComponentsModule } from 'src/app/components/shared/shared-components.module';
+import { SharedComponentsModule } from 'src/app/components/shared/shared-components.module';
 
 @NgModule({
   imports: [
@@ -15,7 +15,7 @@ import { SahredComponentsModule } from 'src/app/components/shared/shared-compone
     FormsModule,
     IonicModule,
     ActuInterviewPageRoutingModule,
-    SahredComponentsModule
+    SharedComponentsModule
   ],
   declarations: [ActuInterviewPage]
 })

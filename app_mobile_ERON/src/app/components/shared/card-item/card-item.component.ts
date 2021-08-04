@@ -12,6 +12,15 @@ export interface Item {
   description: string;
 }
 
+export interface ItemFormation {
+  id:string;
+  title: string;
+  imageUrl: string;
+  duree: string;
+  logo: string[] | string;
+  description: string;
+}
+
 @Component({
   selector: 'app-card-item',
   templateUrl: './card-item.component.html',
@@ -20,8 +29,11 @@ export interface Item {
 export class CardItemComponent implements OnInit {
 
   @Input() item: Item;
+  @Input() itemFormation: ItemFormation;
 
   @Input() cssCardType: string ='col-1';
+
+  @Input() isFormation: boolean = false;
   constructor() { }
 
   ngOnInit() {}

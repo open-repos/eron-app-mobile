@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { FormationDetailPageRoutingModule } from './formation-detail-routing.module';
 
 import { FormationDetailPage } from './formation-detail.page';
-import { SahredComponentsModule } from 'src/app/components/shared/shared-components.module';
+import { SharedComponentsModule } from 'src/app/components/shared/shared-components.module';
 
 @NgModule({
   imports: [
@@ -15,7 +15,7 @@ import { SahredComponentsModule } from 'src/app/components/shared/shared-compone
     FormsModule,
     IonicModule,
     FormationDetailPageRoutingModule,
-    SahredComponentsModule
+    SharedComponentsModule
   ],
   declarations: [FormationDetailPage]
 })

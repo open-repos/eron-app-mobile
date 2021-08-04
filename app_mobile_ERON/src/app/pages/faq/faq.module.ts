@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { FaqPageRoutingModule } from './faq-routing.module';
 
 import { FaqPage } from './faq.page';
-import { SahredComponentsModule } from 'src/app/components/shared/shared-components.module';
+import { SharedComponentsModule } from 'src/app/components/shared/shared-components.module';
 
 @NgModule({
   imports: [
@@ -15,7 +15,7 @@ import { SahredComponentsModule } from 'src/app/components/shared/shared-compone
     FormsModule,
     IonicModule,
     FaqPageRoutingModule,
-    SahredComponentsModule
+    SharedComponentsModule
   ],
   declarations: [FaqPage]
 })

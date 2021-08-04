@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ActualitesEronService } from 'src/app/services/actualites-eron.service';
-import { ActutalitesEron } from '../actu-eron.model';
+import { ActutalitesEron } from '../../../../models/actu-eron.model';
 
 @Component({
   selector: 'app-actu-eron-detail',

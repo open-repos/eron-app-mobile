@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ActuEronDetailPageRoutingModule } from './actu-eron-detail-routing.module';
 
 import { ActuEronDetailPage } from './actu-eron-detail.page';
-import { SahredComponentsModule } from 'src/app/components/shared/shared-components.module';
+import { SharedComponentsModule } from 'src/app/components/shared/shared-components.module';
 
 @NgModule({
   imports: [
@@ -15,7 +15,7 @@ import { SahredComponentsModule } from 'src/app/components/shared/shared-compone
     FormsModule,
     IonicModule,
     ActuEronDetailPageRoutingModule,
-    SahredComponentsModule
+    SharedComponentsModule
   ],
   declarations: [ActuEronDetailPage]
 })

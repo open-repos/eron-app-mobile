@@ -5,10 +5,12 @@ import { CommonModule } from '@angular/common';
 import {NgModule} from '@angular/core';
 import { HeaderComponent } from './header/header.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { TypeofPipe } from 'src/app/pipes/typeof.pipe';
+
 @NgModule({
     imports: [CommonModule, IonicModule,FontAwesomeModule],
-    declarations: [HeaderComponent, AccordionItemComponent,CardItemComponent],
-    exports:[HeaderComponent,AccordionItemComponent,CardItemComponent]
+    declarations: [HeaderComponent, AccordionItemComponent,CardItemComponent, TypeofPipe],
+    exports:[HeaderComponent,AccordionItemComponent,CardItemComponent, TypeofPipe]
 })
 
-export class SahredComponentsModule{}
+export class SharedComponentsModule{}

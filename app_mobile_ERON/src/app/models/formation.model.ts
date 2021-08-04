@@ -3,6 +3,6 @@ export interface Formation {
     title: string;
     imageUrl: string;
     duree: string;
-    logo: string;
+    logo: string[] | string;
     description: string;
 }

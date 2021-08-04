@@ -31,7 +31,8 @@
 <ion-content>
   <ion-slides #slides pager="false" (ionSlideDidChange)="slideChanged()">
 
-    <ion-slide>
+    <!-- METHODE SANS COMPOSANTS PARTAGE -->
+    <!-- <ion-slide>
       <ion-list>
         <ion-card *ngFor="let formation of formations"
         [routerLink]="['/formations', formation.id]">
@@ -51,32 +52,55 @@
           </ion-card-content>
         </ion-card>
       </ion-list>
+    </ion-slide> -->
+
+
+    <!-- METHODE AVEC COMPOSANT PARTAGE "app-card-item" -->
+    <ion-slide>
+      <ion-list>
+        <ng-container *ngFor="let formation of formations">
+          <app-card-item [itemFormation]="formation" [isFormation]="true" cssCardType="col-1-formation"
+            [routerLink]="['/formations', formation.id]"></app-card-item>
+        </ng-container>
+      </ion-list>
     </ion-slide>
+
 
     <ion-slide>
       <ion-list>
-        <ion-card *ngFor="let formation of formations">
-          <img [src]="formation.imageUrl" />
-          <ion-card-header>
-            <ion-card-subtitle>{{formation.duree}}</ion-card-subtitle>
-            <ion-card-title>{{formation.title}}</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            {{formation.description}}
-          </ion-card-content>
-        </ion-card>
+        <ng-container *ngFor="let formation of formations">
+          <app-card-item [itemFormation]="formation" [isFormation]="true" cssCardType="col-1-formation"
+            [routerLink]="['/formations', formation.id]"></app-card-item>
+        </ng-container>
       </ion-list>
     </ion-slide>
 
     <ion-slide>
-      3
+      <ion-list>
+        <ng-container *ngFor="let formation of formations">
+          <app-card-item [itemFormation]="formation" [isFormation]="true" cssCardType="col-1-formation"
+            [routerLink]="['/formations', formation.id]"></app-card-item>
+        </ng-container>
+      </ion-list>
     </ion-slide>
 
     <ion-slide>
-      4
+      <ion-list>
+        <ng-container *ngFor="let formation of formations">
+          <app-card-item [itemFormation]="formation" [isFormation]="true" cssCardType="col-1-formation"
+            [routerLink]="['/formations', formation.id]"></app-card-item>
+        </ng-container>
+      </ion-list>
     </ion-slide>
+
     <ion-slide>
-      5
+      <ion-list>
+        <ng-container *ngFor="let formation of formations">
+          <app-card-item [itemFormation]="formation" [isFormation]="true" cssCardType="col-1-formation"
+            [routerLink]="['/formations', formation.id]"></app-card-item>
+        </ng-container>
+      </ion-list>
     </ion-slide>
+
   </ion-slides>
 </ion-content>

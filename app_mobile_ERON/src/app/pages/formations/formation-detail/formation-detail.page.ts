@@ -2,7 +2,7 @@ import { FormationsService } from './../../../services/formations.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-import { Formation } from '../formation.model';
+import { Formation } from '../../../models/formation.model';
 
 @Component({
   selector: 'app-formation-detail',
