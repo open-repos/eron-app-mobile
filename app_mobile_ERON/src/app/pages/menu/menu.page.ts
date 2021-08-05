@@ -147,8 +147,7 @@ export class MenuPage implements OnInit {
 
   isBoolean(val): boolean { return typeof val === 'boolean'; }
   onMenuClick(url:string, value:number){
-    // console.log(id + "clicked")
-    this.router.navigateByUrl(url, {state:{example:value}})
-    // this.menu.close()
+    // this.router.navigateByUrl(url, {state:{example:value}})
+    this.router.navigate([url],  { queryParams: { formation: value } })
   }
 }

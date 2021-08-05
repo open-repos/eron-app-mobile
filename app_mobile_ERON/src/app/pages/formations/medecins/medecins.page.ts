@@ -2,9 +2,9 @@ import { FormationsService } from './../../../services/formations.service';
 import { Formation } from '../../../models/formation.model';
 // import { ViewportScroller } from '@angular/common';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { faHands, faPills, faTeethOpen, faUserMd, faUserNurse } from '@fortawesome/free-solid-svg-icons';
-import { IonSlides } from '@ionic/angular';
+import { IonSlides, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-medecins',
@@ -17,6 +17,9 @@ public idFormation: number;
 formations: Formation[];
 
 @ViewChild(IonSlides) slider: IonSlides;
+
+value: string;
+public href: string = "";
 segment : number;
 categories= [
   {
@@ -55,26 +58,37 @@ categories= [
     icon:faHands
   }
 ]
-constructor(private router: Router, private formationsService: FormationsService) {
-  this.segment = 0
+constructor(private formationsService: FormationsService, private route: ActivatedRoute, private navCtrl: NavController, private router: Router) {
+//   this.route.params.subscribe(params => {
+//     this.value = params['value'];
+//     console.log(this.value);
+// });
+  // this.segment = 0
+  // console.log(this.router.getCurrentNavigation().extras)
+
   // this.idFormation = this.router.getCurrentNavigation().extras.state.example;
-    // console.log(this.idFormation)
+
+  // console.log("this.router.getCurrentNavigation().extras.state.example " + this.idFormation)
     // console.log(history.state) 
     // this.segment = this.idFormation
     // console.log('seg-'+this.segment)
     // this.focusSegment(this.segment);
 }
 
+// ionViewWillEnter(){
+//   console.log(this.router.getCurrentNavigation())
+// }
+
 ngOnInit() {
+  this.route.queryParams.subscribe(queryParams => {
+	console.log(queryParams)
+ this.segment= queryParams.formation
+    // do something with the query params
+	});
+  
   this.formations = this.formationsService.getAllFormations();
   
 }
-
-// ngOnDestroy(){
-//   this.slider.slideTo(this.segment);
-//   this.slider.update();
-//   this.focusSegment(this.segment);
-// }
 
 
 async segmentChanged(event) {
@@ -92,6 +106,10 @@ document.getElementById('seg-'+segmentId).scrollIntoView({
   block: 'center',
   inline: 'center'
 });
+}
+
+ionViewDidLeave(){
+  console.log("LEAVE"+this.segment)
 }
 
 

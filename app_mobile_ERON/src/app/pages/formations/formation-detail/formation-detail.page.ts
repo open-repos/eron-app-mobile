@@ -18,6 +18,12 @@ export class FormationDetailPage implements OnInit {
     private router: Router  ) {}
 
   ngOnInit() {
+
+    this.activatedRoute.queryParams.subscribe(queryParams => {
+      console.log("PAGE DETAIL"+queryParams.formation)
+        // do something with the query params
+      });
+
     this.activatedRoute.paramMap.subscribe(paramMap => {
       if (!paramMap.has('formationId')) {
         // redirect
@@ -26,5 +32,8 @@ export class FormationDetailPage implements OnInit {
       const formationId = paramMap.get('formationId');
       this.loadFormation = this.formationsService.getFormation(formationId);
     });
+
+
+
   }
 }

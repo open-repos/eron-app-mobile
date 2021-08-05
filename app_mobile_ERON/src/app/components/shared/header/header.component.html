@@ -1,7 +1,8 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button *ngIf="detailPage" style='color: white' defaultHref={{pageBack}}></ion-back-button>
+      <ion-back-button *ngIf="detailPage && !withQueryParam" style='color: white' defaultHref={{pageBack}}></ion-back-button>
+      <ion-icon *ngIf="detailPage && withQueryParam" style='color: white' (click)="onMenuClick()" name="chevron-back-outline" size=large> </ion-icon>
       <ion-menu-button *ngIf="!detailPage"></ion-menu-button>
     </ion-buttons>
     <ion-title>{{titleHeader}}</ion-title>

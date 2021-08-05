@@ -60,7 +60,7 @@
       <ion-list>
         <ng-container *ngFor="let formation of formations">
           <app-card-item [itemFormation]="formation" [isFormation]="true" cssCardType="col-1-formation"
-            [routerLink]="['/formations', formation.id]"></app-card-item>
+            [routerLink]="['/formations', formation.id]" [queryParams]="{ formation: segment}"></app-card-item>
         </ng-container>
       </ion-list>
     </ion-slide>
@@ -70,7 +70,7 @@
       <ion-list>
         <ng-container *ngFor="let formation of formations">
           <app-card-item [itemFormation]="formation" [isFormation]="true" cssCardType="col-1-formation"
-            [routerLink]="['/formations', formation.id]"></app-card-item>
+            [routerLink]="['/formations', formation.id]"  [queryParams]="{ formation: segment}"  ></app-card-item>
         </ng-container>
       </ion-list>
     </ion-slide>
@@ -79,7 +79,7 @@
       <ion-list>
         <ng-container *ngFor="let formation of formations">
           <app-card-item [itemFormation]="formation" [isFormation]="true" cssCardType="col-1-formation"
-            [routerLink]="['/formations', formation.id]"></app-card-item>
+            [routerLink]="['/formations', formation.id]"  [queryParams]="{ formation: segment}"></app-card-item>
         </ng-container>
       </ion-list>
     </ion-slide>
@@ -88,7 +88,7 @@
       <ion-list>
         <ng-container *ngFor="let formation of formations">
           <app-card-item [itemFormation]="formation" [isFormation]="true" cssCardType="col-1-formation"
-            [routerLink]="['/formations', formation.id]"></app-card-item>
+            [routerLink]="['/formations', formation.id]"  [queryParams]="{ formation: segment}"></app-card-item>
         </ng-container>
       </ion-list>
     </ion-slide>
@@ -97,7 +97,7 @@
       <ion-list>
         <ng-container *ngFor="let formation of formations">
           <app-card-item [itemFormation]="formation" [isFormation]="true" cssCardType="col-1-formation"
-            [routerLink]="['/formations', formation.id]"></app-card-item>
+            [routerLink]="['/formations', formation.id]"  [queryParams]="{ formation: segment}"></app-card-item>
         </ng-container>
       </ion-list>
     </ion-slide>

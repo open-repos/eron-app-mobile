@@ -27,7 +27,7 @@
   <!-- <div class='btn'> -->
     <ion-row>
       <ion-col size="12">
-        <ion-button routerLink='/formations' fill="clear" display='block'>
+        <ion-button routerLink='/formations' [queryParams]="{ formation: 0}" fill="clear" display='block'>
           Formations
         </ion-button>
       </ion-col>
