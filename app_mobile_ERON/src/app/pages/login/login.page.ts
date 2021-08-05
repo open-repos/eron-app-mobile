@@ -1,3 +1,4 @@
+import { AuthService } from './../../services/auth.service';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { Router } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
@@ -38,7 +39,8 @@ passwordType: string = 'password';
 
 
   constructor(private formBuilder: FormBuilder,
-    private router: Router) { }
+    private router: Router, 
+    private authService:AuthService) { }
 
     ngOnInit() {
       this.initForm();
@@ -57,7 +59,7 @@ passwordType: string = 'password';
     this.userInfo = formValue['email'];
     console.log(this.userInfo);
     // this.sendEmail();
-    this.router.navigate(['/tabs/tab-suivi']);
+    this.onLogin();
   }
 
 
@@ -76,4 +78,10 @@ passwordType: string = 'password';
     this.passwordType = this.passwordType === 'text' ? 'password' : 'text';
     this.passwordIcon = this.passwordIcon === faEye ? faEyeSlash : faEye;
 }
+
+onLogin(){
+  this.authService.login();
+  this.router.navigate(['/tabs/tab-suivi']);
+}
+
 }
