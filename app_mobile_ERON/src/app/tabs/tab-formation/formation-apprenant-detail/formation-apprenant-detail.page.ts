@@ -1,3 +1,6 @@
+import { ActivatedRoute } from '@angular/router';
+import { FormationsApprenantService } from './../../../services/formations-apprenant.service';
+import { FormationApprenant } from './../../../models/formation-apprenant.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormationApprenantDetailPage implements OnInit {
 
-  constructor() { }
+  loadFormationApprenant: FormationApprenant;
+
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private formationApprenantService: FormationsApprenantService ) {}
 
   ngOnInit() {
+    console.log(this.activatedRoute)
+    this.activatedRoute.paramMap.subscribe(paramMap => {
+      if (!paramMap.has('formationApprenantId')) {
+        // redirect
+        return;
+      }
+      const formationApprenantId = paramMap.get('formationApprenantId');
+      this.loadFormationApprenant = this.formationApprenantService.getFormationApprenant(formationApprenantId);
+    });
   }
-
 }
+

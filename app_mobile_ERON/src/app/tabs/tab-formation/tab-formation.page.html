@@ -1,5 +1,23 @@
 <app-header-apprenant titleHeader="Mes Formations"></app-header-apprenant>
 
-<ion-content>
+<ion-content class="ion-no-padding">
 
+    <!-- <ion-list> -->
+    <div class="listcard">
+        <ng-container *ngFor="let formation of formationApprenants">
+            <app-card-item-h [item] = "formation"  (click)="goToDetail(formation.id)" ></app-card-item-h>
+            <!-- <app-card-item-h [item] = "formation"  [routerLink]="['/tabs/tab-formation', formation.id]"></app-card-item-h> -->
+
+        </ng-container>
+    </div>
 </ion-content>
+
+<ion-footer>
+    <div class="footer-content">
+        <img src="../../../assets/illustrations/Illustration-tab-formation.svg">
+        <div class="foot-content-text-arrow">
+            <h2>Découvrez nos autres formations</h2>
+            <fa-icon [icon]="faArrowDown"></fa-icon>
+        </div>
+    </div>
+</ion-footer>

@@ -60,6 +60,7 @@ import {
   faAngleRight,
   faAngleLeft,
   faAt,
+  faClock,
   //icon Contacts
   faPhoneSquareAlt,
   faMapMarkerAlt,
@@ -151,6 +152,7 @@ export class AppModule {
       faAt,
       faChevronRight,
       faChevronUp,
+      faClock,
       //iconRegular
       //
       farBellSlash,
