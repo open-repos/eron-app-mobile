@@ -1,5 +1,36 @@
-<app-header-apprenant titleHeader="Contacts"></app-header-apprenant>
+<app-header-apprenant titleHeader="Contacts" [detailPage]=true pageBack="tabs/tab-profil"></app-header-apprenant>
 
 <ion-content>
-
-</ion-content>
+    <div class="all-items">
+      <div class="box">
+        <div class="sub-item-contacts">
+          <fa-icon class="socialMedia" [icon]="faPhone"></fa-icon>
+          <p>01 86 26 97 12</p>
+        </div>
+        <div class="sub-item-contacts">
+          <fa-icon class="socialMedia" [icon]="faEnvelope"></fa-icon>
+          <p>serviceclient@eronservice.fr</p>
+        </div>
+    
+        <div class="sub-item-contacts"> 
+          <fa-icon class="socialMedia" [icon]="faMap"></fa-icon>
+          <p>22 Rue du sentier,Paris 75002</p>
+        </div>
+    
+        <!-- <div> <h1></h1></div>
+        <div> <h1></h1></div>
+        <div> <h1></h1></div>
+        <div> <h1></h1></div> -->
+      </div>
+    
+        <div class="sub-item-contacts">
+          <p>Formulaire de contact</p>
+          <button class="btn" routerLink='/tabs/tab-profil/contacts/contacts-forms'><fa-icon class="socialMedia" [icon]="faChevronDown" ></fa-icon></button>
+        </div>
+    
+      </div>
+    
+    
+    
+    
+    </ion-content>

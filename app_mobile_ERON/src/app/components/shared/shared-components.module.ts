@@ -1,5 +1,4 @@
 import { CardItemComponent } from './card-item/card-item.component';
-import { AccordionItemComponent } from './accordion-item/accordion-item.component';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import {NgModule} from '@angular/core';
@@ -9,8 +8,8 @@ import { TypeofPipe } from 'src/app/pipes/typeof.pipe';
 
 @NgModule({
     imports: [CommonModule, IonicModule,FontAwesomeModule],
-    declarations: [HeaderComponent, AccordionItemComponent,CardItemComponent, TypeofPipe],
-    exports:[HeaderComponent,AccordionItemComponent,CardItemComponent, TypeofPipe]
+    declarations: [HeaderComponent,CardItemComponent, TypeofPipe],
+    exports:[HeaderComponent,CardItemComponent, TypeofPipe]
 })
 
 export class SharedComponentsModule{}

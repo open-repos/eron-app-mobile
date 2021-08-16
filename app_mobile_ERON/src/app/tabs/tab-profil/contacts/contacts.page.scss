@@ -1,0 +1,50 @@
+ion-content {
+    --overflow: hidden !important;
+  }
+  
+  .all-items{
+    height: 100% !important;
+    flex: 1 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      // height: 500px;
+      padding-top:2vh;
+      // padding-bottom:5vh;
+    }
+  
+    .sub-item-contacts {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-bottom:4vh;
+      // padding:20px;
+      // flex: 1 !important;
+    }
+  
+  
+    .socialMedia{
+      font-size: 2em;
+      color:#003478;
+      // TODO: Changer la couleur en couleur primaire (automatique)
+  }
+  
+  .btn {
+    background: none;
+    border: none; /* Remove borders */
+  
+    // 
+    fa-icon  {
+      border-radius: 120%;
+      box-shadow: 0px 3px 8px #aaa, inset 0px 2px 3px #fff;
+    }
+  }
+  

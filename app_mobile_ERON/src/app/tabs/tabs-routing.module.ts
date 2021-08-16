@@ -57,7 +57,16 @@ const routes: Routes = [
             },
             {
               path: 'contacts',
+              children: [
+                {
+              path: '',
               loadChildren: () => import('./tab-profil/contacts/contacts.module').then( m => m.ContactsPageModule)
+                },
+                {
+                  path: 'contacts-forms',
+                  loadChildren: () => import('./tab-profil/contacts/contacts-forms/contacts-forms.module').then( m => m.ContactsFormsPageModule)
+                }  
+            ]
             },
             {
               path: 'faq',

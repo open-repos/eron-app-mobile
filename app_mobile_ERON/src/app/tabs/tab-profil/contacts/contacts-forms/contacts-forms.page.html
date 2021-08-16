@@ -1,0 +1,61 @@
+<app-header-apprenant titleHeader="Formulaire de contacts" pageBack="tabs/tab-profil/contacts" [detailPage] = "true" ></app-header-apprenant>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmitForm()">
+
+    <div class="all-items">
+    <!-- <ion-label>Service à contacter</ion-label> -->
+    <div *ngFor="let field of fieldId; let i = index">
+      <div *ngIf="field.id === 'serviceToContact'">
+        <ion-item lines="none">
+          <ion-label class="items-service-client" position="floating">{{field.title}}</ion-label>
+          <ion-select [id]="field.id" formControlName="serviceToContact" interface="popover">
+            <ion-select-option value="service-clients">Service Clients</ion-select-option>
+            <ion-select-option value="partenariats">Partenariats</ion-select-option>
+            <ion-select-option value="devenir-formateur">Devenir Formateur</ion-select-option>
+            <ion-select-option value="ressources-humaines">Ressources Humaines</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <div class="error-message"
+          *ngIf="contactForm.get(field.id).hasError(field.validation_messages[0].type) && (contactForm.get(field.id).dirty || contactForm.get(field.id).touched)">
+          <ion-text color="danger">{{ field.validation_messages[0].message }}</ion-text>
+        </div>
+      </div>
+    </div>
+
+    <div class="items-form">
+      <div *ngFor="let field of fieldId; let i = index">
+        <div *ngIf="field.id !== 'serviceToContact'">
+          <ion-label>{{field.title}}</ion-label>
+          <ion-item lines="none" [ngStyle]="getColor(field.id,i)">
+            <ion-input *ngIf="field.id !== 'objet'" type="text" [id]="field.id" class="form-control"
+              [formControlName]="field.id"></ion-input>
+            <ion-textarea *ngIf="field.id === 'objet'" class="objet" autoGrow="true"
+              placeholder="Ecrivez ici l'objet de votre message..." [id]="field.id" class="form-control"
+              [formControlName]="field.id"></ion-textarea>
+          </ion-item>
+          <ng-container *ngFor="let validation of field.validation_messages">
+            <!-- <script type="text/javascript">console.log(validation)</script> -->
+            <div class="error-message" *ngIf="contactForm.get(field.id).hasError(validation.type) && (contactForm.get(field.id).dirty || contactForm.get(field.id).touched)">
+              <ion-text color="danger">{{ validation.message }}</ion-text>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- <ion-row>
+      <ion-col>
+        <ion-button type="submit" expand="block" [disabled]="contactForm.invalid">Soumettre</ion-button>
+      </ion-col>
+    </ion-row> -->
+  <div class="fixed-content">
+      <ion-button type="submit" [disabled]="contactForm.invalid">Soumettre</ion-button>
+  </div>
+
+
+    </div>
+  </form>
+</ion-content>
