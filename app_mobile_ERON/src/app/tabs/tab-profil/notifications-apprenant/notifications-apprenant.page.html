@@ -1,5 +1,55 @@
-<app-header-apprenant titleHeader="Notifications"></app-header-apprenant>
+<app-header-apprenant titleHeader="Notifications" [detailPage]=true pageBack="tabs/tab-profil"></app-header-apprenant>
 
 <ion-content>
+    <form [formGroup]="notifForm" (ngSubmit)="onSubmitForm()">
+<ion-list>
+<ion-item>
+    <p>Choisissez de recevoir des notifications par email et/ou téléphone pour vous aider à atteindre vos objectifs plus rapidement. 
+        Vous pouvez en modifier la fréquence ou le désactiver à tout moment.</p>
+</ion-item>
 
+<ion-item>
+    <ion-label>Notifications par téléphone</ion-label>  
+    <ion-toggle slot="end" formControlName="notifPhone" color="success" checked="false"  (ionChange)="onToggleBtnChange($event)"></ion-toggle>  
+</ion-item>
+
+<ion-item>
+    <ion-label>Notifications par email</ion-label>  
+    <ion-toggle slot="end" formControlName="notifEmail" color="success" checked="false"   (ionChange)="onToggleBtnChange($event)"></ion-toggle>  
+</ion-item>
+
+
+<ion-item lines="none">
+    <ion-label class="frequence-title" position="floating">Fréquence de notifications</ion-label>
+    <ion-select formControlName="notifFrequence" interface="popover">
+      <ion-select-option value="tous-les-jours">Tous les jours</ion-select-option>
+      <ion-select-option value="tous-les-3-jours">Tous les 3 jours</ion-select-option>
+      <ion-select-option value="une-fois-semaine">Une fois par semaine</ion-select-option>
+      <ion-select-option value="une-fois-toutes-2-semaine">Une fois toutes les deux semaines</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+
+<ion-item>
+    <ion-label class="titre-gp-items">Types de notifications</ion-label>  
+</ion-item>
+  <ion-item>
+    <ion-label>News</ion-label>  
+    <ion-toggle slot="end" formControlName="notifNews" color="success" checked="false"   (ionChange)="onToggleBtnChange($event)"></ion-toggle>  
+</ion-item>
+<ion-item>
+    <ion-label>Nouvelles formations</ion-label>  
+    <ion-toggle slot="end" formControlName="notifNouvelleFormation" color="success" checked="false"   (ionChange)="onToggleBtnChange($event)"></ion-toggle>  
+</ion-item>
+<ion-item>
+    <ion-label>Rappels fin de formation</ion-label>  
+    <ion-toggle slot="end" formControlName="notifRappelFormation" color="success" checked="false"   (ionChange)="onToggleBtnChange($event)"></ion-toggle>  
+</ion-item>
+
+<ion-item>
+<ion-button type="submit">Soumettre</ion-button>
+</ion-item>
+
+</ion-list>
+    </form>
 </ion-content>
