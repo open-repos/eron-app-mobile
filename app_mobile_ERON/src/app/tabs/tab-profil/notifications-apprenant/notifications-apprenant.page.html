@@ -1,7 +1,7 @@
 <app-header-apprenant titleHeader="Notifications" [detailPage]=true pageBack="tabs/tab-profil"></app-header-apprenant>
 
 <ion-content>
-    <form [formGroup]="notifForm" (ngSubmit)="onSubmitForm()">
+    <!-- <form [formGroup]="notifForm" (ngSubmit)="onSubmitForm()"> -->
 <ion-list>
 <ion-item>
     <p>Choisissez de recevoir des notifications par email et/ou téléphone pour vous aider à atteindre vos objectifs plus rapidement. 
@@ -10,22 +10,29 @@
 
 <ion-item>
     <ion-label>Notifications par téléphone</ion-label>  
-    <ion-toggle slot="end" formControlName="notifPhone" color="success" checked="false"  (ionChange)="onToggleBtnChange($event)"></ion-toggle>  
+    <!-- <ion-toggle slot="end" formControlName="notifPhone" color="success" checked=""="false"  (ionChange)="onToggleBtnChange($event)"></ion-toggle>   -->
+    <ion-toggle *ngIf="settings[0].toggleStatus" slot="end" color="success" (click)="onSwitch(settings[0].id)" checked="true"></ion-toggle>
+    <ion-toggle *ngIf="!settings[0].toggleStatus" slot="end" color="success" (click)="onSwitch(settings[0].id)" checked="false"></ion-toggle>
 </ion-item>
 
 <ion-item>
     <ion-label>Notifications par email</ion-label>  
-    <ion-toggle slot="end" formControlName="notifEmail" color="success" checked="false"   (ionChange)="onToggleBtnChange($event)"></ion-toggle>  
+    <!-- <ion-toggle slot="end" formControlName="notifEmail" color="success" checked=""="false"   (ionChange)="onToggleBtnChange($event)"></ion-toggle>   -->
+    <ion-toggle *ngIf="settings[1].toggleStatus" slot="end" color="success" (click)="onSwitch(settings[1].id)" checked="true"></ion-toggle>
+    <ion-toggle *ngIf="!settings[1].toggleStatus" slot="end" color="success" (click)="onSwitch(settings[1].id)" checked="false"></ion-toggle>
+
 </ion-item>
 
 
 <ion-item lines="none">
     <ion-label class="frequence-title" position="floating">Fréquence de notifications</ion-label>
-    <ion-select formControlName="notifFrequence" interface="popover">
+    <!-- <ion-select formControlName="notifFrequence" interface="popover"> -->
+        <ion-select [(ngModel)]="selected" [id]="settings[2].toggleStatus" interface="popover" (ionChange)="onSelect(settings[2].id,selected);">
       <ion-select-option value="tous-les-jours">Tous les jours</ion-select-option>
       <ion-select-option value="tous-les-3-jours">Tous les 3 jours</ion-select-option>
       <ion-select-option value="une-fois-semaine">Une fois par semaine</ion-select-option>
       <ion-select-option value="une-fois-toutes-2-semaine">Une fois toutes les deux semaines</ion-select-option>
+      <ion-select-option value="jamais">Jamais</ion-select-option>
     </ion-select>
   </ion-item>
 
@@ -35,21 +42,32 @@
 </ion-item>
   <ion-item>
     <ion-label>News</ion-label>  
-    <ion-toggle slot="end" formControlName="notifNews" color="success" checked="false"   (ionChange)="onToggleBtnChange($event)"></ion-toggle>  
+    <!-- <ion-toggle slot="end" formControlName="notifNews" color="success" checked=""="false"   (ionChange)="onToggleBtnChange($event)"></ion-toggle>   -->
+    <ion-toggle *ngIf="settings[3].toggleStatus" slot="end" color="success" (click)="onSwitch(settings[3].id)" checked="true"></ion-toggle>
+    <ion-toggle *ngIf="!settings[3].toggleStatus" slot="end" color="success" (click)="onSwitch(settings[3].id)" checked="false"></ion-toggle>
+
 </ion-item>
 <ion-item>
     <ion-label>Nouvelles formations</ion-label>  
-    <ion-toggle slot="end" formControlName="notifNouvelleFormation" color="success" checked="false"   (ionChange)="onToggleBtnChange($event)"></ion-toggle>  
+    <ion-toggle *ngIf="settings[4].toggleStatus" slot="end" color="success" (click)="onSwitch(settings[4].id)" checked="true"></ion-toggle>
+    <ion-toggle *ngIf="!settings[4].toggleStatus" slot="end" color="success" (click)="onSwitch(settings[4].id)" checked="false"></ion-toggle>
+
+    <!-- <ion-toggle slot="end" formControlName="notifNouvelleFormation" color="success" checked=""="false"   (ionChange)="onToggleBtnChange($event)"></ion-toggle>   -->
+
 </ion-item>
 <ion-item>
     <ion-label>Rappels fin de formation</ion-label>  
-    <ion-toggle slot="end" formControlName="notifRappelFormation" color="success" checked="false"   (ionChange)="onToggleBtnChange($event)"></ion-toggle>  
+    <ion-toggle *ngIf="settings[5].toggleStatus" slot="end" color="success" (click)="onSwitch(settings[5].id)" checked="true"></ion-toggle>
+    <ion-toggle *ngIf="!settings[5].toggleStatus" slot="end" color="success" (click)="onSwitch(settings[5].id)" checked="false"></ion-toggle>
+
+    <!-- <ion-toggle slot="end" formControlName="notifRappelFormation" color="success" checked=""="false"   (ionChange)="onToggleBtnChange($event)"></ion-toggle>   -->
 </ion-item>
 
 <ion-item>
-<ion-button type="submit">Soumettre</ion-button>
+<!-- <ion-button type="submit">Soumettre</ion-button> -->
+<ion-button (click)='onSave()'>Enregistrer</ion-button>
 </ion-item>
 
 </ion-list>
-    </form>
+    <!-- </form> -->
 </ion-content>

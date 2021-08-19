@@ -90,6 +90,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AllowOverflowDirective } from './allow-overflow.directive';
 import { TypeofPipe } from './pipes/typeof.pipe';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, AllowOverflowDirective],
@@ -98,6 +99,7 @@ import { TypeofPipe } from './pipes/typeof.pipe';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
+    HttpClientModule,
     FontAwesomeModule,
     MenuPageModule,
     FormsModule,
