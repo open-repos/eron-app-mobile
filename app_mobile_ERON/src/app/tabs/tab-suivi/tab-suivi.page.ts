@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { faCalendar, faBook, faClock, faArrowDown } from '@fortawesome/free-solid-svg-icons';
+import { FormationApprenant } from 'src/app/models/formation-apprenant.model';
+import { FormationsApprenantService } from 'src/app/services/formations-apprenant.service';
 
 @Component({
   selector: 'app-tab-suivi',
@@ -7,9 +11,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TabSuiviPage implements OnInit {
 
-  constructor() { }
+  faCalendar = faCalendar;
+  faBook = faBook;
+  faClock = faClock;
+  faArrowDown = faArrowDown;
 
+  formationApprenants: FormationApprenant[];
+  constructor( private formationApprenantService: FormationsApprenantService, private router:Router) {
+
+  }
+  
   ngOnInit() {
+    this.formationApprenants = this.formationApprenantService.formationsApprenant;
   }
 
+  goToDetail(id: string){
+    // this.router.navigateByUrl('/tabs/tab-formation', { skipLocationChange: true });
+    this.router.navigate(['/tabs/tab-formation/', id],{ replaceUrl: true });
+  }
 }

@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.route.queryParams.subscribe(queryParams => {
      this.queryParam= queryParams.formation
-     console.log("IN HEADER"+this.queryParam)
+    //  console.log("IN HEADER"+this.queryParam)
         // do something with the query params
       });
   }

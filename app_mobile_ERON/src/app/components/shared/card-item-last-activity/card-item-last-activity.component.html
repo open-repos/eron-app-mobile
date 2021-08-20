@@ -1,0 +1,53 @@
+
+<!-- <ng-container [ngClass]="cssCardType"> -->
+  <div class="card">
+
+    <div class="image">
+        <img [src]="item.imageUrl">
+    </div>
+  
+  
+    <div class="container-info">
+  
+        <div class="title">
+            <h1>{{item.title}}</h1>
+        </div>
+  
+  
+        <div class="info-bouton">
+  
+            <div class="info">
+                <div class="icon-item">
+                    <fa-icon [icon]="faBook"></fa-icon>
+                    <p><span>Modules :</span> {{item.moduleSate}}</p>
+                </div>
+  
+                <div class="icon-item">
+                    <img src="../../../assets/illustrations/Illustration-progress_bar-25-tab-formation.svg">
+                    <p><span>Progression</span> 100%</p>
+                </div>
+  
+                <div class="icon-item">
+                    <fa-icon [icon]="faClock"></fa-icon>
+                    <p> <span>Temps effectué: </span> {{item.timeSpend}}</p>
+                </div>
+  
+                <div class="icon-item">
+                    <fa-icon [icon]="faCalendar"></fa-icon>
+                    <p> <span>Date limite:</span> {{item.deadline}}</p>
+                </div>
+  
+            </div>
+  
+            <div class="bouton">
+                <button>Poursuivre la formation</button>
+            </div>
+  
+        </div>
+  
+  
+    </div>
+  
+  
+  </div>
+  <!-- </ng-container> -->
