@@ -9,6 +9,7 @@ import { ContactsPageRoutingModule } from './contacts-routing.module';
 
 import { ContactsPage } from './contacts.page';
 import { SharedComponentsApprenantModule } from 'src/app/components/shared/shared-components-apprenant.module';
+import { SharedAllComponentsModule } from 'src/app/components/shared/shared-all-components.module';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { SharedComponentsApprenantModule } from 'src/app/components/shared/share
     IonicModule,
     ContactsPageRoutingModule,
     SharedComponentsApprenantModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    SharedAllComponentsModule
   ],
   declarations: [ContactsPage]
 })

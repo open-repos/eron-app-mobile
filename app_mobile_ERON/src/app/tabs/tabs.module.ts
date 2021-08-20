@@ -9,6 +9,7 @@ import { IonicModule } from '@ionic/angular';
 import { TabsPageRoutingModule } from './tabs-routing.module';
 
 import { TabsPage } from './tabs.page';
+import { SharedAllComponentsModule } from '../components/shared/shared-all-components.module';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { TabsPage } from './tabs.page';
     IonicModule,
     TabsPageRoutingModule,
     FontAwesomeModule,
-    SharedComponentsApprenantModule
+    SharedComponentsApprenantModule,
+    SharedAllComponentsModule,
   ],
   declarations: [TabsPage]
 })

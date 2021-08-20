@@ -8,6 +8,7 @@ import { AttestationApprenantPageRoutingModule } from './attestation-apprenant-r
 
 import { AttestationApprenantPage } from './attestation-apprenant.page';
 import { SharedComponentsApprenantModule } from 'src/app/components/shared/shared-components-apprenant.module';
+import { SharedAllComponentsModule } from 'src/app/components/shared/shared-all-components.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { SharedComponentsApprenantModule } from 'src/app/components/shared/share
     FormsModule,
     IonicModule,
     AttestationApprenantPageRoutingModule,
-    SharedComponentsApprenantModule
+    SharedComponentsApprenantModule,
+    SharedAllComponentsModule
   ],
   declarations: [AttestationApprenantPage]
 })

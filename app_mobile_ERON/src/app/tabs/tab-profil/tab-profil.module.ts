@@ -9,6 +9,7 @@ import { TabProfilPageRoutingModule } from './tab-profil-routing.module';
 import { TabProfilPage } from './tab-profil.page';
 import { SharedComponentsApprenantModule } from 'src/app/components/shared/shared-components-apprenant.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SharedAllComponentsModule } from 'src/app/components/shared/shared-all-components.module';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     IonicModule,
     TabProfilPageRoutingModule,
     SharedComponentsApprenantModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    SharedAllComponentsModule
   ],
   declarations: [TabProfilPage]
 })

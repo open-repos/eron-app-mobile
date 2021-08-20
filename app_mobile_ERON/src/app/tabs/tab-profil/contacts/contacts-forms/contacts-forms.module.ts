@@ -8,6 +8,7 @@ import { IonicModule } from '@ionic/angular';
 import { ContactsFormsPageRoutingModule } from './contacts-forms-routing.module';
 
 import { ContactsFormsPage } from './contacts-forms.page';
+import { SharedAllComponentsModule } from 'src/app/components/shared/shared-all-components.module';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { ContactsFormsPage } from './contacts-forms.page';
     IonicModule,
     ReactiveFormsModule,
     ContactsFormsPageRoutingModule,
-    SharedComponentsApprenantModule
+    SharedComponentsApprenantModule,
+    SharedAllComponentsModule
   ],
   declarations: [ContactsFormsPage]
 })

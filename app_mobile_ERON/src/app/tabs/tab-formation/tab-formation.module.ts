@@ -9,6 +9,7 @@ import { TabFormationPageRoutingModule } from './tab-formation-routing.module';
 
 import { TabFormationPage } from './tab-formation.page';
 import { SharedComponentsApprenantModule } from 'src/app/components/shared/shared-components-apprenant.module';
+import { SharedAllComponentsModule } from 'src/app/components/shared/shared-all-components.module';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { SharedComponentsApprenantModule } from 'src/app/components/shared/share
     TabFormationPageRoutingModule,
     SharedComponentsApprenantModule,
     FontAwesomeModule,
+    SharedAllComponentsModule
   ],
   declarations: [TabFormationPage]
 })

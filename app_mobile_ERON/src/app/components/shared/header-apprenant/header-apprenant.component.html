@@ -3,7 +3,14 @@
     <ion-buttons slot="start">
       <ion-back-button *ngIf="detailPage" text="" style='color: #003478' defaultHref={{pageBack}}></ion-back-button>
     </ion-buttons>
+    <div>
+    <div class="titre-icon">
     <ion-title> <span class="underline-title">{{titleHeader}}</span> </ion-title>
-    <div class="stick"> </div>
+    <!-- <ion-icon *ngIf="isShop" name="cart" slot=end style='color: #003478' (click)="click()" size=large></ion-icon> -->
+    <app-icon-badge *ngIf="isShop"></app-icon-badge>
+  </div>
+  </div>
+
+    <!-- <div class="stick"> </div> -->
   </ion-toolbar>
 </ion-header>

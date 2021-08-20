@@ -1,0 +1,33 @@
+#icon-badge {
+  position: relative;
+}
+
+#cart {
+  color: var(--ion-color-primary);
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+
+#dot {
+  position: absolute;
+  top: -5px;
+  right: -7px;
+  width: 18px;
+  height: 18px;
+  background-color: var(--ion-color-primary);
+  border: solid 0.1em;
+  border-color: white;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 10px;
+}
+
+#number-notif {
+  color: white;
+  font-size: x-small;
+  line-height: normal;
+  display: inline-block;
+  vertical-align: middle;
+}

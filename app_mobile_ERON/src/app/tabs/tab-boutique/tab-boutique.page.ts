@@ -12,4 +12,8 @@ export class TabBoutiquePage implements OnInit {
   ngOnInit() {
   }
 
+  gotoItem(e) {
+    console.log(e)
+  }
+
 }

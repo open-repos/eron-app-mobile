@@ -8,6 +8,7 @@ import { NotificationsApprenantPageRoutingModule } from './notifications-apprena
 
 import { NotificationsApprenantPage } from './notifications-apprenant.page';
 import { SharedComponentsApprenantModule } from 'src/app/components/shared/shared-components-apprenant.module';
+import { SharedAllComponentsModule } from 'src/app/components/shared/shared-all-components.module';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { SharedComponentsApprenantModule } from 'src/app/components/shared/share
     IonicModule,
     NotificationsApprenantPageRoutingModule,
     SharedComponentsApprenantModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedAllComponentsModule
   ],
   declarations: [NotificationsApprenantPage]
 })

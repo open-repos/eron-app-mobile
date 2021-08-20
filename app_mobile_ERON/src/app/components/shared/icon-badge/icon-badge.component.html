@@ -1,0 +1,12 @@
+<div id="icon-badge">
+<ion-icon *ngIf="notifNumber > 0" id="cart" name="cart" slot=end  (click)="click()" size=large></ion-icon>
+<ion-icon *ngIf="notifNumber === 0" id="cart" name="cart-outline" slot=end  (click)="click()" size=large></ion-icon>
+<div *ngIf="notifNumber > 0" id="dot"><span id="number-notif">{{notifNumber}}</span></div>
+
+</div>
+
+
+
+
+ 
+

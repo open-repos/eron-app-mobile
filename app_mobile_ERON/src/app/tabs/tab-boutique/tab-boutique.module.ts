@@ -8,6 +8,7 @@ import { TabBoutiquePageRoutingModule } from './tab-boutique-routing.module';
 
 import { TabBoutiquePage } from './tab-boutique.page';
 import { SharedComponentsApprenantModule } from 'src/app/components/shared/shared-components-apprenant.module';
+import { SharedAllComponentsModule } from 'src/app/components/shared/shared-all-components.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { SharedComponentsApprenantModule } from 'src/app/components/shared/share
     FormsModule,
     IonicModule,
     TabBoutiquePageRoutingModule,
-    SharedComponentsApprenantModule
+    SharedComponentsApprenantModule,
+    SharedAllComponentsModule,
   ],
   declarations: [TabBoutiquePage]
 })

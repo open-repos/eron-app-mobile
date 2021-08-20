@@ -7,8 +7,8 @@ import {NgModule} from '@angular/core';
 import { HeaderApprenantComponent } from './header-apprenant/header-apprenant.component';
 @NgModule({
     imports: [CommonModule, IonicModule,FontAwesomeModule],
-    declarations: [HeaderApprenantComponent,CardItemHComponent, CardItemLastActivityComponent],
-    exports:[HeaderApprenantComponent,CardItemHComponent,CardItemLastActivityComponent]
+    declarations: [CardItemHComponent, CardItemLastActivityComponent],
+    exports:[CardItemHComponent,CardItemLastActivityComponent]
 })
 
 export class SharedComponentsApprenantModule{}

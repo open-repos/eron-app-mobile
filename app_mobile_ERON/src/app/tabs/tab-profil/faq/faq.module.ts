@@ -9,6 +9,7 @@ import { FaqPageRoutingModule } from './faq-routing.module';
 import { FaqPage } from './faq.page';
 import { SharedComponentsApprenantModule } from 'src/app/components/shared/shared-components-apprenant.module';
 import { SharedAccordionModule } from 'src/app/components/shared/shared-accordion-components.module';
+import { SharedAllComponentsModule } from 'src/app/components/shared/shared-all-components.module';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { SharedAccordionModule } from 'src/app/components/shared/shared-accordio
     IonicModule,
     FaqPageRoutingModule,
     SharedComponentsApprenantModule,
-    SharedAccordionModule
+    SharedAccordionModule,
+    SharedAllComponentsModule
   ],
   declarations: [FaqPage]
 })

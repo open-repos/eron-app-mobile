@@ -8,6 +8,7 @@ import { TabSuiviPageRoutingModule } from './tab-suivi-routing.module';
 
 import { TabSuiviPage } from './tab-suivi.page';
 import { SharedComponentsApprenantModule } from 'src/app/components/shared/shared-components-apprenant.module';
+import { SharedAllComponentsModule } from 'src/app/components/shared/shared-all-components.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { SharedComponentsApprenantModule } from 'src/app/components/shared/share
     FormsModule,
     IonicModule,
     TabSuiviPageRoutingModule,
-    SharedComponentsApprenantModule
+    SharedComponentsApprenantModule,
+    SharedAllComponentsModule
   ],
   declarations: [TabSuiviPage]
 })
