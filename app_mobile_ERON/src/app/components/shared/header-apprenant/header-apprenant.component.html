@@ -7,7 +7,7 @@
     <div class="titre-icon">
     <ion-title> <span class="underline-title">{{titleHeader}}</span> </ion-title>
     <!-- <ion-icon *ngIf="isShop" name="cart" slot=end style='color: #003478' (click)="click()" size=large></ion-icon> -->
-    <app-icon-badge *ngIf="isShop"></app-icon-badge>
+    <app-icon-badge *ngIf="isShop" (onClick)="childEvent($event)"></app-icon-badge>
   </div>
   </div>
 

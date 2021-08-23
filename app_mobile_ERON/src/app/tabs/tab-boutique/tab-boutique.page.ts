@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-tab-boutique',
@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TabBoutiquePage implements OnInit {
 
+
+  // @Input() isShop:boolean = false;
+  // @Input() numberIcon:number;
+
+  
   constructor() { }
 
   ngOnInit() {
@@ -15,5 +20,6 @@ export class TabBoutiquePage implements OnInit {
   gotoItem(e) {
     console.log(e)
   }
+
 
 }
