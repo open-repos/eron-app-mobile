@@ -1,0 +1,25 @@
+
+<ion-card [ngClass]="['ion-text-center', cssCardType]">
+  <img [src]="item.imageUrl" />
+  <ion-card-header>
+    <div class="card-header">
+      <!-- <ion-card-subtitle> Durée: {{item.hours}}h <br> Validité:{{item.validity}}j </ion-card-subtitle> -->
+      <div class="duree-validite">
+        <span > Durée:{{item.hours}}h</span> <br>
+        <span >Validité:{{item.validity}}j</span>
+      </div>
+      <div class="text-price">
+        <span class="price"> {{item.price}}€</span> <br>
+        <span class="ref" >ref: {{item.id}}</span>
+      </div>
+      <!-- <ion-card-subtitle>{{item.date | date}}</ion-card-subtitle> -->
+    </div>
+    <ion-card-title>{{item.title}}</ion-card-title>
+    <!-- <ion-card-title>{{item.title.substring(0, 50)}} ...</ion-card-title> -->
+  </ion-card-header>
+  <ion-card-content>
+    <!-- <span class="element">{{item.description}}</span> -->
+    {{item.description}}
+  </ion-card-content>
+  <ion-button size="small"> Acheter </ion-button>
+</ion-card>

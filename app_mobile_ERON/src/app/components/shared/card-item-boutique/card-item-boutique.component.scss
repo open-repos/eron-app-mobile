@@ -1,0 +1,84 @@
+.col-2{
+    position:relative;
+    top:0;
+    width: 85%;
+    --parentHeigh:45vh;
+   height: var(--parentHeigh);
+
+    // margin-left:10px;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    
+    img {
+        height:40%;
+        width:100%;
+    }
+
+
+ion-card{
+    margin-bottom:2px;
+    height:100%;
+}
+
+    ion-card-subtitle{
+        font-size: 1.5vh;
+        align-self: left;
+    }
+    ion-card-title{
+    font-size: 2vh;
+    padding-top:10px;
+    // text-align: justify;
+    text-justify: inter-word;
+    text-align: center;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    }
+    ion-card-content{
+        font-size: 1.5vh;
+        overflow-y:scroll !important;
+        padding-bottom:3px;
+        // .element {
+        //     display: -webkit-box;
+        //     -webkit-line-clamp: 5;
+        //     -webkit-box-orient: vertical;
+        //     overflow: hidden;
+        //     overflow-y:scroll;
+        //   }
+          
+    }
+
+    span.price{
+        font-size: 2vh;
+        font-weight: bolder;
+    }
+    span.ref{
+        font-size: 1vh;
+    }
+
+    .duree-validite{
+        font-size: 1.5vh;
+        text-align: left;
+    }
+    
+    .text-price{
+        text-align: right;
+    }
+
+    .card-header {
+        align-items: center;
+        justify-content: space-between;
+        display: flex;
+        width: 100%;  
+    }
+    
+    ion-button{
+        font-size: 1.5vh;
+        width:50%;
+        align-self: center;
+        padding-top:5px;
+    }
+}

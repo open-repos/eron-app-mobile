@@ -5,10 +5,11 @@ import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import {NgModule} from '@angular/core';
 import { HeaderApprenantComponent } from './header-apprenant/header-apprenant.component';
+import { CardItemBoutiqueComponent } from './card-item-boutique/card-item-boutique.component';
 @NgModule({
     imports: [CommonModule, IonicModule,FontAwesomeModule],
-    declarations: [CardItemHComponent, CardItemLastActivityComponent],
-    exports:[CardItemHComponent,CardItemLastActivityComponent]
+    declarations: [CardItemHComponent, CardItemLastActivityComponent,CardItemBoutiqueComponent],
+    exports:[CardItemHComponent,CardItemLastActivityComponent,CardItemBoutiqueComponent]
 })
 
 export class SharedComponentsApprenantModule{}
