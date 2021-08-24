@@ -10,7 +10,6 @@ import { Subscription } from 'rxjs';
 })
 export class TabBoutiquePage implements OnInit {
 
-
   // @Input() isShop:boolean = false;
   // @Input() numberIcon:number;
 boutiqueFormation!: any[];
@@ -26,7 +25,6 @@ this.boutiqueFormationsSrvc.getFormationBoutiqueFromServer();
     //   console.log("returnHttp", returnGetFromServer)
     this.boutiqueFormationsSrvc.emitBoutiqueFormationSubject();
   }
-
 
 
 

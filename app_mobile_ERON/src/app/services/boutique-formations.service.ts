@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { FormationsBoutique } from '../models/boutique-formations.model';
 
 @Injectable({
@@ -10,10 +10,13 @@ import { FormationsBoutique } from '../models/boutique-formations.model';
 })
 export class BoutiqueFormationsService {
 
+// initialNumber: number=0;
+// private profileObs$: BehaviorSubject<number> = new BehaviorSubject(0);
+
 boutiqueFormationsSubject = new Subject<any[]>();
 private boutiqueFormations: FormationsBoutique[]= [
   { 
-    id: 'EDE01-i',
+    id: 'EDE00-i',
     title: 'Le cerveau anatomique',
     categories: 'medecins',
     imageUrl:'https://m.media-amazon.com/images/I/61NN9SlsuuL._AC_SX425_.jpg',
@@ -79,8 +82,18 @@ constructor(private httpClient: HttpClient,
     this.boutiqueFormationsSubject.next(this.boutiqueFormations.slice());
   }
 
-  addToCart(index:string){
-    console.log(index)
+//   getProfileObs(): Observable<number> {
+//     return this.profileObs$.asObservable();
+// }
+
+// setProfileObs(profile: number) {
+//     this.profileObs$.next(profile);
+//   }
+
+  addToCart(index?:string, numberPlus?:number){
+    // this.initialNumber += 1
+    // this.profileObs$.next(numberPlus);
+    console.log('AddToCart(numberPlus) ',numberPlus)
   }
 
   removeToCart(index:string){

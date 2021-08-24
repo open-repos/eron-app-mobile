@@ -5,7 +5,8 @@
 
     <div class="grid">
         <ng-container *ngFor="let formation of boutiqueFormation">
-          <app-card-item-boutique [item] = "formation" cssCardType="col-2" [routerLink]="['/tabs/tab-boutique/', formation.id]"></app-card-item-boutique>
+          <app-card-item-boutique [item] = "formation" cssCardType="col-2" ></app-card-item-boutique>
+          <!-- [routerLink]="['/tabs/tab-boutique/', formation.id]" -->
         </ng-container>
       </div>
 

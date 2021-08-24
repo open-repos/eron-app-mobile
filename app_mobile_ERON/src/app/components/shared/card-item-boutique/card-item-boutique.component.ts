@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormationsBoutique } from 'src/app/models/boutique-formations.model';
+import { BoutiqueFormationsService } from 'src/app/services/boutique-formations.service';
 
 @Component({
   selector: 'app-card-item-boutique',
@@ -8,12 +9,18 @@ import { FormationsBoutique } from 'src/app/models/boutique-formations.model';
 })
 export class CardItemBoutiqueComponent implements OnInit {
 
+
   @Input() item: FormationsBoutique;
 
   @Input() cssCardType: string ='col-1';
 
   // @Input() isFormation: boolean = false;
-  constructor() { }
+  constructor(private boutiqueFormationsSrvc: BoutiqueFormationsService) { }
 
   ngOnInit() {}
+
+  addToCart(id:string){
+    this.boutiqueFormationsSrvc.addToCart(id);
+  }
+
 }

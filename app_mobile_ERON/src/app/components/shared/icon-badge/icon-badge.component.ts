@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { BoutiqueFormationsService } from 'src/app/services/boutique-formations.service';
 
 @Component({
   selector: 'app-icon-badge',
@@ -9,7 +10,7 @@ export class IconBadgeComponent implements OnInit {
 
 
   // @Input() goToCardItems: function; 
-  @Input() notifNumber: number=1;
+  @Input() notifNumber: number=0;
 
   @Output() onClick = new EventEmitter();
 
@@ -17,8 +18,10 @@ export class IconBadgeComponent implements OnInit {
       // do something
       this.onClick.emit()
   }
-  constructor() { }
+  constructor(private boutiqueSrvc: BoutiqueFormationsService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.boutiqueSrvc.getProfileObs().subscribe(profile=> this.notifNumber = profile)
+  }
 
 }
