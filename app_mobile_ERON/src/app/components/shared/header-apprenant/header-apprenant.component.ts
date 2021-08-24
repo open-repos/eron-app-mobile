@@ -12,9 +12,14 @@ export class HeaderApprenantComponent implements OnInit {
   @Input() pageBack: string;
 
   @Input() isShop:boolean = false;
+  @Input() isModalShop:boolean= false;
+
   @Input() numberIcon:number;
   
   @Output() onClickToParent = new EventEmitter();
+
+
+  @Output() onClickToModal = new EventEmitter();
 
   constructor() { }
 
@@ -23,6 +28,10 @@ export class HeaderApprenantComponent implements OnInit {
 
   childEvent(event) {
     this.onClickToParent.emit()
+  }
+
+  modalEvent() {
+    this.onClickToModal.emit()
   }
 
 

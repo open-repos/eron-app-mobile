@@ -19,6 +19,7 @@ import { SharedAllComponentsModule } from 'src/app/components/shared/shared-all-
     SharedComponentsApprenantModule,
     SharedAllComponentsModule,
   ],
-  declarations: [TabBoutiquePage]
+  declarations: [TabBoutiquePage],
+  // entryComponents:[]
 })
 export class TabBoutiquePageModule {}
