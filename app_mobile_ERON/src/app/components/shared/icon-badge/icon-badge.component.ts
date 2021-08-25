@@ -21,7 +21,7 @@ export class IconBadgeComponent implements OnInit {
   constructor(private boutiqueSrvc: BoutiqueFormationsService) { }
 
   ngOnInit() {
-    this.boutiqueSrvc.getProfileObs().subscribe(profile=> this.notifNumber = profile)
+    // this.boutiqueSrvc.getProfileObs().subscribe(profile=> this.notifNumber = profile)
   }
 
 }
