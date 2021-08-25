@@ -56,7 +56,7 @@
 <ion-footer>
   <ion-grid>
   <ion-row class='rowIconSocialMedia'>
-    <fa-icon *ngFor="let iconSocialMedia of socialMedia" [icon]="iconSocialMedia.icon" class="socialMedia"></fa-icon>
+    <fa-icon *ngFor="let iconSocialMedia of socialMedia" [icon]="iconSocialMedia.icon" class="socialMedia"  (click)="socialMediaFct(iconSocialMedia.app)"></fa-icon>
   </ion-row>
 </ion-grid>
 </ion-footer>
