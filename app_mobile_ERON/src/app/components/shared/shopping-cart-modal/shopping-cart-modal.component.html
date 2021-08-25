@@ -1,0 +1,42 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>Votre panier</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="onCancel()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header> -->
+<app-header-apprenant [isModalShop]="true" titleHeader="Panier" (onClickToModal)="onCancel()"></app-header-apprenant>
+
+
+<ion-content class="ion-text-center" padding>
+  <p>Description</p>
+ <!-- <div class="flex-container"> -->
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button color="primary" class="">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button color="danger" (click)="showOptions()" data-desc="Vider le panier">
+        <ion-icon name="trash"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+  
+  <!-- <div class="ctn-icontrash-text"> -->
+  <!-- <div> -->
+    <!-- <ion-icon id="icon-trash" color="danger" name="trash-bin-outline" (click)="emptyCart()"></ion-icon> -->
+    <!-- <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+      <ion-fab-button color="danger">
+        <ion-icon id="icon-trash"  name="trash-bin-outline" (click)="emptyCart()"></ion-icon>
+      </ion-fab-button>
+      <ion-label id="titre-trash">Vider le panier</ion-label>
+      </ion-fab>  -->
+<!-- <p id="titre-trash"><strong>Vider le panier</strong></p> -->
+<!-- </div> -->
+<!-- </div> -->
+  <ion-button id="btn-buy" color="primary" (click)="onBuy()">Acheter</ion-button>
+<!-- </div> -->
+</ion-content>

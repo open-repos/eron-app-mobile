@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { BoutiqueFormationsService } from 'src/app/services/boutique-formations.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { BoutiqueFormationsService } from 'src/app/services/boutique-formations.
 })
 export class IconBadgeComponent implements OnInit {
 
-
+  // iconShopping = faShoppingCart;
   // @Input() goToCardItems: function; 
   @Input() notifNumber: number=0;
 

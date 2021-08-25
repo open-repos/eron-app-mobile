@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import {NgModule} from '@angular/core';
 import { HeaderApprenantComponent } from './header-apprenant/header-apprenant.component';
 import { CardItemBoutiqueComponent } from './card-item-boutique/card-item-boutique.component';
+import { ShoppingCartModalComponent } from './shopping-cart-modal/shopping-cart-modal.component';
 @NgModule({
     imports: [CommonModule, IonicModule,FontAwesomeModule],
     declarations: [CardItemHComponent, CardItemLastActivityComponent,CardItemBoutiqueComponent],
