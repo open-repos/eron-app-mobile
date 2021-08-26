@@ -91,9 +91,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AllowOverflowDirective } from './allow-overflow.directive';
 import { TypeofPipe } from './pipes/typeof.pipe';
 import { HttpClientModule } from '@angular/common/http';
+import { EnterTheViewportNotifierDirective } from './directives/enter-the-viewport-notifier.directive';
 
 @NgModule({
-  declarations: [AppComponent, AllowOverflowDirective],
+  declarations: [AppComponent, AllowOverflowDirective, EnterTheViewportNotifierDirective],
   entryComponents: [],
   imports: [
     BrowserModule,
