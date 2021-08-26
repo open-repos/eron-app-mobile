@@ -1,3 +1,4 @@
+import { CartService } from './../../../services/cart.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormationsBoutique } from 'src/app/models/boutique-formations.model';
 import { BoutiqueFormationsService } from 'src/app/services/boutique-formations.service';
@@ -15,12 +16,12 @@ export class CardItemBoutiqueComponent implements OnInit {
   @Input() cssCardType: string ='col-1';
 
   // @Input() isFormation: boolean = false;
-  constructor(private boutiqueFormationsSrvc: BoutiqueFormationsService) { }
+  constructor(private cartService:CartService) { }
 
   ngOnInit() {}
 
-  addToCart(id:string){
-    this.boutiqueFormationsSrvc.addToCart(id);
+  addToCart(item:object){
+    this.cartService.addToCart(item);
   }
 
 }

@@ -4,6 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {SharedComponentsModule} from './components/shared/shared-components.module'
+
+import { LOCALE_ID } from '@angular/core';
+import localefr from '@angular/common/locales/fr';
+import {registerLocaleData} from '@angular/common';
+registerLocaleData(localefr)
+
 import {
   FontAwesomeModule,
   FaIconLibrary,
@@ -91,9 +97,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AllowOverflowDirective } from './allow-overflow.directive';
 import { TypeofPipe } from './pipes/typeof.pipe';
 import { HttpClientModule } from '@angular/common/http';
+import { EnterTheViewportNotifierDirective } from './directives/enter-the-viewport-notifier.directive';
 
 @NgModule({
-  declarations: [AppComponent, AllowOverflowDirective],
+  declarations: [AppComponent, AllowOverflowDirective, EnterTheViewportNotifierDirective],
   entryComponents: [],
   imports: [
     BrowserModule,
@@ -106,7 +113,10 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     SharedComponentsModule,
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, {
+    provide: LOCALE_ID, 
+    useValue: "fr"
+  },],
   bootstrap: [AppComponent],
 })
 export class AppModule {

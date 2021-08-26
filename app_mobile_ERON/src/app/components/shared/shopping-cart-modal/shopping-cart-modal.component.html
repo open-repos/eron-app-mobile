@@ -11,9 +11,60 @@
 <app-header-apprenant [isModalShop]="true" titleHeader="Panier" (onClickToModal)="onCancel()"></app-header-apprenant>
 
 
-<ion-content class="ion-text-center" padding>
-  <p>Description</p>
+<ion-content class="ion-text-center testoverflow" padding>
+  
+  <ng-container *ngIf="cartItems.length === 0">
+  <div class="center">
+    <img src="../../../../assets/icon/icon-add-to-cart.svg">
+  <h4>Votre panier est vide</h4>
+  <h6>Ajoutez des articles à votre panier</h6>
+  <ion-button id="btn-buy" color="primary" (click)="onCancel()">Retourner à la boutique</ion-button>
+</div>
+</ng-container>
+
  <!-- <div class="flex-container"> -->
+
+  <ng-container *ngIf="cartItems.length !== 0">
+  <ion-grid class="ion-margin">
+    <ion-row>
+      <ion-col size=3 >Produit</ion-col>
+      <ion-col size=3>Nom du produit</ion-col>
+      <!-- <ion-col>Description</ion-col> -->
+      <ion-col size=2>Prix</ion-col>
+      <ion-col size=1>Qtité</ion-col>
+      <ion-col size=2>Total</ion-col>
+      <ion-col size=1>Action</ion-col>
+    </ion-row>
+    <ion-row *ngFor="let item of cartItems; index as i">
+      <!-- <ion-col  size=1>{{ item.id }}</ion-col> -->
+      <ion-col size=3><ion-avatar>
+        <img [src]="item.imageUrl">
+        <span class="txt-el">{{ item.id }}</span>
+      </ion-avatar></ion-col>
+      <ion-col class="txt-el" size=3>{{ item.title }}</ion-col>
+      <!-- <ion-col>{{ student.country }}</ion-col> -->
+      <ion-col class="txt-el" size=2>{{ item.price | currency:'EUR' }}</ion-col>
+      <ion-col class="txt-el" size=1>{{ item.quantity }}</ion-col>
+      <ion-col class="txt-el" size=2>{{  item.quantity * item.price | currency:'EUR'}}</ion-col>
+      <ion-col size=1><ion-icon class="icon-trash-item" name="trash" color="danger" (click)="removeItem(item)" ></ion-icon></ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div class="btn-price">
+  <ion-item  lines="none">
+    <button id="btn-clear-all" color="danger" (click)="showOptions()"> <span style="padding-top:2px;padding-bottom:2px">Vider <br />le panier</span></button>
+    <button  id="btn-continue-shop" color="primary" (click)="onCancel()" fill="outline"><span style="padding-top:2px;padding-bottom:2px">Poursuivre <br />les achats</span></button>
+  </ion-item>
+  <div class="btn-total">
+    <button id="btn-buy" color="primary" (click)="onBuy()">Acheter</button>
+    <p><strong>Total:{{cartTtotal | currency:'EUR'}}</strong></p></div>
+</div>
+
+</ng-container>
+
+<!-- <div id="testdiv">ici</div>--> 
+<!-- TODO: trouver moyen pour rendre cacher et afficher le fab  -->
+<ng-container>
   <ion-fab horizontal="end" vertical="bottom" slot="fixed">
     <ion-fab-button color="primary" class="">
       <ion-icon name="add"></ion-icon>
@@ -24,19 +75,6 @@
       </ion-fab-button>
     </ion-fab-list>
   </ion-fab>
-  
-  <!-- <div class="ctn-icontrash-text"> -->
-  <!-- <div> -->
-    <!-- <ion-icon id="icon-trash" color="danger" name="trash-bin-outline" (click)="emptyCart()"></ion-icon> -->
-    <!-- <ion-fab vertical="bottom" horizontal="start" slot="fixed">
-      <ion-fab-button color="danger">
-        <ion-icon id="icon-trash"  name="trash-bin-outline" (click)="emptyCart()"></ion-icon>
-      </ion-fab-button>
-      <ion-label id="titre-trash">Vider le panier</ion-label>
-      </ion-fab>  -->
-<!-- <p id="titre-trash"><strong>Vider le panier</strong></p> -->
-<!-- </div> -->
-<!-- </div> -->
-  <ion-button id="btn-buy" color="primary" (click)="onBuy()">Acheter</ion-button>
-<!-- </div> -->
+</ng-container>
+
 </ion-content>
