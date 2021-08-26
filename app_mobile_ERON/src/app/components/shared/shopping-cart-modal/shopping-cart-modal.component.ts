@@ -25,8 +25,8 @@ export class ShoppingCartModalComponent implements OnInit {
 
   ngOnInit() {
     this.cartService.getProducts()
-    .subscribe(res=>{
-      this.cartItems = res;
+    .subscribe(produits=>{
+      this.cartItems = produits;
       this.cartTtotal = this.cartService.getTotalPrice();
     })
   }

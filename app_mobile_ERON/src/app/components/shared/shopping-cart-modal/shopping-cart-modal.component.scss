@@ -81,11 +81,55 @@ ion-fab-button[data-desc] {
     }
 
     ion-row:not(:first-child){
-      font-size:1rem;
+      font-size:0.8rem;
+      justify-content:center;
+      align-items:center
     }
 
   }
 
   .btn-price{
     display: flex;
+    justify-content: space-between;
+    padding:5px;
   }
+  .btn-total{
+    display: flex;
+    align-items: center;
+  }
+
+  #btn-clear-all{
+  border: 2px solid var(--ion-color-danger);
+  background-color: var(--ion-color-danger);
+  color: white;
+  padding: 4px 4px;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  }
+
+  #btn-continue-shop{
+    display: inline-block;
+    border: 2px solid var(--ion-color-primary);
+    background-color: white;
+    color:  var(--ion-color-primary);
+    padding: 4px 4px;
+    font-size: 0.8rem;
+    border-radius: 5px;
+    margin:10px;
+    }
+
+    #btn-buy{
+      display: inline-block;
+      height:2rem;
+      border: 2px solid var(--ion-color-primary);
+      background-color:var(--ion-color-primary);
+      color:   white;
+      padding: 4px 4px;
+      font-size: 0.8rem;
+      border-radius: 5px;
+      margin-right:5px;
+      }
+
+.icon-trash-item{
+font-size:1.7rem;
+}

@@ -4,6 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {SharedComponentsModule} from './components/shared/shared-components.module'
+
+import { LOCALE_ID } from '@angular/core';
+import localefr from '@angular/common/locales/fr';
+import {registerLocaleData} from '@angular/common';
+registerLocaleData(localefr)
+
 import {
   FontAwesomeModule,
   FaIconLibrary,
@@ -107,7 +113,10 @@ import { EnterTheViewportNotifierDirective } from './directives/enter-the-viewpo
     ReactiveFormsModule,
     SharedComponentsModule,
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, {
+    provide: LOCALE_ID, 
+    useValue: "fr"
+  },],
   bootstrap: [AppComponent],
 })
 export class AppModule {
