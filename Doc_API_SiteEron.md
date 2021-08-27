@@ -17,6 +17,7 @@ Je met les données sous forme "Array" /JSON qui sont celles que j'ai trouvé pe
   - [Page ERON Santé](#page-eron-santé)
   - [Page Interview](#page-interview)
   - [Page Actu ERON ,Presse et Interview détails](#page-actu-eron-presse-et-interview-détails)
+  - [Newsletter](#newsletter)
 - [Pages Formations](#pages-formations)
   - [Page de présentations des formations](#page-de-présentations-des-formations)
   - [Page Détails des formations](#page-détails-des-formations)
@@ -177,6 +178,10 @@ Avec deux informations supplémentaires :
 - le lien vers l'article annoncé
 - les commentaires aux articles
 
+### Newsletter 
+
+API pour abonnement des utilisateurs à la newsletters (coté frond ils entrent juste leur email).
+
 ## Pages Formations
 
 ---
@@ -265,5 +270,5 @@ Est ce que je fais la même chose coté frontend de l'application ? Ce qui ferai
 ## Page Contact Formulaire
 
 Ici je me demandais s'il serait pas plus simple que j'effectue une requête PUT pour envoyer vers le back le `contenu du message` , `objet du message`, `mail destinataire` et `mail expéditeur` .
-
+Du coup que vous créez une API pour recevoir les infos du messages à envoyer et réaliser l'envoi en back (php)
 **A VOIR ENSEMBLE**
