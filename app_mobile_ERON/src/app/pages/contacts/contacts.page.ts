@@ -1,6 +1,5 @@
-import { fab } from '@fortawesome/free-brands-svg-icons';
 // import { google } from 'google-maps';
-import { Component, OnInit, HostListener, ElementRef, ViewChild, ViewChildren, QueryList } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { faEnvelopeOpenText, faMapMarkerAlt, faPhone, faChevronCircleDown} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
