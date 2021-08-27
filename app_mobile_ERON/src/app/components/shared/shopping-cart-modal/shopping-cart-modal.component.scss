@@ -4,6 +4,12 @@
 //     color: var(--ion-color-danger);
 //     font-size:0.7rem;
 // }
+
+// ion-avatar{
+//   max-width: 3rem!important;  //any size
+//   max-height: 3rem !important; //any size 
+// }
+
 .testoverflow{
   overflow: scroll;
 }
@@ -83,7 +89,8 @@ ion-fab-button[data-desc] {
     ion-row:not(:first-child){
       font-size:0.8rem;
       justify-content:center;
-      align-items:center
+      align-items:center;
+      height:33%;
     }
 
   }
@@ -91,6 +98,7 @@ ion-fab-button[data-desc] {
   .btn-price{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding:5px;
   }
   .btn-total{
@@ -132,4 +140,13 @@ ion-fab-button[data-desc] {
 
 .icon-trash-item{
 font-size:1.7rem;
+}
+
+.txt-ref{
+  font-size:0.5rem;
+}
+
+.avatar-text{
+  display: flex;
+  flex-direction: column;
 }

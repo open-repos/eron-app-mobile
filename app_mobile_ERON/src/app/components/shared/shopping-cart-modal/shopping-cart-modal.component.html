@@ -27,20 +27,21 @@
   <ng-container *ngIf="cartItems.length !== 0">
   <ion-grid class="ion-margin">
     <ion-row>
-      <ion-col size=3 >Produit</ion-col>
-      <ion-col size=3>Nom du produit</ion-col>
+      <ion-col size=3 >Produit (ref)</ion-col>
+      <ion-col size=3>Nom</ion-col>
       <!-- <ion-col>Description</ion-col> -->
       <ion-col size=2>Prix</ion-col>
       <ion-col size=1>Qtité</ion-col>
       <ion-col size=2>Total</ion-col>
-      <ion-col size=1>Action</ion-col>
+      <ion-col size=1></ion-col>
     </ion-row>
     <ion-row *ngFor="let item of cartItems; index as i">
       <!-- <ion-col  size=1>{{ item.id }}</ion-col> -->
-      <ion-col size=3><ion-avatar>
+      <ion-col size=3>
+        <div><ion-avatar class="ion-text-center">
         <img [src]="item.imageUrl">
-        <span class="txt-el">{{ item.id }}</span>
-      </ion-avatar></ion-col>
+        </ion-avatar>
+      <span class="txt-ref">{{ item.id }}</span></div></ion-col>
       <ion-col class="txt-el" size=3>{{ item.title }}</ion-col>
       <!-- <ion-col>{{ student.country }}</ion-col> -->
       <ion-col class="txt-el" size=2>{{ item.price | currency:'EUR' }}</ion-col>
@@ -52,19 +53,18 @@
 
   <div class="btn-price">
   <ion-item  lines="none">
-    <button id="btn-clear-all" color="danger" (click)="showOptions()"> <span style="padding-top:2px;padding-bottom:2px">Vider <br />le panier</span></button>
-    <button  id="btn-continue-shop" color="primary" (click)="onCancel()" fill="outline"><span style="padding-top:2px;padding-bottom:2px">Poursuivre <br />les achats</span></button>
+    <button id="btn-clear-all" color="danger" (click)="showOptions()"> <span style="padding-top:2px;padding-bottom:2px">Vider le panier</span></button>
+    <button  id="btn-continue-shop" color="primary" (click)="onCancel()" fill="outline"><span style="padding-top:2px;padding-bottom:2px">Poursuivre les achats</span></button>
   </ion-item>
   <div class="btn-total">
-    <button id="btn-buy" color="primary" (click)="onBuy()">Acheter</button>
-    <p><strong>Total:{{cartTtotal | currency:'EUR'}}</strong></p></div>
+    <button #myDiv id="btn-buy" color="primary" (click)="onBuy()">Acheter</button>
+    <p><strong>Total:<br />{{cartTtotal | currency:'EUR'}}</strong></p></div>
 </div>
 
 </ng-container>
 
-<!-- <div id="testdiv">ici</div>--> 
-<!-- TODO: trouver moyen pour rendre cacher et afficher le fab  -->
-<ng-container>
+
+<ng-container *ngIf="!isBtnBuyVisible">
   <ion-fab horizontal="end" vertical="bottom" slot="fixed">
     <ion-fab-button color="primary" class="">
       <ion-icon name="add"></ion-icon>
