@@ -35,8 +35,7 @@ ion-content {
   
     .socialMedia{
       font-size: 2em;
-      color:#003478;
-      // TODO: Changer la couleur en couleur primaire (automatique)
+      color:var(--ion-color-primary);
   }
   
   .btn {
