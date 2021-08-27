@@ -1,6 +1,6 @@
 import { fab } from '@fortawesome/free-brands-svg-icons';
 // import { google } from 'google-maps';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener, ElementRef, ViewChild, ViewChildren, QueryList } from '@angular/core';
 import { faEnvelopeOpenText, faMapMarkerAlt, faPhone, faChevronCircleDown} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -13,26 +13,16 @@ export class ContactsPage implements OnInit {
   faEnvelope = faEnvelopeOpenText;
   faMap = faMapMarkerAlt;
   faChevronDown = faChevronCircleDown;
-//   map: any;
-// @ViewChild('map', {static:true}) mapRef: ElementRef;
-  constructor() {}
 
-  ngOnInit() {
-    // this.initMap();
+
+  constructor() {
   }
 
+ 
+ 
+  ngOnInit() {
 
-//   initMap() {
-// let coords = new google.maps.LatLng(45,100)
-// let mapOptions: google.maps.MapOptions = {
-//   center: coords,
-//   zoom: 14,
-//   mapTypeId: google.maps.MapTypeId.ROADMAP
-// }
-// this.map = new google.maps.Map(this.mapRef.nativeElement,
-//   mapOptions)
-//   }
-
+  }
 
 
 

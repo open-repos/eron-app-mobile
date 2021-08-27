@@ -1,13 +1,15 @@
 ion-content {
-    --overflow: hidden !important;
+  //  --overflow: auto !important;
+   overflow-y: auto;
   }
   
   .all-items{
+    --overflow: auto !important;
     height: 100% !important;
     flex: 1 !important;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     align-items: center;
   }
   .box {

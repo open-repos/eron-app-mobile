@@ -8,8 +8,8 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-<div class="all-items">
+<ion-content class="ion-padding">
+<div class="all-items" #theElementYouWantToCheck>
   <div class="box">
     <div class="sub-item-contacts">
       <fa-icon class="socialMedia" [icon]="faPhone"></fa-icon>
@@ -40,7 +40,9 @@
 
     <div class="sub-item-contacts">
       <p>Formulaire de contact</p>
-      <button class="btn" routerLink='/menu/contacts-forms'><fa-icon class="socialMedia" [icon]="faChevronDown" ></fa-icon></button>
+      <button *ngIf="false"> More </button>
+
+      <button class="btn" routerLink='/contacts-forms'><fa-icon class="socialMedia" [icon]="faChevronDown" ></fa-icon></button>
     </div>
 
   </div>
