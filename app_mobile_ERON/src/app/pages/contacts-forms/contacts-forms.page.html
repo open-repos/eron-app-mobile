@@ -18,15 +18,16 @@
       <div *ngIf="field.id === 'serviceToContact'">
         <ion-item lines="none">
           <ion-label class="items-service-client" position="floating">{{field.title}}</ion-label>
-          <ion-select [id]="field.id" formControlName="serviceToContact" interface="popover">
+          <ion-select [id]="field.id" formControlName="serviceToContact" interface="popover" >
             <ion-select-option value="service-clients">Service Clients</ion-select-option>
             <ion-select-option value="partenariats">Partenariats</ion-select-option>
             <ion-select-option value="devenir-formateur">Devenir Formateur</ion-select-option>
             <ion-select-option value="ressources-humaines">Ressources Humaines</ion-select-option>
           </ion-select>
         </ion-item>
-        <div class="error-message"
-          *ngIf="contactForm.get(field.id).hasError(field.validation_messages[0].type) && (contactForm.get(field.id).dirty || contactForm.get(field.id).touched)">
+                <div class="error-message"
+           *ngIf="contactForm.get(field.id).hasError(field.validation_messages[0].type) && (contactForm.get(field.id).dirty || contactForm.get(field.id).touched)">
+        <!-- <div *ngIf="isErrorSelect" [ngClass]="classTest(field.id, i)"> -->
           <ion-text color="danger">{{ field.validation_messages[0].message }}</ion-text>
         </div>
       </div>
@@ -49,6 +50,10 @@
               <ion-text color="danger">{{ validation.message }}</ion-text>
             </div>
           </ng-container>
+          <ng-container *ngIf="!isEmailClean && field.id === 'email' && contactForm.get(field.id).value !== ''"><div> <div class="error-message" *ngIf=" (contactForm.get(field.id).dirty || contactForm.get(field.id).touched)">
+            <ion-text color="danger">Email invalide</ion-text>
+          </div></div></ng-container>
+          
         </div>
       </div>
     </div>

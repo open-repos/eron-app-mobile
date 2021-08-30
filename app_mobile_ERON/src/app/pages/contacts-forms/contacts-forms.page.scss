@@ -1,3 +1,8 @@
+ion-content, form {
+  overflow-y:scroll;
+}
+
+
 .select-full-width {
     max-width: 100% !important;
     width: 100% !important;
@@ -47,7 +52,8 @@ ion-item{
 }
 
 .objet{
-  height:200px;
+  // flex: 2;
+  height:20%;
 }
 
 

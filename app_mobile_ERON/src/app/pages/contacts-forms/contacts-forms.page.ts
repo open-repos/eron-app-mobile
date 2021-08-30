@@ -1,3 +1,4 @@
+import { CustomvalidationService } from 'src/app/services/customvalidation.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormArray, ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -9,14 +10,17 @@ import { Router } from '@angular/router';
 })
 export class ContactsFormsPage implements OnInit {
 
+  isEmailClean: boolean = true;
+  isErrorSelect : boolean = false;
   contactForm!: FormGroup;
   message: string[];
   // emailComposer= EmailComposer;
 
   fieldId = [
     {
-      title: 'Service à contacter',
+      title: 'Service à contacter*',
       id: 'serviceToContact',
+      focus: false,
       validation_messages:[
         {
         type: 'required', 
@@ -25,8 +29,9 @@ export class ContactsFormsPage implements OnInit {
       ]
     },
     {
-      title: 'Prénom',
+      title: 'Prénom*',
       id: 'firstName',
+      focus: false,
       validation_messages:[
         {
         type: 'required', 
@@ -35,8 +40,9 @@ export class ContactsFormsPage implements OnInit {
       ]
     },
     {
-      title: 'Nom',
+      title: 'Nom*',
       id: 'lastName',
+      focus: false,
       validation_messages:[
         {
         type: 'required', 
@@ -45,8 +51,9 @@ export class ContactsFormsPage implements OnInit {
       ]
     },
     {
-      title: 'Email',
+      title: 'Email*',
       id: 'email',
+      focus: false,
       validation_messages:[
         {
         type: 'required', 
@@ -59,8 +66,9 @@ export class ContactsFormsPage implements OnInit {
       ]
     },
     {
-      title: 'Objet du message',
+      title: 'Objet du message*',
       id: 'objet',
+      focus: false,
       validation_messages:[
         {
         type: 'required', 
@@ -74,20 +82,10 @@ export class ContactsFormsPage implements OnInit {
     },
   ]
 
-//   validation_messages = [
-//     {   id:'serviceToContact',
-//         type: 'required', 
-//         message: 'Vous devez choisir un service à contacter.' 
-//   },
-//   {   id:'Prénoms',
-//   type: 'required', 
-//   message: 'Un prénom est requis.' 
-// },
-//   ]
 
   constructor(private formBuilder: FormBuilder,
-              // private userService: UserService,
-              private router: Router) { }
+              private router: Router,
+              private customValidator: CustomvalidationService) { }
 
   ngOnInit() {
     this.initForm();
@@ -98,7 +96,7 @@ export class ContactsFormsPage implements OnInit {
       serviceToContact:  ['', Validators.required],
       firstName: ['',Validators.required],
       lastName:  ['',Validators.required],
-      email:  ['',[Validators.required, Validators.email]],
+      email:  ['',Validators.compose([Validators.required, this.customValidator.patternValidatorEmail()])],
       objet: ['',[Validators.compose([
         Validators.required,
         Validators.minLength(5)
@@ -121,16 +119,55 @@ export class ContactsFormsPage implements OnInit {
   }
 
   getColor(id: string,i: number) {
-    // if(this.contactForm.get(id).hasError('required') && this.contactForm.get(id).touched) {
-    if(this.contactForm.get(id).hasError(this.fieldId[i].validation_messages[0].type) && (this.contactForm.get(id).dirty || this.contactForm.get(id).touched)){
-      return {"border-color": "red"};
-    }else if (this.contactForm.get(id).valid){
-      return {"border-color": "green"};
+    this.isEmailClean = this.contactForm.controls['email'].valid || !this.contactForm.controls['email'].dirty;
+    let isNotValidField = this.contactForm.get(id).hasError(this.fieldId[i].validation_messages[0].type) && (this.contactForm.get(id).dirty || this.contactForm.get(id).touched)
+    
+if(this.fieldId[i].id==="email"){
+
+  if(isNotValidField || !this.isEmailClean){
+    return {"border-color": "red"};
+  }else if (this.contactForm.get(id).valid){
+    return {"border-color": "green"};
+  }
+  else {
+      return {"border-color": "rgb(201,201,201)"};
     }
-    else {
-        return {"border-color": "rgb(201,201,201)"};
-      }
+
+} else {
+
+  if(isNotValidField){
+    return {"border-color": "red"};
+  }else if (this.contactForm.get(id).valid){
+    return {"border-color": "green"};
+  }
+  else {
+      return {"border-color": "rgb(201,201,201)"};
     }
+
+}
+   
+    
+  }
+
+    // classTest(id: string,i: number){
+    //   // console.log("this.contactForm['serviceToContact']",this.contactForm)
+    //   // console.log("focus",this.fieldId[i].focus)
+    //   let isNotValidField = this.contactForm.get(id).hasError(this.fieldId[i].validation_messages[0].type) && (this.contactForm.get(id).dirty)
+    //   if (isNotValidField){
+    //     this.isErrorSelect = true
+    //     return 'error-message'
+    //   } else{
+    //     this.isErrorSelect = false
+    //     return ''
+    //   }
+      
+    // }
+
+    // async testClick(){
+    //   this.isErrorSelect = await  
+    //   true
+    //   console.log(this.isErrorSelect)
+    // }
 
 //     sendEmail(){
 //       const formValue = this.contactForm.value;

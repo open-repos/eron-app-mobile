@@ -10,7 +10,6 @@ import {
   faEyeSlash,
   faMailBulk
 } from '@fortawesome/free-solid-svg-icons';
-import { faMailchimp } from '@fortawesome/free-brands-svg-icons';
 import { CustomvalidationService } from 'src/app/services/customvalidation.service';
 
 @Component({
