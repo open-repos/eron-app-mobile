@@ -11,6 +11,7 @@ import {
   faMailBulk
 } from '@fortawesome/free-solid-svg-icons';
 import { faMailchimp } from '@fortawesome/free-brands-svg-icons';
+import { CustomvalidationService } from 'src/app/services/customvalidation.service';
 
 @Component({
   selector: 'app-login',
@@ -40,7 +41,8 @@ passwordType: string = 'password';
 
   constructor(private formBuilder: FormBuilder,
     private router: Router, 
-    private authService:AuthService) { }
+    private authService:AuthService,
+    private customValidator: CustomvalidationService) { }
 
     ngOnInit() {
       this.initForm();
@@ -48,7 +50,7 @@ passwordType: string = 'password';
   
     initForm() {
       this.loginForm = this.formBuilder.group({
-        email:  ['',[Validators.required, Validators.email]],
+        email:  ['',Validators.compose([Validators.required, this.customValidator.patternValidatorEmail()])],
         password: ['',Validators.required]
       }),
       { updateOn: "blur" };
@@ -83,5 +85,40 @@ onLogin(){
   this.authService.login();
   this.router.navigate(['/tabs/tab-suivi']);
 }
+
+
+
+classLabelFormEmail(){
+  const emailValue = this.loginForm.value['email'];
+  const isEmailClean = this.loginForm.controls['email'].valid || !this.loginForm.controls['email'].dirty;
+  // console.log("this.loginForm.controls['email'].valid",this.loginForm.value['email'] + ' ' +this.loginForm.controls['email'].valid)
+  // console.log("this.loginForm.controls['email'].dirty",this.loginForm.value['email'] + ' ' + this.loginForm.controls['email'].dirty)
+  // console.log('isEmailClean',isEmailClean)
+  // console.log("emailValue !== '' &&  isEmailClean", emailValue !== '' &&  isEmailClean)
+  if ( (emailValue === '' && this.focused) || (emailValue !== '' &&  isEmailClean) ){
+    return 'label-focused'
+  } else if (emailValue === '' && !this.focused){
+    return ''
+  } else if ( emailValue !== '' && !isEmailClean ){
+    return 'invalid-error'
+  }
+}
+
+
+// (loginForm.controls.email.value === '' && focused) ? '' : loginForm.controls.email.value !== '' ? ((!loginForm.controls.email?.valid && loginForm.controls.email?.dirty ) ? 'border-invalid-error': '' ) : focused ? ((!loginForm.controls.email?.valid && loginForm.controls.email?.dirty ) ? 'border-invalid-error': '' ): '' 
+classInputFormEmail(){
+  const emailValue = this.loginForm.value['email'];
+  const isEmailClean = this.loginForm.controls['email'].valid || !this.loginForm.controls['email'].dirty;
+
+  if (emailValue === '' && this.focused ){
+    return ''
+  } else if (isEmailClean && emailValue !== '') {
+    return ''
+  }
+  else if ( emailValue !== '' && !isEmailClean ){
+    return 'border-invalid-error'
+}
+}
+
 
 }

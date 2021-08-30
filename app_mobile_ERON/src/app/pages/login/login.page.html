@@ -23,11 +23,13 @@
     <div class="form-all-item ion-text-center"> 
 
     <div class="textinput-label-icon">
-    <input type="email"  [ngClass]=" (loginForm.controls.email.value === '' && focused) ? '' : loginForm.controls.email.value !== '' ? ((!loginForm.controls.email?.valid && loginForm.controls.email?.dirty ) ? 'border-invalid-error': '' ) : focused ? ((!loginForm.controls.email?.valid && loginForm.controls.email?.dirty ) ? 'border-invalid-error': '' ): '' " id="email" (focus)="focused = true" (blur)="onBlur($event)" class="form-control"
+    <!-- <input type="email"  [ngClass]=" (loginForm.controls.email.value === '' && focused) ? '' : loginForm.controls.email.value !== '' ? ((!loginForm.controls.email?.valid && loginForm.controls.email?.dirty ) ? 'border-invalid-error': '' ) : focused ? ((!loginForm.controls.email?.valid && loginForm.controls.email?.dirty ) ? 'border-invalid-error': '' ): '' " id="email" (focus)="focused = true" (blur)="onBlur($event)" class="form-control"
+    formControlName="email"/> -->
+    <input type="email"  [ngClass]="classInputFormEmail()" id="email" (focus)="focused = true" (blur)="onBlur($event)" class="form-control"
     formControlName="email"/>
-
     <div class="label-icon">
-    <label [ngClass]="(loginForm.controls.email.value === '' && focused) ? 'label-focused' : loginForm.controls.email.value === '' ? '' : focused ? ((!loginForm.controls.email?.valid && loginForm.controls.email?.dirty ) ? 'invalid-error': 'label-focused' ): ((!loginForm.controls.email?.valid && loginForm.controls.email?.dirty ) ? 'invalid-error': '' )">Email</label>
+    <!-- <label [ngClass]="(loginForm.controls.email.value === '' && focused) ? 'label-focused' : loginForm.controls.email.value === '' ? '' : focused ? ((!loginForm.controls.email?.valid && loginForm.controls.email?.dirty ) ? 'invalid-error': 'label-focused' ): ((!loginForm.controls.email?.valid && loginForm.controls.email?.dirty ) ? 'invalid-error': '' )">Email</label> -->
+    <label [ngClass]="classLabelFormEmail()">Email</label>
     <fa-icon [icon]="iconEmail"></fa-icon>
     </div>
 
