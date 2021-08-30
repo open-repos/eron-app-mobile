@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { MedecinsPageRoutingModule } from './medecins-routing.module';
+import { FormationsPageRoutingModule } from './formations-routing.module';
 
-import { MedecinsPage } from './medecins.page';
+import { FormationsPage } from './formations.page';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SharedComponentsModule } from 'src/app/components/shared/shared-components.module';
 
@@ -15,10 +15,10 @@ import { SharedComponentsModule } from 'src/app/components/shared/shared-compone
     CommonModule,
     FormsModule,
     IonicModule,
-    MedecinsPageRoutingModule,
+    FormationsPageRoutingModule,
     FontAwesomeModule,
     SharedComponentsModule
   ],
-  declarations: [MedecinsPage]
+  declarations: [FormationsPage]
 })
-export class MedecinsPageModule {}
+export class FormationsPageModule {}

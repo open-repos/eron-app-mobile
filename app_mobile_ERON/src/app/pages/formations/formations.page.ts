@@ -1,5 +1,5 @@
-import { FormationsService } from './../../../services/formations.service';
-import { Formation } from '../../../models/formation.model';
+import { FormationsService } from './../../services/formations.service';
+import { Formation } from '../../models/formation.model';
 // import { ViewportScroller } from '@angular/common';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -7,11 +7,11 @@ import { faHands, faPills, faTeethOpen, faUserMd, faUserNurse } from '@fortaweso
 import { IonSlides, NavController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-medecins',
-  templateUrl: './medecins.page.html',
-  styleUrls: ['./medecins.page.scss'],
+  selector: 'app-formations',
+  templateUrl: './formations.page.html',
+  styleUrls: ['./formations.page.scss'],
 })
-export class MedecinsPage implements OnInit {
+export class FormationsPage implements OnInit {
 
 public idFormation: number;
 formations: Formation[];

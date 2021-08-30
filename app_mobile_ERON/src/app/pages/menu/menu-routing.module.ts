@@ -97,7 +97,7 @@ const routes: Routes = [
        children: [
       {
         path: '',
-        loadChildren: () => import('../formations/medecins/medecins.module').then( m => m.MedecinsPageModule)
+        loadChildren: () => import('../formations/formations.module').then( m => m.FormationsPageModule)
       },
       {
         path: ':formationId',
@@ -109,43 +109,6 @@ const routes: Routes = [
       loadChildren: () => import('../../tabs/tabs.module').then(m => m.TabsPageModule),
       canLoad: [AuthGuard]
     }
-  //   {
-  //     path: 'tabs',
-  //    children: [
-  //   {
-  //     path: '',
-  //     loadChildren: () => import('../../tabs/tabs.module').then( m => m.TabsPageModule)
-  //   },
-  //   {
-  //     path: 'tab-suivi',
-  //     loadChildren: () => import('../../tabs/tab-suivi/tab-suivi.module').then( m => m.TabSuiviPageModule)
-  //   },
-  //   {
-  //     path: 'tab-formation',
-  //     loadChildren: () => import('../../tabs/tab-formation/tab-formation.module').then( m => m.TabFormationPageModule)
-  //   },
-  //   {
-  //     path: 'tab-boutique',
-  //     loadChildren: () => import('../../tabs/tab-boutique/tab-boutique.module').then( m => m.TabBoutiquePageModule)
-  //   },
-  //   {
-  //     path: 'tab-profil',
-  //     loadChildren: () => import('../../tabs/tab-profil/tab-profil.module').then( m => m.TabProfilPageModule)
-  //   }
-  // ]
-  // },
-      // {
-      //   path: 'formations-kine',
-      //   loadChildren: () => import('../formations/kine/kine.module').then( m => m.KinePageModule)
-      // },
-      // {
-      //   path: 'formations-infirmiers',
-      //   loadChildren: () => import('../formations/infirmiers/infirmiers.module').then( m => m.InfirmiersPageModule)
-      // },
-      // {
-      //   path: 'formations-pharmaciens',
-      //   loadChildren: () => import('../formations/pharmaciens/pharmaciens.module').then( m => m.PharmaciensPageModule)
-      // },
     ],
   },
 ];
