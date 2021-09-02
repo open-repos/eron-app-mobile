@@ -1,6 +1,7 @@
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { faChevronRight, faChevronUp } from '@fortawesome/free-solid-svg-icons';
+import { contentAccordionItem } from 'src/app/models/content-accordion-item.model';
 
 export interface ObjectExpand {
   isExpanded: boolean;
@@ -20,46 +21,28 @@ export class AccordionItemComponent implements OnInit {
 
   //2eme option avec boucle
 
+  @Input() items:contentAccordionItem[] =[];
+
   iconOpen = faChevronRight;
   iconClose = faChevronUp;
   iconTemplate: IconProp = faChevronRight;
   expandedArray: ObjectExpand[] = [];
 
-  itemFaq = [
-    {
-      titre: 'Combien de temps pour une formation ?',
-      reponse: 'Il faut .......................................',
-    },
-    {
-      titre: 'Combien de temps pour une formation ?',
-      reponse: 'Il faut .......................................',
-    },
-    {
-      titre: 'Combien de temps pour une formation ?',
-      reponse: 'Il faut .......................................',
-    },
-    {
-      titre: 'Combien de temps pour une formation ?',
-      reponse: 'Il faut .......................................',
-    },
-  ];
 
   constructor() {
-    // DEUX FACONS de creer l'array d'objet souhaité
+  
+  }
+
+  ngOnInit() {
+      // DEUX FACONS de creer l'array d'objet souhaité
 
     // 1ere option sans boucle
     // this.expandedCheck = {isExpanded: true};
     // this.expandedArray = Array.from({length:this.itemFaq.length}).map(x => this.expandedCheck);
 
-    //2eme option avec boucle
-    if (this.expandedArray.length == 0) {
-      for (var _i = 0; _i < this.itemFaq.length; _i++) {
-        this.expandedArray.push({ isExpanded: false });
-      }
-    }
+    this.addExpandablesItem()
+   
   }
-
-  ngOnInit() {}
 
   expandItem(item): void {
     if (item.expanded) {
@@ -76,6 +59,15 @@ export class AccordionItemComponent implements OnInit {
     }
   }
 
+  addExpandablesItem(){
+     //2eme option avec boucle
+     if (this.expandedArray.length == 0) {
+      for (var _i = 0; _i < this.items.length; _i++) {
+        this.expandedArray.push({ isExpanded: false });
+      }
+    }
+  }
+  
   ngOnDestroy() {
     // console.log(this.expandedArray)
     this.expandedArray.length = 0;

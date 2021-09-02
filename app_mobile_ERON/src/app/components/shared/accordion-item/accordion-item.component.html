@@ -3,7 +3,7 @@
     <!-- <ion-item> -->
     <div class="subtitle-icon">
     <ion-card-subtitle>
-      {{itemFaq[index].titre}}
+      {{items[index].title}}
     </ion-card-subtitle>
   </div>
     <!-- <ion-card-title>Card Title</ion-card-title> -->
@@ -15,6 +15,6 @@
   <fa-icon *ngIf="!expandedArray[index].isExpanded" [icon]="iconOpen"></fa-icon>
 </div>
   <ion-card-content *ngIf="expandedArray[index].isExpanded">
-    {{itemFaq[index].reponse}}
+    {{items[index].content}}
   </ion-card-content>
 </ion-card>
