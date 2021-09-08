@@ -1,0 +1,232 @@
+* 81c1ede  (HEAD -> develop, gitlab/refactor/faq, gitlab/develop, github/refactor/faq, github/develop, refactor/faq) *Titre commit: Refactor Code FAQ et Accordion-item.component.html *Changement(s) effectué(s): - creation d'une interface model "content-accordion-item" comportant deux champs title et content - le composant accordion item est maintenant utlisable n'importe où et accepte en entrée un objet d'array contentAccordionItem - Ajout des infos des premières questions FAQ
+| Thu Sep 2 18:29:29 2021 +0200 acapai <andria.c@eronservice.fr>
+| 
+* 0e6cc2d  (gitlab/refactor/page-contacts-form, github/refactor/page-contacts-form, refactor/page-contacts-form) *Titre commit: Léger Refactoring du code de la page contacts-forms *Changement(s) effectué(s): -L'UX peut encore être améliorer mais le formulaire renvoie bien les erreurs / validations concernant les différents champs.
+| Mon Aug 30 17:39:44 2021 +0200 acapai <andria.c@eronservice.fr>
+| 
+* 19b1477  (gitlab/refactor/page-login, github/refactor/page-login, refactor/page-login) *Titre commit: Amélioration du ReactiveForm de la page Login *Changement(s) effectué(s): - Creation d'un service pour les customs Validations des champs de formulaire - Refactor code mltiple ternaire nested par l'appel d'une fonction (plus facile à lire et comprendre la logique derrière)
+| Mon Aug 30 14:47:11 2021 +0200 acapai <andria.c@eronservice.fr>
+| 
+* f376e68  (gitlab/refactor/pages-formations, github/refactor/pages-formations, refactor/pages-formations) *Titre commit: Refactoring code Page Formations *Changement(s) effectué(s): - Suppression des pages inutiles
+| Mon Aug 30 10:11:25 2021 +0200 acapai <andria.c@eronservice.fr>
+| 
+* 1c79e4b  *Titre commit: Doc API Site Eron *Changement(s) effectué(s): - Ajout d'une section Newsletter
+| Fri Aug 27 17:40:04 2021 +0200 acapai <andria.c@eronservice.fr>
+|   
+*   c2dd262  Merge branch 'features/modal/page-tab-boutique' into develop
+|\  Fri Aug 27 15:17:44 2021 +0200 acapai <andria.c@eronservice.fr>
+| | 
+| * 2f200ae  (gitlab/features/modal/page-tab-boutique, github/features/modal/page-tab-boutique, features/modal/page-tab-boutique) *Titre commit: TODO " trouver moyen pour rendre cacher et afficher le fab " --> DONE *Changement(s) effectué(s): - utilisation de l'API intersectionObserver pour apparition ou non du floating action button - modification css et html de l'ion-avatar et du text dans le ion-grid de la page shopping-cart-modal
+| | Fri Aug 27 15:16:25 2021 +0200 acapai <andria.c@eronservice.fr>
+| | 
+| * 1bda3d9  *Titre commit: TODO changer couleur primaire entrée en dur par la variable dans le global css (DONE)
+| | Fri Aug 27 14:02:30 2021 +0200 acapai <andria.c@eronservice.fr>
+| | 
+| * 8ad78e0  *Titre commit: Correction layout/Css page contact et home + test API IntersectionObserver *Changement(s) effectué(s): - ajout des "overflow-y:auto" et propriété css "flex-start" pour les pages contacts - test OK pour l'implémentation de l'API instersectionObserver
+| | Fri Aug 27 13:55:18 2021 +0200 acapai <andria.c@eronservice.fr>
+| | 
+* | 580bcb7  *Titre commit: TODO changer couleur primaire entrée en dur par la variable dans le global css (DONE)
+| | Fri Aug 27 14:02:30 2021 +0200 acapai <andria.c@eronservice.fr>
+| | 
+* | 841a4f8  *Titre commit: Correction layout/Css page contact et home + test API IntersectionObserver *Changement(s) effectué(s): - ajout des "overflow-y:auto" et propriété css "flex-start" pour les pages contacts - test OK pour l'implémentation de l'API instersectionObserver
+| | Fri Aug 27 13:55:18 2021 +0200 acapai <andria.c@eronservice.fr>
+| | 
+* | c2bd98e  Merge branch 'features/modal/page-tab-boutique' into develop
+|\| Thu Aug 26 21:10:25 2021 +0200 acapai <andria.c@eronservice.fr>
+| | 
+| * 217194b  *Titre commit: Modification css de la modale de du Panier d'achats *Changement(s) effectué(s): - remplacement des ion-button par l'element button - ajustement de la taille de police de la liste des articles du panier - ajout de la "locale" fr  dans "app.module.ts" pour avoir le change en euros placé au bon endroit
+| | Thu Aug 26 21:09:57 2021 +0200 acapai <andria.c@eronservice.fr>
+| | 
+| * 247418b  (features/modal/page-tab-boutique-tuto-RaviVeliat) *Titre commit: ShopCart service et observable OK *Changement(s) effectué(s): - création d'un cartService avec les fonctions associées au boutons de la modale des articles du panier :      * vider le panier      * poursuivre achat      * supprimer un article de la liste - Creation du layout ion-grid des articles du panier avec les directives ngFor pour le nombre d'article dans le panier et ngIf pour l'affichage de message indiquant que le panier est vide et proposant de poursuivre ses achtats ** implementation en suivant le tuto de "Let'sProgram Add to cart in Angular sur Youtube"
+| | Thu Aug 26 18:15:13 2021 +0200 acapai <andria.c@eronservice.fr>
+| | 
+* | 0840e70  *Titre commit: Docs API *Changement(s) effectué(s): - Creation du fichier markdown Docs_API_SiteEron - Ajout des exemples d'informations requises pour l'API et l'intégration en frontend
+| | Wed Aug 25 17:30:30 2021 +0200 acapai <andria.c@eronservice.fr>
+| | 
+* | 0a843bd  Merge branch 'features/modal/page-tab-boutique' into develop
+|\| Wed Aug 25 15:23:40 2021 +0200 acapai <andria.c@eronservice.fr>
+| | 
+| * bc7bb21  *Titre commit: Creation Branche "features/modal/page-tab-boutique" *Changement(s) effectué(s): - creation d'un component (modal) : shopping cart modal component - modification de l'icone du header pour la modale - icone Panier shopping fonctionnel pour l'apparition de la modale - shopping cart modal component permet possède également un bouton acheter, un floating action button pour vider le panier, une icone "close" *TODO: - Ajouter un bouton "poursuivre ses achats" dans la modale - Ajouter la liste des itemsCart dans le template (pour cela il est nécessaire de créer un service et modele pour les cartItems)
+| | Tue Aug 24 18:34:24 2021 +0200 acapai <andria.c@eronservice.fr>
+| | 
+* | 169324a  *Titre commit: Capacitor test android et ios *Changement(s) effectué(s): - Test virtual et real device des lancement d'applications via les icones de media sociaux OK
+| | Wed Aug 25 15:04:30 2021 +0200 acapai <andria.c@eronservice.fr>
+| | 
+* | ecdf3be  (gitlab/features/sideMenu-AppConnection, github/features/sideMenu-AppConnection, features/sideMenu-AppConnection) *Titre commit: Social Media App Connection *Changement(s) effectué(s): - Installation de package : appavailability et inappbrowser - creation des fonctions pour ouvrir soit une app soit le browser pour l'application souhaité - creation d'une fonction avec switch case pour renvoyer vers les fonctions d'ouvertures de média sociaux
+| | Wed Aug 25 13:14:54 2021 +0200 acapai <andria.c@eronservice.fr>
+| | 
+* | b61a1a4  *Titre commit: Page contact , tab profil *Changement(s) effectué(s): - Ajout des href et google map dans la page contact du tab profil
+| | Wed Aug 25 11:43:17 2021 +0200 acapai <andria.c@eronservice.fr>
+| | 
+* | b2dd1fc  *Titre commit: Merge Page contact avec page develop *Modifications effectuées: - Lien href et iframe googlemap
+|/  Wed Aug 25 11:32:41 2021 +0200 acapai <andria.c@eronservice.fr>
+| 
+* 694a88c  (gitlab/modeles-services/formations-boutique, github/modeles-services/formations-boutique, modeles-services/formations-boutique) *Titre commit: test observable avec l'icone de shopping *Changement(s) effectué(s): -test d'utilisation de behaviorsubject *TODO: - voir la video sur youtube de ravi veliyat sur les observables (Shooping Cart)
+| Tue Aug 24 14:51:57 2021 +0200 acapai <andria.c@eronservice.fr>
+| 
+* ddf34bf  *Titre commit:  Branche Model-Service/formation boutique *Changement(s) effectué(s): - creation modele boutique formation (prix, quantité etc) - creation service boutique formation (array de formation + fonctions associées a la boutique ajout d'article) - creation d'une card item boutique (prix, ref, bouton acheter) *TODO: - Associer le bouton acheter à la méthode du service et à l'icone du panier
+| Mon Aug 23 16:47:57 2021 +0200 acapai <andria.c@eronservice.fr>
+| 
+* 55c87b4  (gitlab/features/page-tab-boutique, github/features/page-tab-boutique, features/page-tab-boutique) *Titre commit: Nested Component Function *Changement(s) effectué(s): - la fonction click du composant iconBadge (contenu dans le header-apprenant.component) est utilisable jusqu'au composant "grandParent" tab-boutique
+| Mon Aug 23 13:35:54 2021 +0200 acapai <andria.c@eronservice.fr>
+| 
+* 81959aa  *Titre commit: creation d'un composant avec icone et pastille *Changement(s) effectué(s): - creation d'un composant partagé (icone + pastille alias badge) - modification du header apprenant pour intégrer 'conditionnellemnt' l'icone en haut à droite - intégration dans dans les modules partagé *TODO: - resoudre probleme de fonction appelée d'un sous enfant
+| Fri Aug 20 18:03:19 2021 +0200 acapai <andria.c@eronservice.fr>
+| 
+* f532f0d  (gitlab/features/page-tab-suivi, github/features/page-tab-suivi, features/page-tab-suivi) *Titre commit: Modification de la "card item last activity" Tabs/tab-suivi *Changement(s) effectué(s): - creation d'un composant card-item-last-acticity - implementation HTML TS et CSS dans le tab-suivi *TODO: - Voir pour amélioration d'affichage du contenu de la dernière activité - Integrer un service faisant appel à une méthod qui fait appel a une requete http pour obtenir dernière activité (API)
+| Fri Aug 20 12:20:46 2021 +0200 acapai <andria.c@eronservice.fr>
+| 
+* e2c6250  (gitlab/page-tab-profil-details, github/page-tab-profil-details, page-tab-profil-details) *Titre commit: Notifications Settings service + logique metier *Changement(s) effectué(s): - creation d'un service - creation d'une db sur firebase pour tester http request en enregistrant les settings de notifications *TODO: - Regler le probleme du moment où on quitte sans sauver les enregistrements
+| Thu Aug 19 20:43:51 2021 +0200 acapai <andria.c@eronservice.fr>
+| 
+* 74960ad  *Titre commit: Tab Profil / Notfications settings *Changement(s) effectué(s): - Ajout de lit d'items pour les notifications - création d'un reactivform pour enregistrer les "etats" des togglle buttons - création des validators associé au formControl *TODO: - Voir pour passer le Formulaire 'ReactiveForm' en Observable et enregistrer les "settings" de l'utilisateurs
+| Wed Aug 18 17:14:04 2021 +0200 acapai <andria.c@eronservice.fr>
+| 
+* 8b01a80  *Titre commit: Ajout du ion-button-back Detail Formation Apprenant
+| Mon Aug 16 11:55:58 2021 +0200 acapai <andria.c@eronservice.fr>
+| 
+* 43d7105  *Ttitre commit: Tab Profil/ Contact+Formulaire et FAQ *Changement(s) effectué(s): - Ajout des routes et template de la page de contact (+ formulaires de contacts) (espace apprenant tabs) - Ajout de la page Faq dans l'espace apprennant (tabs) - Creation d'un autre module qui fait appel au composant "accordion-item" car sinon il était appelé dans deux modules et cela génère une erreur
+| Mon Aug 16 11:47:41 2021 +0200 acapai <andria.c@eronservice.fr>
+| 
+* 170d700  (gitlab/features/page-tab-formation, github/features/page-tab-formation, features/page-tab-formation) *Ttitre commit: Creation d'un composant partagé (ion-card formation apprenant) + Service et Model associé *Changement(s) effectué(s): - card-item-h-component créée - formation-apprenant.service.ts créée -formation-apprenant.model.ts créée Card cliquable vers le détail de la formation par rapport à l'id de la formation
+| Fri Aug 6 18:22:34 2021 +0200 acapai <andria.c@eronservice.fr>
+| 
+* 22b6967  (gitlab/features/authentification, github/features/authentification, features/authentification) *Ttitre commit: Authentification Guard *Changement(s) effectué(s): - Creation du Guard "CanLoad" - Creation d'un service Auth - Creation de deux fonction login et logout dans ce service qui change la variable booleene de ce service - Ajout du Guard dans les chemins parties espace apprenant (parents "tabs")
+| Thu Aug 5 17:32:25 2021 +0200 acapai <andria.c@eronservice.fr>
+| 
+* f4737cf  *Ttitre commit: Resolution de la synchronisation des segments ET Slides de la page Formation en adéquation avec les items du menu cliqués *Changement(s) effectué(s): - Problème résolu par l'utilisation de QueryParams [ticket: 07 - 09] [Milestone : 01 Github]
+| Thu Aug 5 14:05:35 2021 +0200 acapai <andria.c@eronservice.fr>
+| 
+* 5341b98  (gitlab/sharedComponent/actu-card, github/sharedComponent/actu-card, sharedComponent/actu-card) *Ttitre commit: Creation d'un autre type de "card" dans le component partagé "card-item.component" + Creation de Pipe + deplacement des models dans le dossier models *Changement(s) effectué(s): - Amelioration du componetn card-item dans le but de pouvoir l'utiliser aussi pour les "card" formations - déplacement des fichiers models formations et actu-eron dans le dossier model (pour plus de lisibilité selon moi) - creation d'un pipe pour tester le "type" d'un élément (utiliser avec ngIf)
+| Wed Aug 4 20:27:32 2021 +0200 acapai <andria.c@eronservice.fr>
+| 
+* 27a9073  *Ttitre commit: Creation service et model ActuPresse *Changement(s) effectué(s): - Creation de model de type class dans un dossier "model" - Creation du service ActuPresse dans le dossier services -Injection du service dans le typescript actualites-presse.ts *TODO: - Essayer d'utiliser le card-item.component partagé dans la liste des "cards" formations
+| Wed Aug 4 18:39:24 2021 +0200 acapai <andria.c@eronservice.fr>
+| 
+* 242d3b7  *Ttitre commit: Creattion du composant partagé card-item *Changement(s) effectué(s): - creation du composant card-tem - insertion du composant dans les pages actu-eron et actu-press - creation de deux groupes de classe css pour le composant partagé card-item - ajout de deux decorateur @Input() du composant partagé pour utiliser des property binding avec les composant parents
+| Wed Aug 4 18:06:10 2021 +0200 acapai <andria.c@eronservice.fr>
+| 
+* 58a1b02  *Ttitre commit: Creation des pages enfants *Changement(s) effectué(s): - Ecritures des routes et des routes enfants pour les pages créées (pages des actu enfants, pages enfants des différents tabs) *TODO: - Compléter  le contenu de ces pages enfants
+| Tue Aug 3 16:33:38 2021 +0200 acapai <andria.c@eronservice.fr>
+|   
+*   a8105be  Merge branch 'features/page-tabs-espace-apprenant' into develop
+|\  Mon Aug 2 15:34:56 2021 +0200 acapai <andria.c@eronservice.fr>
+| | 
+| * 9839c0f  (gitlab/features/page-tabs-espace-apprenant, github/features/page-tabs-espace-apprenant, features/page-tabs-espace-apprenant) *Ttitre commit: Tab Suivi et profil *Changement(s) effectué(s): - Reconstitution des ecrans réalisés sur Figma *TODO: - Reussir à rendre 'responsive' le ion-card - Embellir la page de Suivi Bilan - Inserez les liens et les routes pour les différentes zone clickable des deux tabs
+| | Mon Aug 2 15:33:57 2021 +0200 acapai <andria.c@eronservice.fr>
+| | 
+* | 9d50dc7  (gitlab/features/page-faq, github/features/page-faq, features/page-faq) *Ttitre commit: Page FAQ / list Accordeon *Changement(s) effectué(s): - Creation de la page FAQ avec un component externalisé qui est acordion-item (item de question sous forme de carte) - TODO : essayer avec un fichier json / api ou on fait une requette http et où on vient ajouter en back diverse question
+|/  Fri Jul 30 23:47:22 2021 +0200 acapai <andria.c@eronservice.fr>
+| 
+* b1303d4  *Ttitre commit: Header espace Apprenant *Changement(s) effectué(s): - creation d'un component header-apprenant pour le rendre accesssible aux pages concernées - creation d'un module ShareHeaderApprenant.module.ts pour l'implementer aux pages concernées *TODO: - creer la première vue de chaque page
+| Fri Jul 30 16:39:42 2021 +0200 acapai <andria.c@eronservice.fr>
+| 
+* f454974  *Ttitre commit: Tabs espace Apprenant (4 tab) *Changement(s) effectué(s): - Routes des tabs implémenter aux routes de bases -Custom icones SVG avec actif et non actif couleur *TODO: - Changer Header (shareComponentApprenant Module + component  Header en commun Apprenant  )
+| Fri Jul 30 12:35:55 2021 +0200 acapai <andria.c@eronservice.fr>
+| 
+* c9a5823  (gitlab/features/page-connexion, github/features/page-connexion, features/page-connexion) *Ttitre commit: Creation page de connexion *Changement(s) effectué(s): - creation ReactiveForm -Style la page réalisée - UX réalisé (Form validators) *TODO: - Submit Button a envoyer sur l'espace compte Apprenant - ajouter authentification service
+| Thu Jul 29 17:45:17 2021 +0200 acapai <andria.c@eronservice.fr>
+| 
+* d338dd1  (gitlab/features/actualites-services-model, github/features/actualites-services-model, features/actualites-services-model) *Ttitre commit: Creation Actualite Eron Detail et modification sur Page Actualité Eron *Changement(s) effectué(s): - creation des routes :actualiteId - modification du style des slides dans la page Actu-Eron -> height et font size *TODO: - Faire le style (css) de la page detail actu-eron - Ameliorer le style de la page Actu-Eron
+| Wed Jul 28 17:24:30 2021 +0200 acapai <andria.c@eronservice.fr>
+| 
+* 7edccd7  *Ttitre commit: Actualité Eron service et mise en page *Changement(s) effectué(s): - Ajout de slides pour visualiser les actu - Ajout de ngForm et AlertController pour abonnement newsletter *TODO: - Ajouter page et navigation de la slide actualité vers le détail actualité (page détail actualité à créer) [ticket: X](si BUG)
+| Wed Jul 28 12:48:40 2021 +0200 acapai <andria.c@eronservice.fr>
+| 
+* c156c1a  *Ttitre commit: Creation du service actualité *Changement(s) effectué(s): - creation sur le meme format que le service Formation *TODO: creation de branche propre au developpement des pages d'actualités
+| Wed Jul 28 10:46:58 2021 +0200 acapai <andria.c@eronservice.fr>
+| 
+* da329a3  (gitlab/features/formations-services-model, github/features/formations-services-model, features/formations-services-model) *Ttitre commit: Tentative de changement de slide et segment (page formation) en fonction de l'item Menu cliqu" *Changement(s) effectué(s): - Aucun (tentative échouée) *TODO: - Reussir à lié l'actualisation des slides et du focusSegment en fonction de la formation choisi dans le sideMenu
+| Wed Jul 28 10:14:54 2021 +0200 acapai <andria.c@eronservice.fr>
+| 
+* 8f1f168  *Ttitre commit: Creation de service formation, model Formation, list formation , page Formation Detail *TODO: - fix problem data passing entre itemMenu et /formation url
+| Tue Jul 27 16:49:11 2021 +0200 acapai <andria.c@eronservice.fr>
+| 
+* 4181f09  *Ttitre commit: Header Component en commun (Amelioration du code) *Changement(s) effectué(s): -Ajout du component header sur toutes les pages
+| Tue Jul 27 10:57:59 2021 +0200 acapai <andria.c@eronservice.fr>
+| 
+* 617d4f4  (gitlab/clean-code/sideMenu, github/clean-code/sideMenu, clean-code/sideMenu) *Ttitre commit: Amelioration du code *Changement(s) effectué(s): - Creation de model (MenuItem et SubItem) pour déclarer le nombre de propriété et eviter d'envetuelles erreurs dans la définition du sideMenu
+| Tue Jul 27 10:45:33 2021 +0200 acapai <andria.c@eronservice.fr>
+| 
+* f225454  *Ttitre commit: Merge branche fix Share Menu * Changement effectué : - renommé les chemins (plus de chemin qui commencent pas "menu/..") - creation d'un component partagé (Header) - creation d'un module partagé "SharedComponentModule" pour venir importer tous les composant que l'on veut partager dans les différentes pages
+| Mon Jul 26 18:59:18 2021 +0200 acapai <andria.c@eronservice.fr>
+|   
+*   ca9490e  (gitlab/fix/sideMenu-to-share, github/fix/sideMenu-to-share, fix/sideMenu-to-share) Merge branch 'features/page-contact' into develop
+|\  Mon Jul 26 15:41:24 2021 +0200 acapai <andria.c@eronservice.fr>
+| | 
+| * 2cfaa83  *Ttitre commit: Page contact formulaire back button *Changement(s) effectué(s): -Ajout de defaultHref pour le retour de boutons
+| | Mon Jul 26 15:40:01 2021 +0200 acapai <andria.c@eronservice.fr>
+| | 
+* | b27a074  Merge branch 'features/page-contact' into develop
+|\| Mon Jul 26 13:56:20 2021 +0200 acapai <andria.c@eronservice.fr>
+| | 
+| * 750e846  *Ttitre commit: Page contact et contacts form modifiées *Changement(s) effectué(s): -Page contact : modification du layout pour être plus responsive et garder le scroll - Page contact form : modification du layout pour être plus responsive
+| | Mon Jul 26 13:50:56 2021 +0200 acapai <andria.c@eronservice.fr>
+| |   
+* |   6588efe  Merge branch 'features/page-accueil' into develop
+|\ \  Mon Jul 26 11:28:48 2021 +0200 acapai <andria.c@eronservice.fr>
+| |/  
+|/|   
+| | 
+| * 5aa52a9  (gitlab/features/page-accueil, github/features/page-accueil, features/page-accueil) *Ttitre commit: Changement dans la page d'accueil et dans le menu *Changement(s) effectué(s): -Page accueil changement du layout et de l'image (fit any size avec une hauteur fixe à 30% de la hauteur de l'écran) -Menu : Scroll OK *TODO: - Réussir à utiliser la propriété css space-between items pour occuper tout l'espace disponible des éléments [ticket: issue01 dans projet github ]
+| | Mon Jul 26 11:03:59 2021 +0200 acapai <andria.c@eronservice.fr>
+| | 
+| * 8728488  *Ttitre commit: Ajout des chemins ios et android dans .gitignore *Changement(s) effectué(s): -/ios/ et /android/ dans .gitignore
+| | Mon Jul 26 08:55:15 2021 +0200 acapai <andria.c@eronservice.fr>
+| | 
+* | d2ccb1a  *Ttitre commit: Explication de la création du formulaire de la page contacts-form et des pages SideMenu et Home + Explication Initilisation de Capacitor *Changement(s) effectué(s): - README.md *TODO: - Page Contact-Forms paramétrer l'envoi de mail
+| | Sat Jul 24 13:09:06 2021 +0200 acapai <andria.c@eronservice.fr>
+| | 
+* | 19b57ca  *Ttitre commit: Formulaire de contact (champs) + capacitor build iOS et Android *Changement(s) effectué(s): - Ajout et automatisation des FormControl du formulaire de contacts avec les "Validators" (requis, longueur, email) *TODO: - Trouver un plugin ou Module valide pour android et ios concernant l'envoi de Email
+| | Sat Jul 24 00:32:55 2021 +0200 acapai <andria.c@eronservice.fr>
+| | 
+* | 7cf7c57  *Ttitre commit: Formulaire de contact *Changement(s) effectué(s): - ionic g page pages/contacts-forms - création d'un ReactiveForm angular *TODO: - Mettre en avant les validator (rouge si pas valide) - renvoyer les infos dans du formulaire dans EmailComposer (providers a importer) [ticket: X](si BUG)
+| | Fri Jul 23 12:42:17 2021 +0200 acapai <andria.c@eronservice.fr>
+| | 
+* | 8e1f2f7  *Ttitre commit: Page Contacts *Changement(s) effectué(s): - Ajout Bouton formulaire -Modification espacement class css (flex items padding) *TODO: - Creer page formulaire de contact
+| | Fri Jul 23 09:21:15 2021 +0200 acapai <andria.c@eronservice.fr>
+| | 
+* | baba898  *Ttitre commit: Page Contact modification *Changement(s) effectué(s): - Ajout numéro, adresse mail et postale - Essai d'ajout de carte google map mais trop long pour le besoin de l'appli *TODO: - Ajouter icones  chevron en dessous de formulaire pour renvoyer vers une modal comme dans les maquettes Figma
+|/  Thu Jul 22 18:21:53 2021 +0200 acapai <andria.c@eronservice.fr>
+| 
+* 13a67f4  *Ttitre commit: Boutons clickable de la page HOME renvoie vers des pages *Changement(s) effectué(s): - routerlink bouton formation vers formation onglet "medecin" - routerlink bouton actualité vers page actu-eron - modification de la couleur des logos sociaux sur le sideMenu *TODO: -Ajuster illustration page d'accueil pour meilleur rendu visuel selon la des écrans - voir pour un meilleur layout (plus dynamique)
+| Thu Jul 22 14:33:44 2021 +0200 acapai <andria.c@eronservice.fr>
+| 
+* 63e0bcc  *Ttitre commit: CSS des element de la page d'accueil *Changement(s) effectué(s): - changement ion-img en div et img *TODO: - Image page home pas encore au point -> regler la hauteur pour un fit optimal
+| Thu Jul 22 14:14:27 2021 +0200 acapai <andria.c@eronservice.fr>
+| 
+* fdb754b  Titre : Comment la partie "Dark" mode du fichier variable.scss Npm Install sur le nouvel ordi Mac
+| Thu Jul 22 10:52:04 2021 +0200 acapai <andria.c@eronservice.fr>
+| 
+* 1af0778  *Titre commit: Creation Branch "features/page-accueil" *Changement(s) effectué(s): - Ajout d'illustration - Ajout du text (grid) - Ajout des deux boutons *TODO: - Associé event "onClick"des deux boutons  aux routes correspondantes
+| Tue Jul 20 14:24:50 2021 +0200 andria.laptop_Simplon <andria.capai@gmail.com>
+| 
+* 2b0a382  (gitlab/features/segments-formations-items, github/features/segments-formations-items, features/segments-formations-items) *Titre commit: Modification medecin.page.ts et README.md *Changement(s) effectué(s): - medecin.page.ts : initialisation segment number plutot que par défaut 0 -  ng serve et ionic serve au lieu de ng -serve et ionic -serve
+| Mon Jul 19 18:41:39 2021 +0200 andria.laptop_Simplon <andria.capai@gmail.com>
+| 
+* f14ee0d  #Segments Control : - Les segments de control des formations sont fonctionnels - ajout de logo au niveau des segments - segment scrollable - chaque segment sont lié au contenu de chaque slide #TODO : lié les routes "navigate" du SideMenu a la bonne position du scroll des Segments
+| Thu Jul 8 17:51:07 2021 +0200 andria.laptop_Simplon <andria.capai@gmail.com>
+| 
+* 47d410f  #Header : Ajout du logo ERON sur le HEADER #SideMenu :Ajout des logos SocialMedia #TODO: - creer les segments tabs scroll horizontal pour naviguer entre les formations (via une nouvelle branche) #FIX: scroll vertical dans les elements du sideMenu
+| Tue Jul 6 23:27:09 2021 +0200 andria.laptop_Simplon <andria.capai@gmail.com>
+| 
+* 345d32d  #SideMenu : - Ajout des icones fontawesome dans le menu et importé dans app.module. - Ajout de l'item formations et ses sous items #MenuButton Hamburger : style changé pour le mode iOS #README: - ajout de l'arborescence du projet - ajout de la lsite des icones importé pour le projet # TODO: creer les segments tabs scroll horizontal pour naviguer entre les formations (via une nouvelle branche) # Etat actuel : SideMenu avec routes et Ux (active Routes) fonctionnel
+| Tue Jul 6 19:35:14 2021 +0200 andria.laptop_Simplon <andria.capai@gmail.com>
+| 
+* 7bd66a7  #Side Menu :  RouterLinkActive OK #TODO: changer couleur icon hamburger sur iOS , changer icon menu avec fontawesome fAIcon
+| Tue Jul 6 12:56:22 2021 +0200 andria.laptop_Simplon <andria.capai@gmail.com>
+| 
+* 01b213c  #sideMenu -  SubListItems : RouteLink OK, dropdown sublist item OK #Style : active page (NO) , icon (NO), Formations (NO) , menu externalisé (NO) #TODO: MenuCtrl et changer couleur hamburger pour iOS
+| Tue Jul 6 00:29:37 2021 +0200 andria.laptop_Simplon <andria.capai@gmail.com>
+| 
+* 03a997b  Reset commit pour revenir à un travail propre avant la création des pages
+| Mon Jul 5 16:33:33 2021 +0200 andria.laptop_Simplon <andria.capai@gmail.com>
+| 
+* 57b6867  Modification du README.md concernant : - setup -  creation du projet - ajout des images logo icones illustration Import des icones fontawesome et modification en fonction
+| Fri Jul 2 19:17:00 2021 +0200 andria.laptop_Simplon <andria.capai@gmail.com>
+| 
+* 5a29499  (gitlab/main, github/main, github/HEAD, main) Add Specification Document (cahier des charges application)
+| Thu Jul 1 17:57:02 2021 +0200 andria.laptop_Simplon <andria.capai@gmail.com>
+| 
+* 60ae3a0  App-Mobile-ERON : Initialization project with ionic and capacitor , Add README.md
+  Tue Jun 29 16:26:12 2021 +0200 andria.laptop_Simplon <andria.capai@gmail.com>

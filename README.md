@@ -19,6 +19,7 @@ Ce fichier va décrire l'ensemble des étapes nécessaires pour reproduire l'app
 - [Capacitor](#capacitor)
   - [Android](#android)
   - [iOS](#ios)
+  - [Mis en production et mis à jour de l'application (Appflow)](#mis-en-production-et-mis-à-jour-de-lapplication-appflow)
 
 ## Setup
 
@@ -428,3 +429,13 @@ npx cap open ios
 ```
 
 Comme pour Android Studio, Xcode s'ouvre et offre la possibilité d'utiliser une *Simulator* (virtual Device) pour tester l'application. Il est également possible de tester sur un iPad ou iPhone réel en le connectant à son ordinateur via USB.
+
+### Mis en production et mis à jour de l'application (Appflow)
+
+Pour pouvoir apporter des modifications une fois l'application mis sur le store (Apple et Play) nous pouvons continuer à améliorer notre application sans disruption grâce à `appflow` .
+
+Liens des sites internet explicatives pour appliquer :
+
+- [Lien Capacitor Appflow](https://capacitorjs.com/docs/guides/deploying-updates)
+- [Lien vers Docs Appflow](https://ionic.io/docs/appflow)
+- [Lien vers Ionic Appflow](https://ionic.io/docs/appflow)
