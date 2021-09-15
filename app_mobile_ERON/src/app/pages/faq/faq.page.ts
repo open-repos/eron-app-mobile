@@ -23,11 +23,15 @@ export class FaqPage implements OnInit {
     },
     {
       title: 'J’ai effectué un module mais je ne parviens pas à accéder au suivant, que faire ?',
-      content: "Conformément aux directives de l'andpc, Pour éviter tout problème lors de l’envoi des dossiers à l’ANDPC pour indemnisation, nous avons rajouté des restrictions de passage.  , vous devez passer un minimum de temps dans chaque module afin de débloquer le module suivant. Grâce à ce système, vous êtes assurés de rester suffisamment de temps sur la plateforme, et donc, de valider votre formation. N’hésitez pas à nous contacter pour que nous puissions vous apporter l’assistance nécessaire !"
+      content: "Conformément aux directives de l'ANDPC, vous devez passer un minimum de temps dans chaque module afin de débloquer le module suivant. Grâce à ce système, vous êtes assurés de rester suffisamment de temps sur la plateforme, et donc, de valider votre formation. N’hésitez pas à nous contacter pour que nous puissions vous apporter l’assistance nécessaire !"
     },
     {
       title: 'Je ne pourrais pas terminer ma formation dans les temps, que puis-je faire ?',
-      content: " Nous pouvons vous reporter sur une session ultérieure pour vous permettre de terminer votre formation. Votre progression ne sera pas perdue et vous bénéficierez alors de nouveau de 45 jours pour la terminer."
+      content: "Nous pouvons vous reporter sur une session ultérieure pour vous permettre de terminer votre formation. Votre progression ne sera pas perdue et vous bénéficierez alors de nouveau de 45 jours pour la terminer. Attention, cette solution ne peut vous être proposée qu’un certain nombre de fois dans l’année (environ 3 fois)."
+    },
+    {
+      title: 'Je ne parviens pas à me connecter ',
+      content: "Si vous ne trouvez plus vos identifiants, cliquez ici ( à mettre en place)"
     },
 
   ];
