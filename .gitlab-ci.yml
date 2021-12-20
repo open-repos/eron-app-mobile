@@ -26,7 +26,7 @@ build_parcel_master:
     - ls -a
     - cd ./app_mobile_ERON/
     - npm cache verify
-    - npm clean cache --force
+    - npm cache clean
     - nvm ls
     - nvm install --lts
     - nvm use --lts
