@@ -10,7 +10,7 @@ export class FormationsApprenantService {
     new FormationApprenant(
       'f-a1',
       'Conduites Addictives',
-      "https://www.notretemps.com/cache/com_zoo_images/00/generiques-medicaments_81369a95ad2be8c094d1f40e6cf733b2.jpg",
+      "https://cdn.futura-sciences.com/buildsv6/images/wide1920/2/0/e/20e9b28cb4_50175940_cellules-cancereuses.jpg",
       "3/5",
       '80%',
       '20/08/2021',
@@ -18,7 +18,7 @@ export class FormationsApprenantService {
     new FormationApprenant(
       'f-a2',
       'Conduites Addictives',
-      "https://www.notretemps.com/cache/com_zoo_images/00/generiques-medicaments_81369a95ad2be8c094d1f40e6cf733b2.jpg",
+      "https://cdn.futura-sciences.com/buildsv6/images/wide1920/2/0/e/20e9b28cb4_50175940_cellules-cancereuses.jpg",
       "3/5",
       '80%',
       '20/08/2021',
@@ -26,7 +26,7 @@ export class FormationsApprenantService {
     new FormationApprenant(
       'f-a3',
       'Conduites Addictives',
-      "https://www.notretemps.com/cache/com_zoo_images/00/generiques-medicaments_81369a95ad2be8c094d1f40e6cf733b2.jpg",
+      "https://cdn.futura-sciences.com/buildsv6/images/wide1920/2/0/e/20e9b28cb4_50175940_cellules-cancereuses.jpg",
       "3/5",
       '80%',
       '20/08/2021',
@@ -34,7 +34,7 @@ export class FormationsApprenantService {
     new FormationApprenant(
       'f-a4',
       'Conduites Addictives',
-      "https://www.notretemps.com/cache/com_zoo_images/00/generiques-medicaments_81369a95ad2be8c094d1f40e6cf733b2.jpg",
+      "https://cdn.futura-sciences.com/buildsv6/images/wide1920/2/0/e/20e9b28cb4_50175940_cellules-cancereuses.jpg",
       "3/5",
       '80%',
       '20/08/2021',
