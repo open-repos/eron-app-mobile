@@ -24,6 +24,7 @@ build_parcel_master:
   stage: build
   script:
     - ls -a
+    - ionic -v
     - cd ./app_mobile_ERON/
     - npm install
     - node -v
