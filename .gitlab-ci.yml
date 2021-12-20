@@ -23,6 +23,7 @@ stages:
 build_parcel_master:
   stage: build
   script:
+    - ls -a
     - cd ./app_mobile_ERON/
     - npm install
     - node -v
