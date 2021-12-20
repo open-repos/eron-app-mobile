@@ -1,4 +1,4 @@
-image: node:13
+image: node:16.8.0
 
 before_script:
   - "which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )"
@@ -10,6 +10,8 @@ before_script:
   - ssh-keyscan -t rsa 64.227.1.160 > ~/.ssh/known_hosts
   - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
   - chmod 644 ~/.ssh/known_hosts
+  - nvm -v
+  - npm install -g @ionic/cli
 
 cache:
   key: ${CI_COMMIT_REF_SLUG}
@@ -26,7 +28,6 @@ build_parcel_master:
     - ls -a
     - cd ./app_mobile_ERON/
     - npm cache verify
-    - npm install -g @ionic/cli
     - npm install
     - node -v
     - ionic build
