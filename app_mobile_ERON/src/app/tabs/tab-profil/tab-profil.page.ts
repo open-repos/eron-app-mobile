@@ -18,7 +18,7 @@ export class TabProfilPage implements OnInit {
 
   onLogout(){
     this.authService.logout();
-    // console.log(this.authService.userIsAuthenticated)
+    console.log(this.authService.userIsAuthenticated)
     this.router.navigateByUrl('/');
   }
 

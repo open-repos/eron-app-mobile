@@ -29,6 +29,11 @@ export class LoginPage implements OnInit {
   userInfo: string;
   loginForm!: FormGroup;
 
+  emailError:boolean;
+  passwordEmpty:boolean;
+
+  errorMessage:string;
+  erroMessageDisplay:boolean=false;
   // iconShowPassword = faEye;
   // iconHidePassword = faEyeSlash;
   iconEmail = faEnvelope;
@@ -57,10 +62,34 @@ passwordType: string = 'password';
 
   onSubmitForm() {
     const formValue = this.loginForm.value;
-    this.userInfo = formValue['email'];
-    console.log(this.userInfo);
-    // this.sendEmail();
-    this.onLogin();
+    const isEmailClean = this.loginForm.controls['email'].valid || !this.loginForm.controls['email'].dirty;
+    console.log(isEmailClean)
+    if (formValue['email']=="" || !isEmailClean ) {
+       this.emailError= true
+      } else{
+        this.emailError= false
+      }
+    if (formValue['password']=="") {
+      this.passwordEmpty= true
+    } else {
+      this.passwordEmpty= false
+    }
+    if (this.passwordEmpty && this.emailError){
+      this.errorMessage= "Mot de passe non renseigné et Email non valide"
+      this.erroMessageDisplay=true
+    } else if(this.passwordEmpty && !this.emailError){
+      this.errorMessage= "Mot de passe non renseigné"
+      this.erroMessageDisplay=true
+    } else if(!this.passwordEmpty && this.emailError){
+      this.errorMessage= "Email non valide"
+      this.erroMessageDisplay=true
+    } else {
+      console.log(this.userInfo);
+      this.erroMessageDisplay=false
+      // this.sendEmail();
+      this.onLogin();
+    }
+
   }
 
 

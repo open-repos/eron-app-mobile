@@ -52,6 +52,9 @@
     Connexion
   </ion-button>
   <a routerLink="#" >Mot de passe oublié?</a>
+  <div *ngIf="erroMessageDisplay">
+    <ion-text color="danger">{{errorMessage}}</ion-text>
+ </div>
 
 </div>
   </form>
