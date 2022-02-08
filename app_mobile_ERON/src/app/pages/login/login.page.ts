@@ -1,6 +1,6 @@
 import { AuthService } from './../../services/auth.service';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -23,6 +23,7 @@ export class LoginPage implements OnInit {
   @Input() label: string;
   @Input() type = 'text'; // set default type be text
 
+  loginUrl ='';
   focused: boolean;
   focusedPassword: boolean;
 
@@ -46,10 +47,12 @@ passwordType: string = 'password';
   constructor(private formBuilder: FormBuilder,
     private router: Router, 
     private authService:AuthService,
-    private customValidator: CustomvalidationService) { }
+    private customValidator: CustomvalidationService,
+    private activatedRoute:ActivatedRoute) { }
 
     ngOnInit() {
       this.initForm();
+      this.loginUrl = this.activatedRoute.snapshot.queryParamMap.get('returnto') || 'tabs/tab-suivi' 
     }
   
     initForm() {
@@ -84,6 +87,7 @@ passwordType: string = 'password';
       this.errorMessage= "Email non valide"
       this.erroMessageDisplay=true
     } else {
+      this.userInfo=formValue['email']
       console.log(this.userInfo);
       this.erroMessageDisplay=false
       // this.sendEmail();
@@ -110,8 +114,11 @@ passwordType: string = 'password';
 }
 
 onLogin(){
-  this.authService.login();
-  this.router.navigate(['/tabs/tab-suivi']);
+  console.log(this.userInfo)
+  console.log(this.loginUrl)
+  this.authService.login(this.userInfo);
+  this.router.navigateByUrl(this.loginUrl)
+  // this.router.navigate(['/tabs/tab-suivi']);
 }
 
 
