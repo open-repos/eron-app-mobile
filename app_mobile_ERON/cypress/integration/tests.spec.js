@@ -1,3 +1,4 @@
+/// <reference types="cypress" />
 describe('Web App Testing', () => {
     beforeEach(() => {
         cy.viewport('iphone-x')

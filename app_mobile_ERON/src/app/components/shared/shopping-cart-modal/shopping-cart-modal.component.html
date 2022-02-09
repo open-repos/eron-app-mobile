@@ -35,18 +35,18 @@
       <ion-col size=2>Total</ion-col>
       <ion-col size=1></ion-col>
     </ion-row>
-    <ion-row *ngFor="let item of cartItems; index as i">
+    <ion-row id="article-{{i}}" *ngFor="let item of cartItems; index as i">
       <!-- <ion-col  size=1>{{ item.id }}</ion-col> -->
       <ion-col size=3>
         <div><ion-avatar class="ion-text-center">
         <img [src]="item.imageUrl">
         </ion-avatar>
       <span class="txt-ref">{{ item.id }}</span></div></ion-col>
-      <ion-col class="txt-el" size=3>{{ item.title }}</ion-col>
+      <ion-col class="txt-el titre" size=3>{{ item.title }}</ion-col>
       <!-- <ion-col>{{ student.country }}</ion-col> -->
-      <ion-col class="txt-el" size=2>{{ item.price | currency:'EUR' }}</ion-col>
-      <ion-col class="txt-el" size=1>{{ item.quantity }}</ion-col>
-      <ion-col class="txt-el" size=2>{{  item.quantity * item.price | currency:'EUR'}}</ion-col>
+      <ion-col class="txt-el prix" size=2>{{ item.price | currency:'EUR' }}</ion-col>
+      <ion-col class="txt-el qtity" size=1>{{ item.quantity }}</ion-col>
+      <ion-col class="txt-el total-item" size=2>{{  item.quantity * item.price | currency:'EUR'}}</ion-col>
       <ion-col size=1><ion-icon class="icon-trash-item" name="trash" color="danger" (click)="removeItem(item)" ></ion-icon></ion-col>
     </ion-row>
   </ion-grid>
@@ -58,7 +58,7 @@
   </ion-item>
   <div class="btn-total">
     <button #myDiv id="btn-buy" color="primary" (click)="onBuy()">Acheter</button>
-    <p><strong>Total:<br />{{cartTtotal | currency:'EUR'}}</strong></p></div>
+    <p id="totalCart"><strong>Total:<br />{{cartTtotal | currency:'EUR'}}</strong></p></div>
 </div>
 
 </ng-container>

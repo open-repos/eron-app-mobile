@@ -73,7 +73,7 @@ export class ShoppingCartModalComponent implements OnInit {
         {
           text: "Confirmer",
           handler: () => {
-            console.log("Accepted the offer");
+            // console.log("Accepted the offer");
             this.emptyCart();
           },
         },
