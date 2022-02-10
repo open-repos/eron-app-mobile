@@ -18,7 +18,7 @@
     <img src="../../../../assets/icon/icon-add-to-cart.svg">
   <h4>Votre panier est vide</h4>
   <h6>Ajoutez des articles à votre panier</h6>
-  <ion-button id="btn-buy" color="primary" (click)="onCancel()">Retourner à la boutique</ion-button>
+  <ion-button id="btn-back-shop" color="primary" (click)="onCancel()">Retourner à la boutique</ion-button>
 </div>
 </ng-container>
 
@@ -35,7 +35,7 @@
       <ion-col size=2>Total</ion-col>
       <ion-col size=1></ion-col>
     </ion-row>
-    <ion-row id="article-{{i}}" *ngFor="let item of cartItems; index as i">
+    <ion-row id="cart-{{item.id}}" *ngFor="let item of cartItems; index as i">
       <!-- <ion-col  size=1>{{ item.id }}</ion-col> -->
       <ion-col size=3>
         <div><ion-avatar class="ion-text-center">

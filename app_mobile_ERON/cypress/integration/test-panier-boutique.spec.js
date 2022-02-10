@@ -1,12 +1,15 @@
 /// <reference types="cypress" />
+import items from '../fixtures/itemsShop.json'
 
 function formatString(text) {
   return text.replace(/[^\d,]/g, ""); //.replace('\u00A0','').trim();
 }
-
+function reducer(accumulator, curr){accumulator + curr};
+var lodash = require('lodash');
 describe("Appli-Test-Shop", () => {
   beforeEach(() => {
     cy.viewport("iphone-x");
+    // cy.fixture('itemsShop').as('items')
   });
   it("Connexion via Menu Hamburger", () => {
     cy.visit("/");
@@ -22,7 +25,7 @@ describe("Appli-Test-Shop", () => {
     cy.get("ion-modal").should("exist");
     cy.get("ion-modal ion-header").contains("Panier");
 
-    cy.get("#btn-buy").contains("Retourner à la boutique").click();
+    cy.get("#btn-back-shop").contains("Retourner à la boutique").click();
   });
 
   it('opens and closes the cart modal . Open via icone "Cart" et close via Bouton "Retourner à la boutique"', () => {
@@ -32,118 +35,52 @@ describe("Appli-Test-Shop", () => {
     cy.get(".buttons-last-slot > .button").click();
   });
 
-  it('Ajout du premier article 2 fois dans le panier"', () => {
-    cy.get("#number-notif").should("not.exist");
-    // for (let i =1; i< nbtimeClickedOnItem0+1;i++){
-    cy.get(":nth-child(1) > .ion-text-center > .button").click();
-    cy.get("#number-notif").invoke("text").then(parseFloat).should("be.eq", 1);
-    // Comparaison valeur dans item de shopping entre l'ajout d'un élément
-    cy.get("#number-notif")
-      .invoke("text")
-      .then(parseFloat)
-      .then((nbItemCart_bf) => {
-        // ajout d'un article
-        cy.get(":nth-child(1) > .ion-text-center > .button").click();
-        //Comparaison avec la valeur précédente
-        cy.get("#number-notif")
-          .invoke("text")
-          .then(parseFloat)
-          .should((nbItemCart_after) => {
-            expect(nbItemCart_after).be.gt(nbItemCart_bf);
-          });
-        // }
-      });
-    // cy.get("#number-notif").contains('1')
-  });
-
-  context("Boutique  avec selection du premier article 2 fois ", () => {
-    beforeEach(() => {
-      cy.get("#card-article-0")
-        .find("ion-card-title")
-        .invoke("text")
-        .its(0)
-        .as("cardTitle");
-      cy.get("#card-article-0")
-        .find(".price")
-        .invoke("text")
-        .then(parseFloat)
-        .as("cardPrice");
-      cy.get("#number-notif").invoke("text").then(parseFloat).as("nbIconShop");
-      cy.get("@nbIconShop").then((nbIconShop) => {
-        cy.get("@cardPrice").then((priceArticle) => {
-          const total = nbIconShop * priceArticle;
-          cy.wrap(total).as("totalPriceArticle");
-        });
-      });
-    });
+  const singleItem = [items[0].id];
+  const clickItemToCart = [2]
+  context(`Boutique avec selection d'un seul article: ${singleItem}, sélectionné ${clickItemToCart}`, () => {
     before(() => {
-      cy.get("#cart").click();
+      cy.PageBoutiqueSelectArticle(singleItem,clickItemToCart)
+      cy.GetAllInShopItems(singleItem)
     });
 
     context("Dans le panier, verification des informations", () => {
+      before(()=>{
+        cy.get("#cart").click();
+      })
       beforeEach(() => {
-        cy.get("ion-row#article-0").should("exist");
-        cy.get("ion-row#article-0")
-          .children(".prix")
-          .should("exist")
-          .invoke("text")
-          .then(parseFloat)
-          .as("unitPrice");
-        cy.get("ion-row#article-0")
-          .children(".qtity")
-          .should("exist")
-          .invoke("text")
-          .then(parseFloat)
-          .as("qtityCart");
-        cy.get("ion-row#article-0")
-          .children(".titre")
-          .should("exist")
-          .as("titleItem");
-        cy.get("ion-row#article-0")
-          .children(".total-item")
-          .invoke("text")
-          .then(parseFloat)
-          .as("totalByItem");
-        cy.get("strong")
-          .invoke("text")
-          .then(formatString)
-          .then(parseFloat)
-          .as("totalCart");
+        cy.GetAllInShopItems(singleItem)
+        cy.GetAllInfoCartItemsAndCheckExist(singleItem,clickItemToCart)
       });
 
-      it("Panier contient bien l'article selectionné , devrait avoir 'article-0'", () => {
-        cy.get("@cardTitle").then((titreArticle) => {
-          cy.get("@titleItem").contains(titreArticle);
-        });
+      singleItem.forEach((item, index) => {
+          it(`Panier contient bien ${item} selectionné , devrait avoir ${item} avec le titre associé`, () => {
+            cy.checkTitleCartSameAsShop(index)
       });
 
-      it("Le prix unitaire correspond au prix annoncé dans la boutique", () => {
-        cy.get("@cardPrice").then((priceArticle) => {
-          console.log("Prix unitaire devrait être égale à : ", priceArticle);
-          cy.get("@unitPrice").should("be.eq", priceArticle);
-          // cy.get("ion-row#article-0").children('.prix').invoke('text').then(parseFloat).should('be.eq',priceArticle)
-        });
+
+      it(`Le prix unitaire de ${item} correspond au prix annoncé dans la boutique`, () => {
+          cy.checkUnitPriceCartSameAsShop(index)
       });
 
-      it("La quantité d'article correspond bien au nombre d'article selectionné (ici on est dans le contexte ou l'article a été ajouté 2 fois)", () => {
-        cy.get("@nbIconShop").then((nbiconShop) => {
-          console.log("Nombre affiché par l'icone shop", nbiconShop);
-          cy.get("@qtityCart").should("be.eq", nbiconShop);
-          // cy.get("ion-row#article-0").children('.qtity').invoke('text').then(parseFloat).should('be.eq',nbiconShop)
-        });
+    
+     it(`${item} devrait avoir une quantité = à ${clickItemToCart[index]} `, () => {
+          cy.checkQtitySelectedInShop(index)
       });
+    })
 
       it("Le total par article correspond bien à la quantité * le prix unitaire et le Total global également", () => {
-        cy.get("@qtityCart").then((qtityCart) => {
-          cy.get("@unitPrice").then((unitPrice) => {
+        singleItem.forEach((item, index) => {
+          var idItem = index.toString();
+        cy.get("@qtityCart"+idItem).then((qtityCart) => {
+          cy.get("@unitPrice"+idItem).then((unitPrice) => {
             console.log("Sous total par article", qtityCart * unitPrice);
             const subTotal = qtityCart * unitPrice;
-            cy.get("@totalByItem").should("be.eq", subTotal);
-            // cy.get("ion-row#article-0").children('.total-item').invoke('text').then(parseFloat).should('be.eq',subTotal)
+            cy.get("@totalByItem"+idItem).should("be.eq", subTotal);
+            // cy.get("ion-row#cart-"+singleItem).children('.total-item').invoke('text').then(parseFloat).should('be.eq',subTotal)
             cy.get("@totalCart").should("be.eq", subTotal);
             // cy.get("strong").invoke('text').then(formatString).then(parseFloat).should('be.eq',subTotal)
           });
-        });
+        });})
       });
 
       context(
@@ -157,7 +94,7 @@ describe("Appli-Test-Shop", () => {
             // cy.get('#btn-clear-all').click()
             // cy.contains("Alert")
             cy.get(".alert-button-role-cancel > .alert-button-inner").click();
-            cy.get("ion-row#article-0").should("exist");
+            cy.get("ion-row#cart-"+singleItem[0]).should("exist");
           });
           it('Clique sur "Confirmer" dans Alert devrait retourner sur boutique + icone panier vide"', () => {
             // cy.get('#btn-clear-all').click()
@@ -168,158 +105,61 @@ describe("Appli-Test-Shop", () => {
           });
         }
       );
-    });
-  });
 
-  context(
-    "Boutique avec selection du premier article 2 fois + deuxieme article 1 fois ",
-    () => {
-      before(() => {
-        cy.viewport("iphone-x");
-        cy.wrap(2).as("nbtimeClickedOnItem0");
-        cy.wrap(1).as("nbtimeClickedOnItem1");
-        // it('Ajout de deux articles différents dans le panier (1er 2 fois et 2nd 1 fois)"', () => {
-        cy.get("#number-notif").should("not.exist");
-        cy.get("@nbtimeClickedOnItem0").then((nbtimeClickedOnItem0) => {
-          for (let i = 1; i < nbtimeClickedOnItem0 + 1; i++) {
-            cy.get(":nth-child(1) > .ion-text-center > .button").click();
-            cy.get("#number-notif")
-              .invoke("text")
-              .then(parseFloat)
-              .should("be.eq", i);
-          }
-          cy.get("#card-article-1").find("ion-button").click();
-          // cy.get("#number-notif").contains('1')
+      context("Suppression d'un article (cas avec 1 seul article dans le panier)",()=>{
+        before(() => {
+          cy.PageBoutiqueSelectArticle(singleItem,clickItemToCart)
           cy.get("#cart").click();
         });
-      });
-      beforeEach(() => {
-        // const  articlePanier= ['article-0','article-1'];
-        // articlePanier.forEach((item,index)=> {
-        //     var elementItemShop = "#card-"+item
-        //     var idItem = index.toString()
-        const articlePanier = ["article-0", "article-1"];
-        articlePanier.forEach((item, index) => {
-          var elementItemShop = "#card-" + item;
-          var idItem = index.toString();
-          cy.get(elementItemShop)
-            .find("ion-card-title")
-            .invoke("text")
-            .its(0)
-            .as("cardTitle" + idItem);
-          cy.get(elementItemShop)
-            .find(".price")
-            .invoke("text")
-            .then(parseFloat)
-            .as("cardPrice" + idItem);
-          console.log("cardPrice", index);
-        });
-        cy.get("#number-notif")
-          .invoke("text")
-          .then(parseFloat)
-          .as("nbIconShop");
-        cy.get("@nbIconShop").then((nbIconShop) => {
-          cy.get("@cardPrice0").then((priceArticle) => {
-            const total = nbIconShop * priceArticle;
-            cy.wrap(total).as("totalPriceArticle");
-          });
-        });
+        it('Suprresion du seul article présent dans le panier via l icone trash qui lui est asscoié, devrait supprimer la présence de l article + retourner un message : Votre panier est vide', () => {
+        cy.get("ion-row#cart-"+singleItem[0]).find(".icon-trash-item").click()
+        cy.get("ion-row#cart-"+singleItem[0]).should("not.exist")
+        cy.contains("Votre panier est vide")
+        cy.get("#btn-back-shop").should("exist").contains("Retourner à la boutique").click()
+        cy.contains("Boutique");
+        cy.get("#number-notif").should("not.exist");
+        })
+      })
+    })
+
+
+    });
+
+
+
+  const itemsCartShop = [items[0].id, items[3].id];
+  const clickItemsToCart = [2,1]
+  context(`Boutique avec selection de : ${itemsCartShop.join(",")} cliqué respectivement ${clickItemsToCart.join(",")} `,() => {
+    before(() => {
+      cy.PageBoutiqueSelectArticle(itemsCartShop,clickItemsToCart)
+      cy.GetAllInShopItems(itemsCartShop)
       });
       context(
         "Dans le panier, verification des informations pour chacun des deux articles",
         () => {
+          before(()=>{
+            cy.get("#cart").click();
+          })
           beforeEach(() => {
-            cy.wrap(2).as("nbtimeClickedOnItem0");
-            cy.wrap(1).as("nbtimeClickedOnItem1");
-            // const  articlePanier= ['article-0','article-1'];
-            // articlePanier.forEach((item,index)=> {
-            const articlePanier = ["article-0", "article-1"];
-            articlePanier.forEach((item, index) => {
-              var idItem = index.toString();
-              var elementItemCart = "ion-row#" + item;
-              //    var idItem = index.toString()
-              cy.get(elementItemCart).should("exist");
-              cy.get(elementItemCart)
-                .children(".prix")
-                .should("exist")
-                .invoke("text")
-                .then(parseFloat)
-                .as("unitPrice" + idItem);
-              cy.get(elementItemCart)
-                .children(".qtity")
-                .should("exist")
-                .invoke("text")
-                .then(parseFloat)
-                .as("qtityCart" + idItem);
-              cy.get(elementItemCart)
-                .children(".titre")
-                .should("exist")
-                .as("titleItem" + idItem);
-              cy.get(elementItemCart)
-                .children(".total-item")
-                .invoke("text")
-                .then(parseFloat)
-                .as("totalByItem" + idItem);
-            });
-            cy.get("@qtityCart0").then((qtityCart0) => {
-              cy.get("@qtityCart1").then((qtityCart1) => {
-                const qtityCartAllItem = qtityCart0 + qtityCart1;
-                console.log("qtityCartAllItem", qtityCartAllItem);
-                cy.wrap(qtityCartAllItem).as("qtityCartAllItem");
-              });
-            });
-            cy.get("@totalByItem0").then((totalByItem0) => {
-              cy.get("@totalByItem1").then((totalByItem1) => {
-                const totalCartAllItem = totalByItem0 + totalByItem1;
-                console.log("totalCartAllItem", totalCartAllItem);
-                cy.wrap(totalCartAllItem).as("totalCartAllItem");
-              });
-            });
-            cy.get("strong")
-              .invoke("text")
-              .then(formatString)
-              .then(parseFloat)
-              .as("totalCart");
+            cy.GetAllInShopItems(itemsCartShop)
+            cy.GetAllInfoCartItemsAndCheckExist(itemsCartShop,clickItemsToCart)
           });
-          const articlePanier = ["article-0", "article-1"];
-          articlePanier.forEach((item, index) => {
-            var idItem = index.toString();
+          itemsCartShop.forEach((item, index) => {
             it(`Panier contient bien ${item} selectionné , devrait avoir ${item} avec le titre associé`, () => {
-              cy.get("@cardTitle" + idItem).then((titreArticle) => {
-                cy.get("@titleItem" + idItem).contains(titreArticle);
-              });
+              cy.checkTitleCartSameAsShop(index)
             });
             it(`Le prix unitaire de ${item} correspond au prix annoncé dans la boutique`, () => {
-              cy.get("@cardPrice" + idItem).then((priceArticle) => {
-                console.log(
-                  "Prix unitaire devrait être égale à : ",
-                  priceArticle
-                );
-                cy.get("@unitPrice" + idItem).should("be.eq", priceArticle);
-                // cy.get("ion-row#article-0").children('.prix').invoke('text').then(parseFloat).should('be.eq',priceArticle)
-              });
+              cy.checkUnitPriceCartSameAsShop(index)
             });
-            it(`L${item} devrait avoir `, () => {
-              cy.get("@qtityCart" + idItem).then((qtityCart) => {
-                console.log("Quantité de l'article : ", qtityCart);
-                cy.get("@nbtimeClickedOnItem" + idItem).then(
-                  (nbtimeClickedOnItem) => {
-                    cy.get("@qtityCart" + idItem).should(
-                      "be.eq",
-                      nbtimeClickedOnItem
-                    );
-                  }
-                );
-                // cy.get("ion-row#article-0").children('.prix').invoke('text').then(parseFloat).should('be.eq',priceArticle)
-              });
+            it(`${item} devrait avoir une quantité = à ${clickItemsToCart[index]} `, () => {
+              cy.checkQtitySelectedInShop(index)
             });
           });
 
-          it("La quantité d'article correspond bien au nombre d'article selectionné dans la boutique (ici on est dans le contexte ou article 1 a été ajouté 2 fois + article 2  a été ajouté 1 fois )", () => {
+          it(`La quantité d'article total devrait correspondre à la somme des click effectués dans la boutique: ${lodash.sum(clickItemsToCart)} `, () => {
             cy.get("@nbIconShop").then((nbiconShop) => {
               console.log("Nombre affiché par l'icone shop", nbiconShop);
               cy.get("@qtityCartAllItem").should("be.eq", nbiconShop);
-              // cy.get("ion-row#article-0").children('.qtity').invoke('text').then(parseFloat).should('be.eq',nbiconShop)
             });
           });
           it("La somme total du panier doit être égal à la somme des sous totaux par article", () => {
