@@ -9,7 +9,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "cypress-test-e2e":"npx cypress run --browser '/Applications/Internet/Google Chrome.app/Contents/MacOS/Google Chrome'"
   },
   "private": true,
   "dependencies": {

@@ -141,12 +141,10 @@ describe("Test de l'authentification, persistence (localstorage), redirecton ver
             cy.get('#password').type(`${password}{enter}`,{sensitive:true})
             cy.get('form').contains('Connexion').click().should(()=>{
                 expect(localStorage.getItem('userInfo')).to.eq(user.email)
-                cy.wait(5000)
             })
             cy.url().should('include', '/tabs/tab-boutique')
             cy.reload().should(()=>{
-                expect(localStorage.getItem('userInfo')).to.eq(user.email)
-                cy.wait(5000)})
+                expect(localStorage.getItem('userInfo')).to.eq(user.email)})
                 cy.url().should('include', '/tabs/tab-boutique')
             
         })
@@ -162,9 +160,4 @@ describe("Test de l'authentification, persistence (localstorage), redirecton ver
     //     })
     // })
 
-   
-
-
-
-
-});
+})

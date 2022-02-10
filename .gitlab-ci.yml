@@ -20,6 +20,7 @@ cache:
 
 stages:
   - build
+  - test
   - deploy
 
 build_parcel_master:
@@ -37,6 +38,13 @@ build_parcel_master:
       - ./app_mobile_ERON/www
   only:
     - main
+
+test-e2e:
+  image: cypress/browsers:node16.5.0-chrome97-ff96
+  stage: test
+  script:
+     - npm ci
+     - npm run cypress-test-e2e
 
 deploy_main:
   stage: deploy
