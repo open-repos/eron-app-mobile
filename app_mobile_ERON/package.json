@@ -10,6 +10,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "runHeadless-test-e2e": "./node_modules/.bin/cypress run --headless",
     "cypress-test-e2e":"npx cypress run --browser '/Applications/Internet/Google Chrome.app/Contents/MacOS/Google Chrome'"
   },
   "private": true,

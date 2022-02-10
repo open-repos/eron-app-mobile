@@ -1,17 +1,18 @@
 image: node:16.8.0
 
-before_script:
-  - "which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )"
-  - mkdir -p ~/.ssh
-  - echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
-  - chmod 700 ~/.ssh/id_rsa
-  - eval "$(ssh-agent -s)"
-  - ssh-add ~/.ssh/id_rsa
-  - ssh-keyscan -t rsa 64.227.1.160 > ~/.ssh/known_hosts
-  - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
-  - chmod 644 ~/.ssh/known_hosts
-  - npm install -g @ionic/cli
-  - node -v
+.before_script_template:
+  before_script:
+    - "which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )"
+    - mkdir -p ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+    - chmod 700 ~/.ssh/id_rsa
+    - eval "$(ssh-agent -s)"
+    - ssh-add ~/.ssh/id_rsa
+    - ssh-keyscan -t rsa 64.227.1.160 > ~/.ssh/known_hosts
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+    - chmod 644 ~/.ssh/known_hosts
+    - npm install -g @ionic/cli
+    - node -v
 
 cache:
   key: ${CI_COMMIT_REF_SLUG}
@@ -24,6 +25,7 @@ stages:
   - deploy
 
 build_parcel_master:
+  extends: .before_script_template
   stage: build
   script:
     - ls -a
@@ -44,9 +46,10 @@ test-e2e:
   stage: test
   script:
      - npm ci
-     - npm run cypress-test-e2e
+     - npm run runHeadless-test-e2e
 
 deploy_main:
+  extends: .before_script_template
   stage: deploy
   variables:
     SERVEUR: "acapai@152.228.217.219"
