@@ -42,7 +42,7 @@ build_parcel_master:
     - main
 
 test-e2e:
-  image: cypress/base:node:16.8.0
+  image: cypress/base:node:14.17.0
   stage: test
   script:
      - npm i
