@@ -44,8 +44,16 @@ build_parcel_master:
 test-e2e:
   image: cypress/base:node:14.17.0
   stage: test
+  variables:
+    npm_config_cache: "$CI_PROJECT_DIR/.npm"
+    CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
+  cache:
+    paths:
+      - .npm
+      - cache/Cypress
   script:
-     - npm i
+     - npm ci --prefer-offline
+     - ionic serve
      - npm run runHeadless-test-e2e
 
 deploy_main:
