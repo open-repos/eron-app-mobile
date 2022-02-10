@@ -42,10 +42,10 @@ build_parcel_master:
     - main
 
 test-e2e:
-  image: cypress/browsers:node16.5.0-chrome97-ff96
+  image: cypress/base:node:16.8.0
   stage: test
   script:
-     - npm ci
+     - npm i
      - npm run runHeadless-test-e2e
 
 deploy_main:
