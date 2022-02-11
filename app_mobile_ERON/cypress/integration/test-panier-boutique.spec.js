@@ -87,15 +87,12 @@ describe("Appli-Test-Shop", () => {
             cy.contains("Alert");
           });
           it('Clique sur "Annuler" dans Alert devrait rester dans le panier et article encore présent', () => {
-            // cy.get('#btn-clear-all').click()
-            // cy.contains("Alert")
             cy.get(".alert-button-role-cancel > .alert-button-inner").click();
             cy.get("ion-row#cart-"+singleItem[0]).should("exist");
           });
           it('Clique sur "Confirmer" dans Alert devrait retourner sur boutique + icone panier vide"', () => {
-            // cy.get('#btn-clear-all').click()
-            // cy.contains("Alert")
-            cy.get(":nth-child(2) > .alert-button-inner").click();
+            cy.get(".alert-button").not('.alert-button-role-cancel').contains("Confirmer").then((btn)=>{
+              btn.click()})
             cy.contains("Boutique");
             cy.get("#number-notif").should("not.exist");
           });
