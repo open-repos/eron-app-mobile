@@ -8,7 +8,7 @@
     "start-server":"ionic serve",
     "start": "ng serve",
     "build": "ng build",
-    "test": "./node_modules/.bin/cypress run",
+    "test": "./node_modules/.bin/cypress run --config baseUrl=http://localhost:8100",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "runHeadless-test-e2e": "./node_modules/.bin/cypress run --headless",
