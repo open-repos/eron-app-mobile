@@ -6,7 +6,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "ci:test": "npm run start & npm run test",
+    "ci:test": "ionic serve & npm run test",
     "build": "ng build",
     "test": "./node_modules/.bin/cypress run",
     "lint": "ng lint",

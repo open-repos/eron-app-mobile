@@ -42,6 +42,7 @@ build_parcel_master:
     - main
 
 test-e2e:
+  extends: .before_script_template
   image: cypress/browsers:node12.14.1-chrome85-ff81
   stage: test
   script:
