@@ -73,6 +73,7 @@ test-e2e:
     policy: pull
   script:
      - ls -a
+     - cd ./app_mobile_ERON/
      - npm run ci
 
 deploy_main:
