@@ -48,15 +48,12 @@ test-e2e:
      - ls -a
      - npm i
      - npm run ci:test
-    artifacts:
+  artifacts:
     when: always
     paths:
       - cypress/videos/**/*.mp4
       - cypress/screenshots/**/*.png
     expire_in: 1 day
-    #  - ./node_modules/.bin/cypress run --config baseUrl="https://app-mobile.projet-entreprise-eron.andriacapai.com"
-  # only:
-  #   - main
 
 deploy_main:
   extends: .before_script_template
