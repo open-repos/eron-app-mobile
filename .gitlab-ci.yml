@@ -28,7 +28,7 @@ stages:
 install_dependencies:
   stage: install_dependencies
   cache: 
-    key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
+    key: ${CI_COMMIT_REF_SLUG}-${CI_PROJECT_DIR}
     paths:
       - ./app_mobile_ERON/node_modules/
   script:
