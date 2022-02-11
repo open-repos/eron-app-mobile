@@ -50,8 +50,7 @@ test-e2e:
      - node -v
      - npm install -g @ionic/cli
      - npm i
-     - ionic serve &
-     - npm run test
+     - npm run ci
 
 deploy_main:
   extends: .before_script_template
