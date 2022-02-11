@@ -46,14 +46,9 @@ test-e2e:
   stage: test
   script:
      - ls -a
+     - cd ./app_mobile_ERON/
      - npm i
      - npm run ci:test
-  artifacts:
-    when: always
-    paths:
-      - cypress/videos/**/*.mp4
-      - cypress/screenshots/**/*.png
-    expire_in: 1 day
 
 deploy_main:
   extends: .before_script_template
