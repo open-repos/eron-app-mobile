@@ -102,7 +102,9 @@ describe("Test de l'authentification, persistence (localstorage), redirecton ver
             cy.get('#email').type(`${email}{enter}`)
             cy.get('#password').type(`${password}{enter}`,{sensitive:true})
             cy.get('form').contains('Connexion').click()
-            cy.contains('Email non valide')
+            cy.get('#error-form')
+                .should('have.attr','color','danger')
+                .contains('Email non valide')
         })
     
         it('Test connexion OK: Les deux champs remplis et valide',()=>{
