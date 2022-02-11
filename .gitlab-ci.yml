@@ -37,6 +37,9 @@ dependencies:
      - node -v
      - npm install -g @ionic/cli
      - npm ci
+  only:
+    changes:
+      - package.json
 
 build_parcel_master:
   extends: .before_script_template
@@ -69,6 +72,7 @@ test-e2e:
       - ./app_mobile_ERON/node_modules/
     policy: pull
   script:
+     - ls -a
      - npm run ci
 
 deploy_main:
