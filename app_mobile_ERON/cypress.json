@@ -1,3 +1,5 @@
 {
+    "video": false,
+    "screenshotOnRunFailure": false,
     "ignoreTestFiles":["**/1-getting-started/*","**/2-advanced-examples/*"]
 }

@@ -3,12 +3,12 @@
     <ion-buttons slot="start">
       <ion-back-button *ngIf="detailPage" text="" style='color: #003478' defaultHref={{pageBack}}></ion-back-button>
     </ion-buttons>
-    <div>
-    <div class="titre-icon">
-    <ion-title> <span class="underline-title">{{titleHeader}}</span> </ion-title>
+    <!-- <div> -->
+    <!-- <div class="titre-icon"> -->
+    <ion-title> <span class="underline-title">{{titleHeader}}</span></ion-title>
     <!-- <ion-icon *ngIf="isShop" name="cart" slot=end style='color: #003478' (click)="click()" size=large></ion-icon> -->
-    <app-icon-badge *ngIf="isShop" (onClick)="childEvent($event)"></app-icon-badge>
-    
+    <app-icon-badge *ngIf="isShop" (onClick)="childEvent($event)" slot="end"></app-icon-badge> 
+  <!-- </div> -->
     <ng-container *ngIf="isModalShop" >
       <ion-buttons slot="primary">
         <ion-button (click)="modalEvent()">
@@ -17,8 +17,8 @@
       </ion-buttons>
     </ng-container>
     
-  </div>
-  </div>
+
+  <!-- </div> -->
 
     <!-- <div class="stick"> </div> -->
   </ion-toolbar>
