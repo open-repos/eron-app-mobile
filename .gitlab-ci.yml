@@ -42,7 +42,7 @@ build_parcel_master:
     - main
 
 test-e2e:
-  image: cypress/browsers:node12.14.1-chrome85-ff81
+  image: cypress/browsers:node16.5.0-chrome97-ff96
   stage: test
   script:
      - ls -a
