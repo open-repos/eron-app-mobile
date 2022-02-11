@@ -14,10 +14,17 @@ image: node:16.8.0
     - npm install -g @ionic/cli
     - node -v
 
+## Set environment variables for folders in "cache" job settings for npm modules and Cypress binary
+variables:
+  npm_config_cache: '$CI_PROJECT_DIR/.npm'
+  CYPRESS_CACHE_FOLDER: '$CI_PROJECT_DIR/cache/Cypress'
+
 cache:
-  key: ${CI_COMMIT_REF_SLUG}
+  key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
   paths:
-    - node_modules/
+    - ./app_mobile_ERON/node_modules/
+    # - ./app_mobile_ERON/.cache/*
+    # - ./app_mobile_ERON/cache/Cypress
 
 stages:
   - install_dependencies
@@ -26,10 +33,12 @@ stages:
   - deploy
 
 dependencies:
+  # image: cypress/browsers:node16.5.0-chrome97-ff96
   stage: install_dependencies
   cache: 
     key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
     paths:
+      # -  cache/Cypress
       - ./app_mobile_ERON/node_modules/
   script:
      - ls -a
@@ -74,6 +83,7 @@ test-e2e:
      - ls -a
      - cd ./app_mobile_ERON/
      - npm install -g @ionic/cli
+     - npm ci
      - npm run ci
 
 deploy_main:
