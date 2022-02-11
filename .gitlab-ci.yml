@@ -42,12 +42,21 @@ build_parcel_master:
     - main
 
 test-e2e:
+  image: cypress/browsers:node12.14.1-chrome85-ff81
   stage: test
   script:
+     - ls -a
      - npm i
-     - ./node_modules/.bin/cypress run --config baseUrl="https://app-mobile.projet-entreprise-eron.andriacapai.com"
-  only:
-    - main
+     - npm run ci:test
+    artifacts:
+    when: always
+    paths:
+      - cypress/videos/**/*.mp4
+      - cypress/screenshots/**/*.png
+    expire_in: 1 day
+    #  - ./node_modules/.bin/cypress run --config baseUrl="https://app-mobile.projet-entreprise-eron.andriacapai.com"
+  # only:
+  #   - main
 
 deploy_main:
   extends: .before_script_template

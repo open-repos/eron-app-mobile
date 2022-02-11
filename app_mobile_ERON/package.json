@@ -6,7 +6,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "start:ci": "ng serve --no-clipboard --listen ${PORT:-4200}",
+    "ci:test": "npm run start & npm run test",
     "build": "ng build",
     "test": "./node_modules/.bin/cypress run",
     "lint": "ng lint",
