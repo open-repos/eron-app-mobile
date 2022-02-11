@@ -40,16 +40,16 @@ Cypress.Commands.add("swipeLeft", () => {
 
 
 Cypress.Commands.add("goToEspaceApprenant", () => {
-  cy.get("ion-menu-button").click();
+  cy.get("ion-menu-button").click({force: true});
   cy.get(":nth-child(6) > ion-menu-toggle.md > .item")
     .should("contain", "Connexion")
-    .click();
+    .click({force: true});
   cy.get(".menu-type-overlay").click(310, 100);
   var email = "dup.dup@gmail.com";
   cy.get("#email").type(`${email}{enter}`);
   var password = "myPassWord";
   cy.get("#password").type(`${password}{enter}`);
-  cy.get('form').contains('Connexion').click()
+  cy.get('form').contains('Connexion').click({force: true})
   cy.url().should('include', '/tabs/tab-suivi')
   cy.wait(2000)
 });
