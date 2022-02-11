@@ -35,7 +35,6 @@ dependencies:
      - ls -a
      - cd ./app_mobile_ERON/
      - node -v
-     - npm install -g @ionic/cli
      - npm ci
   only:
     changes:
@@ -74,6 +73,7 @@ test-e2e:
   script:
      - ls -a
      - cd ./app_mobile_ERON/
+     - npm install -g @ionic/cli
      - npm run ci
 
 deploy_main:
