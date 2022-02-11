@@ -28,7 +28,7 @@ stages:
 install_dependencies:
   stage: install_dependencies
   cache: 
-    key: ${CI_COMMIT_REF_SLUG}
+    key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
     paths:
       - ./app_mobile_ERON/node_modules/
   script:
@@ -46,7 +46,7 @@ build_parcel_master:
   extends: .before_script_template
   stage: build
   cache: 
-    key: ${CI_COMMIT_REF_SLUG}
+    key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
     paths:
       - ./app_mobile_ERON/node_modules/
     policy: pull
@@ -68,10 +68,10 @@ test-e2e:
   image: cypress/browsers:node16.5.0-chrome97-ff96
   stage: test
   cache: 
-  key: ${CI_COMMIT_REF_SLUG}
-  paths:
-    - ./app_mobile_ERON/node_modules/
-  policy: pull
+    key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
+    paths:
+      - ./app_mobile_ERON/node_modules/
+    policy: pull
   script:
      - npm run ci
 
