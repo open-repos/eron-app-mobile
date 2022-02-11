@@ -40,12 +40,12 @@ Cypress.Commands.add("swipeLeft", () => {
 
 
 Cypress.Commands.add("goToEspaceApprenant", () => {
-  cy.get("ion-menu-button").click({force: true});
+  cy.get("ion-menu-button").click();
   cy.get(":nth-child(6) > ion-menu-toggle.md > .item")
     .should("contain", "Connexion")
-    .click({force: true});
+    .click();
   cy.get(".menu-type-overlay").click("topRight");
-  cy.wait(1000)
+  cy.get(".menu-type-overlay").should("not.be.visible")
   // cy.get(".logoEron").click({force:true})
   var email = "dup.dup@gmail.com";
   cy.get("#email").type(`${email}{enter}`);
