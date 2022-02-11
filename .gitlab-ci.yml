@@ -25,7 +25,7 @@ stages:
   - build
   - deploy
 
-install_dependencies:
+dependencies:
   stage: install_dependencies
   cache: 
     key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
@@ -37,10 +37,6 @@ install_dependencies:
      - node -v
      - npm install -g @ionic/cli
      - npm ci
-  only:
-    changes:
-      - package-lock.json
-
 
 build_parcel_master:
   extends: .before_script_template
