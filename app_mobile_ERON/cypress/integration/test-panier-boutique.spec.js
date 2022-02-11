@@ -83,7 +83,7 @@ describe("Appli-Test-Shop", () => {
         "test d'Alert lors du clique sur le bouton 'vider le panier'",
         () => {
           beforeEach(() => {
-            cy.get("#btn-clear-all").click();
+            cy.get("#btn-clear-all").click({force: true});
             cy.contains("Alert");
           });
           it('Clique sur "Annuler" dans Alert devrait rester dans le panier et article encore présent', () => {
