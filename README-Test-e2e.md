@@ -24,6 +24,7 @@ QUICK START (test):
 git clone https://gitlab.com/alternance-entreprise-eron/app-mobile-eron/app-mobile-ERON.git
 cd app_mobile_ERON
 git checkout test-cypress
+npm i
 ionic serve
 # open new terminal
 npm run test
@@ -126,10 +127,177 @@ Voici un exemple de test issus du fichier de test:
 Dans cet exemple je renseigne dans une variable "pageApprenant" l'ensemble de mes routes vers lesquelles le test sera effectué.
 Ainsi les 3 commandes effectuées dans la boucle for permettent d'effectuer le scénario suivant:
 
-- On tente de visiter la page content la route de l'espace apprenant/privée
+- On tente de visiter la page contenant la route de l'espace apprenant/privée
 - On laisse un lap de temps de 1000ms
-- On vérifie que l'url renvoyé renvoie bien vers la page "login"
+- On vérifie que l'url renvoyée , renvoie bien vers la page "login"
 
 ## Test e2e Selection et visualisation d'articles dans la boutique et le panier d'achat
 
-Le fichier test
+Pour le parcours/scénario utilisateurs "Sélection d'articles depuis la boutique et vérification des articles sélectionnés dans le panier" j'ai réalisé 19 tests.
+
+Ces tests sont organisés en trois blocs.
+
+Le premier bloc vérifie que l'on atterit bien sur la page boutique , que l'icone "cart-shop" fonctionne , et que l'on peut ouvrir et fermer une modal pour accéder à l'état du panier.
+
+Les deux autres blocs vont permettre de vérifier les différentes informations des "articles"(items) sélectionné dans la boutique en comparant les informations présentes dans le panier. Il y a également 2 autres fonctionnalités qui sont testées au sein de ces blocs , à savoir pouvoir vide le panier (accompagné d'une alert pour améliorer l'UX) et supprimer un article spécifiquement.
+
+Voici un apercu des parties de code mentionnées précédemment  :
+
+```js
+/// <reference types="cypress" />
+import items from '../fixtures/itemsShop.json'
+
+var lodash = require('lodash');
+describe("Appli-Test-Shop", () => {
+  beforeEach(() => {
+    cy.viewport("iphone-x");
+    // cy.fixture('itemsShop').as('items')
+  });
+  it("Connexion via Menu Hamburger", () => {
+    cy.visit("/");
+    cy.goToEspaceApprenant();
+  });
+
+  it("Aller sur tab boutique", () => {
+    cy.get("#tab-button-tab-boutique").click();
+    cy.contains("Boutique");
+  });
+  it('opens and closes the cart modal . Open via icone "Cart" et close via Bouton "Retourner à la boutique"', () => {
+    cy.get("#cart").click();
+    cy.get("ion-modal").should("exist");
+    cy.get("ion-modal ion-header").contains("Panier");
+
+    cy.get("#btn-back-shop").contains("Retourner à la boutique").click();
+  });
+
+  it('opens and closes the cart modal . Open via icone "Cart" et close via Bouton "Retourner à la boutique"', () => {
+    cy.get("#cart").click();
+    cy.get("ion-modal").should("exist");
+    cy.get("ion-modal ion-header").contains("Panier");
+    cy.get(".buttons-last-slot > .button").click();
+  });
+
+  const singleItem = [items[0].id];
+  const clickItemToCart = [2]
+  context(`Boutique avec selection d'un seul article: ${singleItem}, sélectionné ${clickItemToCart}`, () => {...})
+  
+
+  const itemsCartShop = [items[0].id, items[3].id];
+  const clickItemsToCart = [2,1]
+  context(`Boutique avec selection de : ${itemsCartShop.join(",")} cliqué respectivement ${clickItemsToCart.join(",")} `,() => {...})
+})
+```
+
+Etant donné le nombre important de ligne de code et complexité de vérification, j'ai utilisé plusieurs commandes de Cypress pour éviter assurer une meilleure lisibilité , maintenabilité et modularité.
+
+Ainsi , j'ai utilisé les fixtures de Cypress pour ajouter le jeu de données présent dans mon application de base à savoir plusieurs articles avec leurs informations associées :
+
+```json
+// App-Mobile-ERON/app_mobile_ERON/cypress/fixtures/itemsShop.json
+[{ 
+      "id": "EDE01-i",
+      "title": "Le cerveau anatomique",
+      "categories": "medecins",
+      "imageUrl":"https://m.media-amazon.com/images/I/61NN9SlsuuL._AC_SX425_.jpg",
+      "description": "Formation pour mieux comprendre l'anatomie du Cerveau",
+      "price": 70,
+      "quantity":1,
+      "hours":2,
+     "validity":65
+    },
+    { 
+      "id": "EDE02-i",
+      "title": "Bases neuroscientifiques de la douleur",
+      "categories": "medecins",
+      "imageUrl":"https://www.gafeo.fr/pluginfile.php/1/local_shop/catalogitemthumb/32/Neuroscientifiques.jpg",
+      "description": "Plus de détails cliquez ici",
+      "price": 70,
+      "quantity":1,
+      "hours":2,
+     "validity":65
+    },
+    ...
+]
+```
+
+J'ai également créée des "Commands" (via `Cypress.Commands.add()`) qui permettent d'encapsuler plusieurs commandes en une seule (voir exempel code ci dessous).
+
+```js
+// App-Mobile-ERON/app_mobile_ERON/cypress/support/commands-boutique.js
+function formatString(text) {
+  return text.replace(/[^\d,]/g, ""); //.replace('\u00A0','').trim();
+}
+
+function reducer(accumulator, curr) {
+  accumulator + curr;
+}
+
+Cypress.Commands.add(
+  "PageBoutiqueSelectArticle",
+  (articlePanier = ["article-0", "article-1"], clickItemToCart = [2, 1]) => {
+    var nbClick = 0;
+    cy.viewport("iphone-x");
+    clickItemToCart.forEach((item, index) => {
+      cy.wrap(item).as("nbtimeClickedOnItem" + index.toString());
+    });
+    cy.get("#number-notif").should("not.exist");
+    clickItemToCart.forEach((item, index) => {
+      cy.get("@nbtimeClickedOnItem" + index.toString()).then(
+        (nbtimeClickedOnItem) => {
+          for (let i = 1; i < nbtimeClickedOnItem + 1; i++) {
+            cy.get("#shop-" + articlePanier[index])
+              .find("ion-button")
+              .click();
+            nbClick = nbClick + 1;
+            console.log("nbClick", nbClick);
+            cy.get("#number-notif")
+              .invoke("text")
+              .then(parseFloat)
+              .should("be.eq", nbClick);
+          }
+        }
+      );
+    });
+  }
+);
+...
+```
+
+J'ai également utilisé la commande `.as()` pour stocker des variables et les ré-utiliser dans différents context.
+
+```js
+Cypress.Commands.add(
+  "GetAllInShopItems",
+  (articlePanier = ["article-0", "article-1"], clickItemToCart = [2, 1]) => {
+    cy.get("#number-notif").invoke("text").then(parseFloat).as("nbIconShop");
+    articlePanier.forEach((item, index) => {
+      var elementItemShop = "#shop-" + item;
+      var idItem = index.toString();
+      cy.get(elementItemShop)
+        .find("ion-card-title")
+        .invoke("text")
+        .as("cardTitle" + idItem);
+      cy.get(elementItemShop)
+        .find(".price")
+        .invoke("text")
+        .then(parseFloat)
+        .as("cardPrice" + idItem);
+      console.log("cardPrice", index);
+      cy.get("@cardPrice"+idItem).then((priceArticle) => {
+        const total = clickItemToCart[index] * priceArticle;
+        cy.wrap(total).as("totalPriceArticle"+idItem);
+      });
+    });
+  }
+);
+```
+
+Dans le code ci dessus , par exemple je récupère le prix de l'article sélectionné (voir la ligne `.as("cardPrice" + idItem)`) et je peux réutiliser cette variable pour calculer le prix par total par article en multiplant cette alias (on l'appelle via `cy.get("@cardPrice"+idItem).then(($priceArticle)=>{}`) par le nombre de click préalablement définis. Pour réutiliser ces variables entre les différents tests ou dans les "sous context" il faut enregistrer ces alias au sein des hooks `beforeEach`(voir détail description ce dessous).
+
+J'ai organisé le code avec des boucles et j'ai utilisé des paramètres en entrée de commandes à savoir une liste d'article et une liste contenant le nombre de click respectif pour les articles. Ainsi par l'intermédiaire de loop for , les tests sont produit automatiquement pour chacun des articles. On peut ainsi modifier facilement les articles souhaités et le nombre de click associé à ces articles pour faire varier nos tests selon nos souhaits.
+
+Enfin derier chose à préciser, Cypress nous permet d'utiliser des hooks qui permettent d'effectuer des opérations avant (`before`), avant chaque (`beforeEach`) ,après (`after`) , après chaque tests (`afterEach`).
+Les hooks `before`et `after` s'éxécute une seule fois, avant et après l'ensemble des tests au sein d'un`context` ou `describe`. Les deux autres hooks permettent d'éxécuter des opérations avant chaque test pour `BeforeEach`et après chaque test pour `afterEach` au sein d'un bloc `context`ou `describe`.
+
+Ainsi dans les deux derniers gros blocs `context`de mes tests sur la page boutique , j'utilise `before` pour changer le nombre d'articles sélectionnés.
+Et j'utilise `beforeEach` pour récupérer et enregistrer les informations des articles sélectionnés via les alias.

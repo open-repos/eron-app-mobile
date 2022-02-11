@@ -1,10 +1,6 @@
 /// <reference types="cypress" />
 import items from '../fixtures/itemsShop.json'
 
-function formatString(text) {
-  return text.replace(/[^\d,]/g, ""); //.replace('\u00A0','').trim();
-}
-function reducer(accumulator, curr){accumulator + curr};
 var lodash = require('lodash');
 describe("Appli-Test-Shop", () => {
   beforeEach(() => {
@@ -40,15 +36,15 @@ describe("Appli-Test-Shop", () => {
   context(`Boutique avec selection d'un seul article: ${singleItem}, sélectionné ${clickItemToCart}`, () => {
     before(() => {
       cy.PageBoutiqueSelectArticle(singleItem,clickItemToCart)
-      cy.GetAllInShopItems(singleItem)
     });
-
+    beforeEach(() => {
+      cy.GetAllInShopItems(singleItem,clickItemToCart)
+    });
     context("Dans le panier, verification des informations", () => {
       before(()=>{
         cy.get("#cart").click();
       })
       beforeEach(() => {
-        cy.GetAllInShopItems(singleItem)
         cy.GetAllInfoCartItemsAndCheckExist(singleItem,clickItemToCart)
       });
 
@@ -132,7 +128,9 @@ describe("Appli-Test-Shop", () => {
   context(`Boutique avec selection de : ${itemsCartShop.join(",")} cliqué respectivement ${clickItemsToCart.join(",")} `,() => {
     before(() => {
       cy.PageBoutiqueSelectArticle(itemsCartShop,clickItemsToCart)
-      cy.GetAllInShopItems(itemsCartShop)
+      });
+      beforeEach(() => {
+        cy.GetAllInShopItems(itemsCartShop,clickItemsToCart)
       });
       context(
         "Dans le panier, verification des informations pour chacun des deux articles",
@@ -141,7 +139,6 @@ describe("Appli-Test-Shop", () => {
             cy.get("#cart").click();
           })
           beforeEach(() => {
-            cy.GetAllInShopItems(itemsCartShop)
             cy.GetAllInfoCartItemsAndCheckExist(itemsCartShop,clickItemsToCart)
           });
           itemsCartShop.forEach((item, index) => {

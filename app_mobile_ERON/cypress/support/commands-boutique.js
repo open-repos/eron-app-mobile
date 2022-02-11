@@ -39,7 +39,7 @@ Cypress.Commands.add(
 );
 Cypress.Commands.add(
   "GetAllInShopItems",
-  (articlePanier = ["article-0", "article-1"]) => {
+  (articlePanier = ["article-0", "article-1"], clickItemToCart = [2, 1]) => {
     // beforeEach(() => {
     cy.get("#number-notif").invoke("text").then(parseFloat).as("nbIconShop");
     articlePanier.forEach((item, index) => {
@@ -55,20 +55,17 @@ Cypress.Commands.add(
         .then(parseFloat)
         .as("cardPrice" + idItem);
       console.log("cardPrice", index);
-    cy.get("@nbIconShop").then((nbIconShop) => {
+    // cy.get("@nbIconShop").then((nbIconShop) => {
       cy.get("@cardPrice"+idItem).then((priceArticle) => {
-        const total = nbIconShop * priceArticle;
+        const total = clickItemToCart[index] * priceArticle;
         cy.wrap(total).as("totalPriceArticle"+idItem);
-      }); });
+      });
+    //  });
     });
-    // if (articlePanier.length>1){
-    //     cy.get("#cart").click();
-    // }
   }
 );
 
-Cypress.Commands.add(
-  "GetAllInfoCartItemsAndCheckExist",
+Cypress.Commands.add("GetAllInfoCartItemsAndCheckExist",
   (articlePanier = ["article-0", "article-1"], clickItemToCart = [2, 1]) => {
     clickItemToCart.forEach((item, index) => {
         console.log("index.toString()",index.toString())
