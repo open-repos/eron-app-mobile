@@ -18,6 +18,16 @@ Dans le cadre du développement de l'application mobile d'ERON Santé, j'ai dév
   - Vérification des possibilités de supprimer un ou tout les articles avec UX-UI en adéquation avec les actions de l'utilisateur
 Pour réaliser ces test e2e , j'ai utilisé la librairie Cypress.
 
+QUICK START (test): 
+```sh
+git clone https://gitlab.com/alternance-entreprise-eron/app-mobile-eron/app-mobile-ERON.git
+cd app_mobile_ERON
+git checkout test-cypress
+ionic serve
+# open new terminal
+npm run test
+```
+
 ## Tables des matières <!-- omit in toc -->
 
 - [Installation de Cypress](#installation-de-cypress)

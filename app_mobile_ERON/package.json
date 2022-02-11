@@ -7,11 +7,11 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test",
+    "test": "./node_modules/.bin/cypress run",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "runHeadless-test-e2e": "./node_modules/.bin/cypress run --headless",
-    "cypress-test-e2e": "npx cypress run --browser '/Applications/Internet/Google Chrome.app/Contents/MacOS/Google Chrome'"
+    "cypress-test-e2e": "npx cypress run --browser chrome"
   },
   "private": true,
   "dependencies": {
