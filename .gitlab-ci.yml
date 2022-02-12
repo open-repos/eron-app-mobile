@@ -46,8 +46,8 @@ dependencies:
     key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
     paths:
       - ./app_mobile_ERON/.npm/
-      - ./app_mobile_ERON/cache/Cypress
-      - ./app_mobile_ERON/node_modules/
+      # - ./app_mobile_ERON/cache/Cypress
+      # - ./app_mobile_ERON/node_modules/
   script:
      - echo "$CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR"
      - ls -a $CI_PROJECT_DIR
@@ -56,14 +56,38 @@ dependencies:
      - ls -a
      - node -v
      - npm ci --cache .npm --prefer-offline
-     - npm install cypress --save-dev
-    #  - npx cypress install 
+    #  - npm install cypress --save-dev
      - npx cypress cache path
      - npx cypress cache list
      - npm run cy:verify
   # only:
   #   changes:
   #     - package.json
+
+test-e2e:
+  image: cypress/browsers:node16.5.0-chrome97-ff96
+  stage: test
+  cache: 
+    key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
+    paths:
+      - ./app_mobile_ERON/.npm/
+      # - ./app_mobile_ERON/cache/Cypress
+      # - ./app_mobile_ERON/node_modules/
+    # policy: pull
+  script:
+     - ls -a
+     - ls -a $CI_PROJECT_DIR
+     - ls -a $CI_PROJECT_DIR/app_mobile_ERON
+     - cd ./app_mobile_ERON/
+     - ls -a
+     - ls -a .npm/
+     - npm ci --cache .npm --prefer-offline
+     - $(npm bin)/print-env CI
+    # make sure Cypress can run
+     - npm run cy:verify
+     - npm install -g @ionic/cli
+     - npm run ci
+
 
 build_parcel_master:
   extends: .before_script_template
@@ -72,7 +96,7 @@ build_parcel_master:
     key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
     paths:
       - ./app_mobile_ERON/.npm/
-      - ./app_mobile_ERON/node_modules/
+      # - ./app_mobile_ERON/node_modules/
     # policy: pull
   script:
     - ls -a
@@ -89,30 +113,6 @@ build_parcel_master:
   only:
     - main
 
-test-e2e:
-  image: cypress/browsers:node16.5.0-chrome97-ff96
-  stage: test
-  cache: 
-    key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
-    paths:
-      - ./app_mobile_ERON/.npm/
-      - ./app_mobile_ERON/cache/Cypress
-      - ./app_mobile_ERON/node_modules/
-    # policy: pull
-  script:
-     - ls -a
-     - ls -a $CI_PROJECT_DIR
-    #  - ls -a $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
-     - ls -a $CI_PROJECT_DIR/app_mobile_ERON
-     - cd ./app_mobile_ERON/
-     - ls -a
-     - ls -a .npm/
-    #  - npm ci --cache .npm --prefer-offline
-     - $(npm bin)/print-env CI
-    # make sure Cypress can run
-     - npm run cy:verify
-     - npm install -g @ionic/cli
-     - npm run ci
 
 deploy_main:
   extends: .before_script_template
