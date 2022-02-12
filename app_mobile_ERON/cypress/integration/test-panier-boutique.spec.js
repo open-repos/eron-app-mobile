@@ -105,7 +105,8 @@ describe("Appli-Test-Shop", () => {
           cy.get("#cart").click({force: true});
         });
         it('Suprresion du seul article présent dans le panier via l icone trash qui lui est asscoié, devrait supprimer la présence de l article + retourner un message : Votre panier est vide', () => {
-        cy.get("ion-row#cart-"+singleItem[0]).find(".icon-trash-item").click()
+        cy.get("ion-row#cart-"+singleItem[0]).then((el)=>{
+            el.find(".icon-trash-item").click({force: true})})
         cy.get("ion-row#cart-"+singleItem[0]).should("not.exist")
         cy.contains("Votre panier est vide")
         cy.get("#btn-back-shop").should("exist").contains("Retourner à la boutique").click()
