@@ -17,7 +17,7 @@ image: node:16.8.0
 ## Set environment variables for folders in "cache" job settings for npm modules and Cypress binary
 variables:
   npm_config_cache: '$CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR/.npm'
-  CYPRESS_CACHE_FOLDER: '$CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR/.cache/Cypress'
+  CYPRESS_CACHE_FOLDER: '$CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR/cache/Cypress'
 
 # Cache modules in between jobs
 cache:
@@ -25,7 +25,7 @@ cache:
   policy: pull-push
   paths:
     - ./app_mobile_ERON/.npm/
-    - ./app_mobile_ERON/.cache/Cypress
+    - ./app_mobile_ERON/cache/Cypress
     - ./app_mobile_ERON/.cache/*
 
 stages:
@@ -42,8 +42,8 @@ dependencies:
     paths:
       # - ./app_mobile_ERON/node_modules/
       - ./app_mobile_ERON/.npm/
-      - ./app_mobile_ERON/.cache/Cypress
-      # - /root/.cache/Cypress
+      - ./app_mobile_ERON/cache/Cypress
+      # - /root/cache/Cypress
   script:
      - echo "$CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR"
      - ls -a $CI_PROJECT_DIR
@@ -89,7 +89,7 @@ test-e2e:
     paths:
       - ./app_mobile_ERON/.npm/
     # - ./app_mobile_ERON/cache/Cypress
-      - ./app_mobile_ERON/.cache/Cypress
+      - ./app_mobile_ERON/cache/Cypress
     # policy: pull
   script:
      - ls -a
@@ -98,7 +98,7 @@ test-e2e:
      - ls -a $CI_PROJECT_DIR/app_mobile_ERON
      - cd ./app_mobile_ERON/
      - ls -a
-     - npm ci --cache .npm --prefer-offline
+    #  - npm ci --cache .npm --prefer-offline
      - $(npm bin)/print-env CI
     # make sure Cypress can run
      - npm run cy:verify
