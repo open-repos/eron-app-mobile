@@ -40,13 +40,13 @@ Cypress.Commands.add("swipeLeft", () => {
 
 
 Cypress.Commands.add("goToEspaceApprenant", () => {
-  cy.get("ion-menu-button").click();
-  cy.get(":nth-child(6) > ion-menu-toggle.md > .item")
-    .should("contain", "Connexion")
-    .click();
-  cy.get(".menu-type-overlay").click("topRight");
-  cy.get(".menu-type-overlay").should("not.be.visible")
-  // cy.get(".logoEron").click({force:true})
+  // cy.get("ion-menu-button").click();
+  // cy.get(":nth-child(6) > ion-menu-toggle.md > .item")
+  //   .should("contain", "Connexion")
+  //   .click();
+  // cy.get(".menu-type-overlay").click("topRight");
+  // cy.get(".menu-type-overlay").should("not.be.visible")
+  cy.get("button#connexion").click()
   var email = "dup.dup@gmail.com";
   cy.get("#email").type(`${email}{enter}`);
   var password = "myPassWord";
