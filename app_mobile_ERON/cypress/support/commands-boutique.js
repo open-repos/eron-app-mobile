@@ -22,7 +22,7 @@ Cypress.Commands.add(
           for (let i = 1; i < nbtimeClickedOnItem + 1; i++) {
             cy.get("#shop-" + articlePanier[index])
               .find("ion-button")
-              .click();
+              .click({force:true});
             nbClick = nbClick + 1;
             console.log("nbClick", nbClick);
             cy.get("#number-notif")

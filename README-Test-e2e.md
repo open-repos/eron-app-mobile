@@ -300,4 +300,4 @@ Enfin derier chose à préciser, Cypress nous permet d'utiliser des hooks qui pe
 Les hooks `before`et `after` s'éxécute une seule fois, avant et après l'ensemble des tests au sein d'un`context` ou `describe`. Les deux autres hooks permettent d'éxécuter des opérations avant chaque test pour `BeforeEach`et après chaque test pour `afterEach` au sein d'un bloc `context`ou `describe`.
 
 Ainsi dans les deux derniers gros blocs `context`de mes tests sur la page boutique , j'utilise `before` pour changer le nombre d'articles sélectionnés.
-Et j'utilise `beforeEach` pour récupérer et enregistrer les informations des articles sélectionnés via les alias.
+Et j'utilise `beforeEach` pour récupérer et enregistrer les informations des articles sélectionnés via les alias ainsi que pour indiquer le support souhaité. Ici j'ai pris l'iphone-x via la commande : `cy.viewport("iphone-x");`
