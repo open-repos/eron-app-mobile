@@ -59,7 +59,7 @@ dependencies:
     #  - npx cypress install 
      - npx cypress cache path
      - npx cypress cache list
-     - npx run cy:verify
+     - npm run cy:verify
   # only:
   #   changes:
   #     - package.json
@@ -71,7 +71,8 @@ build_parcel_master:
     key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
     paths:
       - ./app_mobile_ERON/.npm/
-    policy: pull
+      - ./app_mobile_ERON/node_modules/
+    # policy: pull
   script:
     - ls -a
     - cd ./app_mobile_ERON/
@@ -90,11 +91,12 @@ build_parcel_master:
 test-e2e:
   image: cypress/browsers:node16.5.0-chrome97-ff96
   stage: test
-  # cache: 
-  #   key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
-  #   paths:
-  #     - ./app_mobile_ERON/.npm/
-  #     - ./app_mobile_ERON/cache/Cypress
+  cache: 
+    key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
+    paths:
+      - ./app_mobile_ERON/.npm/
+      - ./app_mobile_ERON/cache/Cypress
+      - ./app_mobile_ERON/node_modules/
     # policy: pull
   script:
      - ls -a
