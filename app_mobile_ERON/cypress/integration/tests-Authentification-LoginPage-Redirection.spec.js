@@ -35,7 +35,7 @@ describe("Test de l'authentification, persistence (localstorage), redirecton ver
     
     
         it('Test Formulaire de connexion - Au clic sur champ Email doit avoir Focus border et password non focus', ()=>{
-            cy.get("#email").focus().dblclick()
+            cy.get("#email").focus() //.dblclick()
             cy.focused().click()
             // cy.get("#email").should('have.css','border-color','rgb(23, 75, 151)')
             cy.get('#email').should('have.focus') 

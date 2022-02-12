@@ -10,7 +10,7 @@
     "build": "ng build",
     "cy:verify": "cypress verify",
     "print-env": "print-env",
-    "test": "npx cypress run --config baseUrl=http://localhost:8100 --spec cypress/integration/tests-Authentification-LoginPage-Redirection.spec.js",
+    "test": "npx cypress run --browser chrome  --config baseUrl=http://localhost:8100 --spec cypress/integration/tests-Authentification-LoginPage-Redirection.spec.js",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "runHeadless-test-e2e": "./node_modules/.bin/cypress run --headless",

@@ -26,6 +26,7 @@ cache:
   paths:
     - ./app_mobile_ERON/.npm/
     - ./app_mobile_ERON/cache/Cypress
+    - ./app_mobile_ERON/.cache/*
 
 stages:
   - install_dependencies
@@ -34,7 +35,7 @@ stages:
   - deploy
 
 dependencies:
-  # image: cypress/browsers:node16.5.0-chrome97-ff96
+  image: cypress/browsers:node16.5.0-chrome97-ff96
   stage: install_dependencies
   cache: 
     key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
@@ -51,7 +52,7 @@ dependencies:
      - ls -a
      - node -v
      - npm ci --cache .npm --prefer-offline
-     - npx cypress install 
+    #  - npx cypress install 
      - npx cypress cache path
   # only:
   #   changes:
@@ -63,14 +64,14 @@ build_parcel_master:
   cache: 
     key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
     paths:
-      - .node_modules/
+      - ./app_mobile_ERON/.npm/
     policy: pull
   script:
     - ls -a
     - cd ./app_mobile_ERON/
     - ls -a
     - npm cache verify
-    - npm install
+    - npm ci --cache .npm --prefer-offline
     - node -v
     - ionic build
   artifacts:
