@@ -23,7 +23,7 @@ variables:
 cache:
   key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
   paths:
-    - .npm/
+    - /app_mobile_ERON/.npm/
 
 stages:
   - install_dependencies
@@ -38,8 +38,8 @@ dependencies:
     key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
     paths:
       # - ./app_mobile_ERON/node_modules/
-      - .npm/
-      - cache/Cypress
+      - /app_mobile_ERON/.npm/
+      - /app_mobile_ERON/cache/Cypress
       # - /root/.cache/Cypress
   script:
      - echo "$CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR"
@@ -48,7 +48,7 @@ dependencies:
      - cd ./app_mobile_ERON/
      - ls -a
      - node -v
-     - npm ci
+     - npm ci --cache .npm --prefer-offline
      - npx cypress install 
      - npx cypress cache path
   # only:
@@ -84,9 +84,9 @@ test-e2e:
   cache: 
     key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
     paths:
-      - .npm
+      - /app_mobile_ERON/.npm
     # - ./app_mobile_ERON/cache/Cypress
-      - cache/Cypress
+      - /app_mobile_ERON/cache/Cypress
     # policy: pull
   script:
      - ls -a
