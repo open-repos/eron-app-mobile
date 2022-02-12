@@ -33,7 +33,7 @@ stages:
   - deploy
 
 dependencies:
-  # image: cypress/browsers:node16.5.0-chrome97-ff96
+  image: cypress/browsers:node16.5.0-chrome97-ff96
   stage: install_dependencies
   cache: 
     key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
@@ -44,6 +44,7 @@ dependencies:
   script:
      - ls -a
      - cd ./app_mobile_ERON/
+     - ls -a
      - node -v
      - npm ci
   # only:
@@ -61,6 +62,7 @@ build_parcel_master:
   script:
     - ls -a
     - cd ./app_mobile_ERON/
+    - ls -a
     - npm cache verify
     - npm install
     - node -v
@@ -85,6 +87,7 @@ test-e2e:
   script:
      - ls -a
      - cd ./app_mobile_ERON/
+     - ls -a
     #  - npm ci
      - $(npm bin)/print-env CI
     # make sure Cypress can run

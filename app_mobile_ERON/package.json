@@ -5,9 +5,10 @@
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",
-    "start-server":"ionic serve",
+    "start-server": "ionic serve",
     "start": "ng serve",
     "build": "ng build",
+    "cy:verify": "cypress verify",
     "test": "./node_modules/.bin/cypress run --config baseUrl=http://localhost:8100",
     "lint": "ng lint",
     "e2e": "ng e2e",
@@ -39,6 +40,7 @@
     "@ionic-native/core": "^5.34.0",
     "@ionic/angular": "^5.5.2",
     "cordova-plugin-inappbrowser": "^5.0.0",
+    "print-env": "^0.1.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"
