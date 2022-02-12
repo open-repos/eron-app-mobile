@@ -19,13 +19,11 @@ variables:
   npm_config_cache: '$CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR/.npm'
   CYPRESS_CACHE_FOLDER: '$CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR/cache/Cypress'
 
+# Cache modules in between jobs
 cache:
   key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
   paths:
-    - ./app_mobile_ERON/node_modules/
-    - ./app_mobile_ERON/.npm
-    - ./app_mobile_ERON/cache/Cypress
-    - /root/.cache/Cypress
+    - .npm/
 
 stages:
   - install_dependencies
@@ -39,16 +37,19 @@ dependencies:
   cache: 
     key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
     paths:
-      - ./app_mobile_ERON/node_modules/
-      - ./app_mobile_ERON/.npm
-      - ./app_mobile_ERON/cache/Cypress
-      - /root/.cache/Cypress
+      # - ./app_mobile_ERON/node_modules/
+      - .npm/
+      - cache/Cypress
+      # - /root/.cache/Cypress
   script:
+     - echo "$CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR"
+     - ls -a $CI_PROJECT_DIR
+     - ls -a $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
      - ls -a
      - cd ./app_mobile_ERON/
      - ls -a
      - node -v
-     - npm install
+     - npm ci
      - npx cypress install 
      - npx cypress cache path
   # only:
@@ -61,7 +62,7 @@ build_parcel_master:
   cache: 
     key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
     paths:
-      - ./app_mobile_ERON/node_modules/
+      - .node_modules/
     policy: pull
   script:
     - ls -a
@@ -84,16 +85,15 @@ test-e2e:
   cache: 
     key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
     paths:
-      - ./app_mobile_ERON/node_modules/
-      - ./app_mobile_ERON/.npm
-      - ./app_mobile_ERON/cache/Cypress
-      - /root/.cache/Cypress
-    policy: pull
+      - .npm
+    # - ./app_mobile_ERON/cache/Cypress
+      - cache/Cypress
+    # policy: pull
   script:
      - ls -a
      - cd ./app_mobile_ERON/
      - ls -a
-    #  - npm ci
+     - npm ci --prefer-offline
      - $(npm bin)/print-env CI
     # make sure Cypress can run
      - npm run cy:verify
