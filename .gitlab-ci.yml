@@ -16,8 +16,8 @@ image: node:16.8.0
 
 ## Set environment variables for folders in "cache" job settings for npm modules and Cypress binary
 variables:
-  npm_config_cache: '$CI_PROJECT_DIR/.npm'
-  CYPRESS_CACHE_FOLDER: '$CI_PROJECT_DIR/cache/Cypress'
+  npm_config_cache: '$CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR/.npm'
+  CYPRESS_CACHE_FOLDER: '$CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR/cache/Cypress'
 
 cache:
   key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
@@ -25,6 +25,7 @@ cache:
     - ./app_mobile_ERON/node_modules/
     - ./app_mobile_ERON/.npm
     - ./app_mobile_ERON/cache/Cypress
+    - /root/.cache/Cypress
 
 stages:
   - install_dependencies
@@ -41,6 +42,7 @@ dependencies:
       - ./app_mobile_ERON/node_modules/
       - ./app_mobile_ERON/.npm
       - ./app_mobile_ERON/cache/Cypress
+      - /root/.cache/Cypress
   script:
      - ls -a
      - cd ./app_mobile_ERON/
@@ -83,6 +85,7 @@ test-e2e:
       - ./app_mobile_ERON/node_modules/
       - ./app_mobile_ERON/.npm
       - ./app_mobile_ERON/cache/Cypress
+      - /root/.cache/Cypress
     policy: pull
   script:
      - ls -a
