@@ -91,7 +91,7 @@ test-e2e:
   script:
      - ls -a
      - ls -a $CI_PROJECT_DIR
-     - ls -a $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
+    #  - ls -a $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
      - ls -a $CI_PROJECT_DIR/app_mobile_ERON
      - cd ./app_mobile_ERON/
      - ls -a
