@@ -90,22 +90,22 @@ constructor(private httpClient: HttpClient,
 //     this.profileObs$.next(profile);
 //   }
 
-  addToCart(index?:string, numberPlus?:number){
-    // this.initialNumber += 1
-    // this.profileObs$.next(numberPlus);
-    console.log('AddToCart(numberPlus) ',numberPlus)
-  }
+  // addToCart(index?:string, numberPlus?:number){
+  //   // this.initialNumber += 1
+  //   // this.profileObs$.next(numberPlus);
+  //   console.log('AddToCart(numberPlus) ',numberPlus)
+  // }
 
-  removeToCart(index:string){
-    console.log(index)
-  }
+  // removeToCart(index:string){
+  //   console.log(index)
+  // }
 
-  getBoutiqueFormationsById(id: string) {
-    return this.boutiqueFormations.find(
-      (s) => {
-        return s.id === id;
-      }
-    );}
+  // getBoutiqueFormationsById(id: string) {
+  //   return this.boutiqueFormations.find(
+  //     (s) => {
+  //       return s.id === id;
+  //     }
+  //   );}
 
 
     saveFormationBoutiqueToServer() {

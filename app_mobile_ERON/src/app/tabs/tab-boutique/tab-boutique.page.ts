@@ -48,6 +48,10 @@ this.boutiqueFormationsSrvc.getFormationBoutiqueFromServer();
     });
 }
 
+ngOnDestroy() {
+  this.boutiqueFormationsSubscription.unsubscribe()
+  // this.boutiqueFormationsSrvc.boutiqueFormationsSubject.unsubscribe()
+}
 
 }
 
