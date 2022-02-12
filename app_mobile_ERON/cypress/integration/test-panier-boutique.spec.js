@@ -102,7 +102,7 @@ describe("Appli-Test-Shop", () => {
       context("Suppression d'un article (cas avec 1 seul article dans le panier)",()=>{
         before(() => {
           cy.PageBoutiqueSelectArticle(singleItem,clickItemToCart)
-          cy.get("#cart").click();
+          cy.get("#cart").click({force: true});
         });
         it('Suprresion du seul article présent dans le panier via l icone trash qui lui est asscoié, devrait supprimer la présence de l article + retourner un message : Votre panier est vide', () => {
         cy.get("ion-row#cart-"+singleItem[0]).find(".icon-trash-item").click()

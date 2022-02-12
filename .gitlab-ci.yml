@@ -23,8 +23,8 @@ cache:
   key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
   paths:
     - ./app_mobile_ERON/node_modules/
-    # - ./app_mobile_ERON/.cache/*
-    # - ./app_mobile_ERON/cache/Cypress
+    - ./app_mobile_ERON/.npm
+    - ./app_mobile_ERON/cache/Cypress
 
 stages:
   - install_dependencies
@@ -38,16 +38,17 @@ dependencies:
   cache: 
     key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
     paths:
-      # -  cache/Cypress
       - ./app_mobile_ERON/node_modules/
+      - ./app_mobile_ERON/.npm
+      - ./app_mobile_ERON/cache/Cypress
   script:
      - ls -a
      - cd ./app_mobile_ERON/
      - node -v
      - npm ci
-  only:
-    changes:
-      - package.json
+  # only:
+  #   changes:
+  #     - package.json
 
 build_parcel_master:
   extends: .before_script_template
@@ -78,12 +79,17 @@ test-e2e:
     key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
     paths:
       - ./app_mobile_ERON/node_modules/
+      - ./app_mobile_ERON/.npm
+      - ./app_mobile_ERON/cache/Cypress
     policy: pull
   script:
      - ls -a
      - cd ./app_mobile_ERON/
+    #  - npm ci
+     - $(npm bin)/print-env CI
+    # make sure Cypress can run
+     - npm run cy:verify
      - npm install -g @ionic/cli
-     - npm ci
      - npm run ci
 
 deploy_main:
