@@ -25,6 +25,7 @@ cache:
   policy: pull-push
   paths:
     - ./app_mobile_ERON/.npm/
+    - ./app_mobile_ERON/cache/Cypress
 
 stages:
   - install_dependencies
