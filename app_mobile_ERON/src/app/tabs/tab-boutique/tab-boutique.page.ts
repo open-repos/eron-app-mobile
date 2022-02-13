@@ -3,7 +3,7 @@ import { BoutiqueFormationsService } from './../../services/boutique-formations.
 import { FormationsBoutique } from './../../models/boutique-formations.model';
 import { Component, Input, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { ModalController, AlertController } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab-boutique',
@@ -14,19 +14,18 @@ export class TabBoutiquePage implements OnInit {
 
   // @Input() isShop:boolean = false;
   // @Input() numberIcon:number;
-boutiqueFormation!: any[];
+boutiqueFormation!: FormationsBoutique[];
 boutiqueFormationsSubscription!: Subscription;
+errorMsg : string;
   
   constructor(private boutiqueFormationsSrvc: BoutiqueFormationsService,
     private modalCtrl: ModalController) { }
 
   ngOnInit() {
-    this.boutiqueFormationsSubscription = 
-    this.boutiqueFormationsSrvc.boutiqueFormationsSubject.subscribe((boutiqueFormation: any[])=>{
-this.boutiqueFormation = boutiqueFormation;});
-this.boutiqueFormationsSrvc.getFormationBoutiqueFromServer();
-    //   console.log("returnHttp", returnGetFromServer)
-    this.boutiqueFormationsSrvc.emitBoutiqueFormationSubject();
+    this.boutiqueFormationsSubscription=this.boutiqueFormationsSrvc.getFormationBoutiqueFromServer().subscribe({
+      next: boutiqueFormation => {this.boutiqueFormation = boutiqueFormation},
+      error: err => this.errorMsg = err,
+    });
   }
 
 
@@ -50,7 +49,6 @@ this.boutiqueFormationsSrvc.getFormationBoutiqueFromServer();
 
 ngOnDestroy() {
   this.boutiqueFormationsSubscription.unsubscribe()
-  // this.boutiqueFormationsSrvc.boutiqueFormationsSubject.unsubscribe()
 }
 
 }

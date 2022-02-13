@@ -29,6 +29,7 @@ export class ShoppingCartModalComponent implements OnInit {
 
   ngOnInit() {
     this.intersectionObserver();
+
     this.cartService.getProducts()
     .subscribe(produits=>{
       this.cartItems = produits;
@@ -87,7 +88,8 @@ export class ShoppingCartModalComponent implements OnInit {
   ngAfterViewInit(){
     // console.log("ngAfterViewInit, mydiv.changes.subscribe(d)")
     // console.log(this.myDiv)
-    this.observer.observe(this.myDiv.nativeElement)
+    if (this.myDiv){
+    this.observer.observe(this.myDiv.nativeElement)}
   }
 
 

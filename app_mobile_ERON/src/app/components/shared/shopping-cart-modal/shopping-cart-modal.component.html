@@ -64,7 +64,7 @@
 </ng-container>
 
 
-<ng-container *ngIf="!isBtnBuyVisible">
+<ng-container *ngIf="!isBtnBuyVisible && cartItems.length !== 0">
   <ion-fab horizontal="end" vertical="bottom" slot="fixed">
     <ion-fab-button color="primary" class="">
       <ion-icon name="add"></ion-icon>
