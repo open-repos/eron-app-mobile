@@ -1,3 +1,4 @@
+import { LoginData } from './../../models/loginData.model';
 import { AuthService } from './../../services/auth.service';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -27,7 +28,7 @@ export class LoginPage implements OnInit {
   focused: boolean;
   focusedPassword: boolean;
 
-  userInfo: string;
+  userInfo: LoginData;
   loginForm!: FormGroup;
 
   emailError:boolean;
@@ -114,10 +115,12 @@ passwordType: string = 'password';
 }
 
 onLogin(){
+  const email = this.loginForm.value['email']
+  const password = this.loginForm.value['password']
+  const userInfo = {email,password}
   console.log(this.userInfo)
   console.log(this.loginUrl)
-  this.authService.login(this.userInfo);
-  this.router.navigateByUrl(this.loginUrl)
+  this.authService.login(userInfo)
   // this.router.navigate(['/tabs/tab-suivi']);
 }
 

@@ -98,7 +98,14 @@ import { AllowOverflowDirective } from './allow-overflow.directive';
 import { TypeofPipe } from './pipes/typeof.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { EnterTheViewportNotifierDirective } from './directives/enter-the-viewport-notifier.directive';
-
+// import firebase + enviornment
+import { environment } from '../environments/environment';
+// import { AngularFireModule } from '@angular/fire';
+import { getAuth, provideAuth } from '@angular/fire/auth';
+// import { AngularFireStorageModule } fqrom '@angular/fire/storage';
+import { provideDatabase, getDatabase} from '@angular/fire/database';
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 @NgModule({
   declarations: [AppComponent, AllowOverflowDirective, EnterTheViewportNotifierDirective],
   entryComponents: [],
@@ -112,6 +119,10 @@ import { EnterTheViewportNotifierDirective } from './directives/enter-the-viewpo
     FormsModule,
     ReactiveFormsModule,
     SharedComponentsModule,
+    provideFirebaseApp(()=> initializeApp(environment.firebaseConfig)),
+    provideFirestore(()=>getFirestore()),
+    provideDatabase(()=>getDatabase()),
+    provideAuth(()=>getAuth())
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, {
     provide: LOCALE_ID, 
