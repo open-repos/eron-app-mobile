@@ -1,9 +1,10 @@
+import { AuthService } from 'src/app/services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { FormationsBoutique } from '../models/boutique-formations.model';
-
+import {Auth} from '@angular/fire/auth';
 @Injectable({
   providedIn: 'root'
 })
@@ -67,16 +68,27 @@ export class BoutiqueFormationsService {
 //     validity:65
 //   },
 // ]
+private _idToken:string;
+userInfo: any;
 
 constructor(private httpClient: HttpClient,
+  private auth: Auth,
+  private authService:AuthService,
   private alertCtrl: AlertController,
-  private router: Router) { }
-
+  private router: Router) {
+    this.userInfo = JSON.parse(localStorage.getItem('user'))
+    this._idToken = this.userInfo.stsTokenManager.accessToken
+    // console.log(this.userInfo.email)
+    // console.log(this.userInfo.uid)
+    // console.log(this.userInfo.stsTokenManager.accessToken) 
+  }
 
     getFormationBoutiqueFromServer(){
+    const token = this._idToken
     console.log("getFormationServer")
+    // this._idToken = this.auth.currentUser.getIdToken(true)
        return this.httpClient
-        .get<FormationsBoutique[]>('https://eron-settings-default-rtdb.europe-west1.firebasedatabase.app/boutiqueFormations.json')
+        .get<FormationsBoutique[]>('https://eron-settings-default-rtdb.europe-west1.firebasedatabase.app/boutiqueFormations.json?auth='+token)
     }
     
 
