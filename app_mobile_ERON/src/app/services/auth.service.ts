@@ -13,6 +13,9 @@ export class AuthService {
   loginUrl:string = "";
   userData: User;
 
+  errorLogin: boolean;
+  errorMessage:string;
+
   get userIsAuthenticated(){
     return this._userIsAuthenticated;
   }
@@ -20,11 +23,10 @@ export class AuthService {
   constructor(private auth: Auth,
     private router: Router, 
     private activatedRoute:ActivatedRoute) {
-      this.loginUrl = this.activatedRoute.snapshot.queryParamMap.get('returnto') || 'tabs/tab-suivi' 
       this.auth.onAuthStateChanged((user)=>{
-        console.log("avant verfi user",typeof(user))
+        // console.log("avant verif user",typeof(user))
             if (user) {
-              console.log(user)
+              console.log("User info:",user)
               // user.getIdToken(true)
               //   .then((token)=>{
               //     this.userData.accessToken = token
@@ -63,13 +65,8 @@ export class AuthService {
    }
 
   login({email, password}: LoginData){
-    signInWithEmailAndPassword(this.auth, email, password)
-    .then(() => {
-    console.log(this.auth.currentUser)
-    this._userIsAuthenticated = true,
-    localStorage.setItem('authenticated','1'),
-    this.router.navigateByUrl(this.loginUrl)})
-    .catch((e) => console.log(e.message));
+    // this.loginUrl = this.activatedRoute.snapshot.queryParamMap.get('returnto') || 'tabs/tab-suivi' 
+    return signInWithEmailAndPassword(this.auth, email, password)
   }
 
   logout(){

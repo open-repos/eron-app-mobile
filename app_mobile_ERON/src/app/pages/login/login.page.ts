@@ -24,7 +24,6 @@ export class LoginPage implements OnInit {
   @Input() label: string;
   @Input() type = 'text'; // set default type be text
 
-  loginUrl ='';
   focused: boolean;
   focusedPassword: boolean;
 
@@ -34,11 +33,14 @@ export class LoginPage implements OnInit {
   emailError:boolean;
   passwordEmpty:boolean;
 
+  messageFirebase:string;
   errorMessage:string;
   erroMessageDisplay:boolean=false;
   // iconShowPassword = faEye;
   // iconHidePassword = faEyeSlash;
   iconEmail = faEnvelope;
+  loginUrl:string ="";
+  
 
 
 passwordType: string = 'password';
@@ -52,8 +54,8 @@ passwordType: string = 'password';
     private activatedRoute:ActivatedRoute) { }
 
     ngOnInit() {
-      this.initForm();
       this.loginUrl = this.activatedRoute.snapshot.queryParamMap.get('returnto') || 'tabs/tab-suivi' 
+      this.initForm();
     }
   
     initForm() {
@@ -97,7 +99,14 @@ passwordType: string = 'password';
 
   }
 
-
+  erroLoginUserNotFound(){
+  this.erroMessageDisplay= true
+  this.errorMessage = "Vous n'êtes pas encore inscris chez nous"
+}
+erroLoginPsswdOrEmailWrong(){
+  this.erroMessageDisplay= true
+  this.errorMessage = "Votre mot de passe ou votre adresse sont incorrect"
+}
 
   onBlur(event:any) {
     const value = event.target.value;
@@ -119,8 +128,25 @@ onLogin(){
   const password = this.loginForm.value['password']
   const userInfo = {email,password}
   console.log(this.userInfo)
-  console.log(this.loginUrl)
   this.authService.login(userInfo)
+  .then(() => {
+    // console.log(this.authService.auth.currentUser)
+    // this.authService._userIsAuthenticated = true,
+    this.messageFirebase="OK"
+  })
+    .catch((e) => {  this.messageFirebase=e.message,
+      console.log(this.messageFirebase)
+       })
+       .finally(()=>{
+         if (this.messageFirebase == "Firebase: Error (auth/wrong-password)."){
+        this.erroLoginPsswdOrEmailWrong()
+      } else if (this.messageFirebase == "Firebase: Error (auth/user-not-found)."){
+        this.erroLoginUserNotFound()
+      } else{
+        localStorage.setItem('authenticated','1')
+        console.log("this.loginUrl",this.loginUrl)
+        this.router.navigateByUrl(this.loginUrl)
+      }})
   // this.router.navigate(['/tabs/tab-suivi']);
 }
 

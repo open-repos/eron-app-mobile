@@ -72,6 +72,8 @@ export class TabBoutiquePage implements OnInit {
   }
 
   ngOnDestroy() {
-    this.boutiqueFormationsSubscription.unsubscribe();
+    if (this.boutiqueFormationsSubscription){
+      this.boutiqueFormationsSubscription.unsubscribe();
+    }
   }
 }
