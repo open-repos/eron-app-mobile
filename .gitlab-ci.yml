@@ -87,7 +87,7 @@ test-e2e:
      - npm install -g @ionic/cli
      - npm run ci
   only:
-    - test
+    - develop
 
 
 build_parcel_master:
