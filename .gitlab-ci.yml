@@ -61,7 +61,8 @@ dependencies:
      - npx cypress cache list
      - npm run cy:verify
   only:
-    - main
+    refs:
+      - develop
     changes:
       - ./app_mobile_ERON/package.json
 
@@ -91,7 +92,7 @@ test-e2e:
     - develop
 
 
-build_parcel_master:
+build:
   extends: .before_script_template
   stage: build
   cache: 
