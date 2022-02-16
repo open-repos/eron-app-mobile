@@ -47,9 +47,9 @@ Cypress.Commands.add("goToEspaceApprenant", () => {
   // cy.get(".menu-type-overlay").click("topRight");
   // cy.get(".menu-type-overlay").should("not.be.visible")
   cy.get("button#connexion").click()
-  var email = "dup.dup@gmail.com";
+  var email = "andria.capai@gmail.com";
   cy.get("#email").type(`${email}{enter}`);
-  var password = "myPassWord";
+  var password = "123456";
   cy.get("#password").type(`${password}{enter}`);
   cy.get('form').contains('Connexion').click({force: true})
   cy.url().should('include', '/tabs/tab-suivi')

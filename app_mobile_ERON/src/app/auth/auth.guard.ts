@@ -15,7 +15,7 @@ export class AuthGuard implements CanLoad {
     segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     const isAuthenticated = !!(+localStorage.getItem('authenticated'))
     console.log("is Auth:",this.authService.userIsAuthenticated) 
-    if(this.authService.userIsAuthenticated){
+    if(isAuthenticated){
       return true;
     }else{
       const navigation = this.router.getCurrentNavigation();

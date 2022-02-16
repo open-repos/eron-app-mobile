@@ -77,7 +77,7 @@ constructor(private httpClient: HttpClient,
   private alertCtrl: AlertController,
   private router: Router) {
     this.userInfo = JSON.parse(localStorage.getItem('user'))
-    this._idToken = this.userInfo.stsTokenManager.accessToken
+    // this._idToken = this.userInfo.stsTokenManager.accessToken
     // console.log(this.userInfo.email)
     // console.log(this.userInfo.uid)
     // console.log(this.userInfo.stsTokenManager.accessToken) 

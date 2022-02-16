@@ -36,7 +36,7 @@ describe("Test de l'authentification, persistence (localstorage), redirecton ver
     
         it('Test Formulaire de connexion - Au clic sur champ Email doit avoir Focus border et password non focus', ()=>{
             cy.get("#email").focus() //.dblclick()
-            cy.focused().click()
+            cy.get("#email").click()
             // cy.get("#email").should('have.css','border-color','rgb(23, 75, 151)')
             cy.get('#email').should('have.focus') 
             cy.get('#password').should('not.have.focus') 
@@ -111,7 +111,7 @@ describe("Test de l'authentification, persistence (localstorage), redirecton ver
             cy.get('#email').clear()
             cy.get('#password').clear()
             var email = "andria.capai@gmail.com"
-            var password="myPassWord"
+            var password="123456"
             cy.get('#email').type(`${email}{enter}`)
             cy.get('#password').type(`${password}{enter}`,{sensitive:true})
             cy.get('form').contains('Connexion').click()
@@ -142,11 +142,11 @@ describe("Test de l'authentification, persistence (localstorage), redirecton ver
             cy.get('#email').type(`${email}{enter}`)
             cy.get('#password').type(`${password}{enter}`,{sensitive:true})
             cy.get('form').contains('Connexion').click().should(()=>{
-                expect(localStorage.getItem('userInfo')).to.eq(user.email)
+                expect(localStorage.getItem('authenticated')).to.eq("1")
             })
             cy.url().should('include', '/tabs/tab-boutique')
             cy.reload().should(()=>{
-                expect(localStorage.getItem('userInfo')).to.eq(user.email)})
+                expect(localStorage.getItem('authenticated')).to.eq("1")})
                 cy.url().should('include', '/tabs/tab-boutique')
             
         })
