@@ -2,23 +2,18 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+import { runtimeEnv } from './runtime-env';
+
 export const environment = {
   production: false,
-  firebaseConfig: {
-    apiKey: "<API_KEY>",
-
-    authDomain: "<AUTH_DOMAIN>",
-  
-    databaseURL: "<DB_URL>",
-  
-    projectId: "eron-settings",
-  
-    storageBucket: "eron-settings.appspot.com",
-  
-    messagingSenderId: "<MESSAGING_ID>",
-  
-    appId: "1:<MESSAGING_ID>:web:1b837a3facbc71c7101a56"
-  
+  firebaseConfig: runtimeEnv && runtimeEnv.firebaseConfig ? runtimeEnv.firebaseConfig : {
+    apiKey: '',
+    authDomain: '',
+    databaseURL: '',
+    projectId: '',
+    storageBucket: '',
+    messagingSenderId: '',
+    appId: ''
   }
 };
 

@@ -6,7 +6,9 @@
   "scripts": {
     "ng": "ng",
     "start-server": "ionic serve",
+    "prestart": "node ./scripts/generate-env.js",
     "start": "ng serve",
+    "prebuild": "node ./scripts/generate-env.js",
     "build": "ng build",
     "cy:verify": "cypress verify",
     "print-env": "print-env",
@@ -78,6 +80,7 @@
     "eslint-plugin-jsdoc": "30.7.6",
     "eslint-plugin-prefer-arrow": "1.2.2",
     "firebase-tools": "^10.2.0",
+    "dotenv": "^10.0.0",
     "jasmine-core": "~3.7.1",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~6.3.2",
